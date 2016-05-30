@@ -1,0 +1,68 @@
+.home {
+    background-color: #fff;
+    border-left: 2em solid #666;
+    border-right: 2em solid #666;
+    min-height: 100%;
+    padding: 2em;
+    vertical-align: middle;
+}
+
+.main {
+    display: block;
+    margin-bottom: 4em;
+    vertical-align: middle;
+}
+
+.home-title {
+    display: block;
+    font-family: 'Raleway';
+    font-size: 200%;
+    text-align: center;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+.home-title span {
+    color: #1572d8;
+}
+
+.picture {
+    border: #666 3px solid;
+    border-radius: 50%;
+    display: block;
+    height: 150px;
+    margin: auto;
+    width: 150px;
+}
+
+.description {
+    font-family: 'Raleway';
+    line-height: 1.5em;
+    text-align: center;
+}
+
+.yarner-highlight {
+    color: #1B98D6;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.area-highlight {
+    color: #249044;
+    font-weight: bold;
+}
+
+.social-media {
+    display: block;
+    margin: 3em auto;
+    max-width: 125px;
+}
+
+ul.social-media li {
+    display: inline-block;
+    font-size: 3em;
+    margin: 0 0.2em;
+}
