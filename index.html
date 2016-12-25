@@ -7,25 +7,127 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div class="home">
-    <div class="main">
-        <img src="img/rafaeleiki.jpg" class="picture" />
-        <h1 class="home-title">
-            <a href="https://www.linkedin.com/in/rafaelimamura" target="_blank">
-                <span class="fa fa-linkedin-square"></span> Rafael Eiki
-            </a>
-        </h1>
+<nav class="tabs-control-container">
+    <ul class="tabs-control">
+        <li onclick="showTab(this, 'home')" class="active">Home</li>
+        <li onclick="showTab(this, 'yarner')">Yarner</li>
+        <li onclick="showTab(this, 'virada')">Virada Cultural</li>
+        <li onclick="showTab(this, 'playkids')">PlayKids</li>
+    </ul>
+</nav>
+<div class="content">
+    <div id="home" class="tab active">
+        <div class="main">
+            <img src="img/rafaeleiki.jpg" class="picture" />
+            <h1 class="home-title">
+                <a href="https://www.linkedin.com/in/rafaelimamura" target="_blank">
+                    <span class="fa fa-linkedin-square"></span> Rafael Eiki
+                </a>
+            </h1>
+        </div>
+        <p class="description">
+            Developer & young scientist in
+            <span class="area-highlight">Human-computer interaction</span>
+            and
+            <span class="area-highlight">E-learning</span> areas.
+            Co-founder at <a href="http://www.yarner.com.br" target="_blank" class="yarner-highlight">Yarner</a>.
+        </p>
+        <p class="description">
+            In progress: Bachelor in Computer Science at University of Campinas, Brazil.
+        </p>
+        <p class="description">
+            Love education, arts, music, web and games.
+        </p>
     </div>
-    <p class="description">
-        Developer & young scientist in <span class="area-highlight">E-learning</span> area.
-        Co-founder at <a href="http://www.yarner.com.br" target="_blank" class="yarner-highlight">Yarner</a>.
-    </p>
-    <p class="description">
-        In progress: Bachelor in Computer Science at University of Campinas, Brazil.
-    </p>
-    <p class="description">
-        Love education, arts, music, web and games.
-    </p>
+
+    <!-- ////////////// Yarner /////////////////-->
+    <div id="yarner" class="tab">
+        <div class="main">
+            <img src="img/yarner.png" class="picture" />
+            <h1 class="home-title">
+                <a href="http://www.yarner.com.br" target="_blank">
+                    Yarner
+                </a>
+            </h1>
+        </div>
+        <p class="description">
+            A project that aims to improve reading and writing as cultural habits
+            through a platform which allows reading, writing and sharing interactive e-books.
+        </p>
+        <p class="description">
+            Rafael is co-founder at Yarner, working with all the project's areas,
+            including the research made based on it.
+        </p>
+        <p class="description">
+            The project won over 20 prizes in science fairs in Brazil and USA, including
+            prizes from companies like Intel, 3M, Oracle and GoDaddy.
+        </p>
+        <p class="description">
+            Available at <a href="http://www.yarner.com.br" target="_blank">www.yarner.com.br</a>
+        </p>
+    </div>
+
+    <!-- ////////////// Virada Cultural /////////////////-->
+    <div id="virada" class="tab">
+        <div class="main">
+            <img src="img/virada.jpg" class="picture" />
+            <h1 class="home-title">
+                <a href="https://github.com/rafaeleiki/virada-cultural" target="_blank">
+                    "Virada Cultural" of Things
+                </a>
+            </h1>
+        </div>
+        <p class="description">
+            "Virada Cultural" is an event which happens annually in many cities in Brazil.
+            It brings arts in many forms for all the people in the city, for free.
+            It has circus presentations, dance, musical shows and many other attractions.
+        </p>
+        <p class="description">
+            This projet aims to construct design elements of Internet of Things (IoT) to this event.
+            Those design interactions may not be available at moment, but those interactions
+            are possible in a near future. The main idea is to use IoT to bring more social
+            interactions through displays and other technologies.
+        </p>
+        <p class="description">
+            More of the project can be seen at <a href="https://github.com/rafaeleiki/virada-cultural" target="_blank">GitHub</a>
+        </p>
+        <p class="description">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/2facGiyaGW4"
+                    frameborder="0" allowfullscreen>
+            </iframe>
+        </p>
+
+    </div>
+
+    <!-- ////////////// PlayKids /////////////////-->
+    <div id="playkids" class="tab">
+        <div class="main">
+            <img src="img/playkids.png" class="picture" />
+            <h1 class="home-title">
+                <a href="https://playkids.com" target="_blank">
+                    PlayKids
+                </a>
+            </h1>
+        </div>
+        <p class="description">
+            PlayKids is a company which aims to help parents develop and educate
+            their child while they are having fun.
+        </p>
+        <p class="description">
+            It has many apps with content from videos, games and other activities
+            to improve kids skills while being entertaining.
+        </p>
+        <p class="description">
+            It is one of the biggest apps for kids in the world. Rafael worked
+            at the development of PlayKids' content web server area, with both
+            front-end and back-end activities. He worked with a diverse team
+            across the world with a global app.
+        </p>
+        <p class="description">
+            More details at <a href="https://playkids.com" target="_blank">playkids.com</a>
+        </p>
+    </div>
+
     <ul class="social-media">
         <li><a href="http://fb.com/eikirafael" target="_blank"><span class="fa fa-facebook-square"></span></a></li>
         <li><a href="https://www.linkedin.com/in/rafaelimamura" target="_blank"><span class="fa fa-linkedin-square"></span></a></li>
@@ -33,3 +135,12 @@
 </div>
 </body>
 </html>
+<script>
+    function showTab(link, tabId) {
+        document.querySelectorAll('.active').forEach(function (activeElement) {
+            activeElement.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+        link.classList.add('active');
+    }
+</script>

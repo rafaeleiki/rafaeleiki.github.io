@@ -1,9 +1,9 @@
-.home {
+.content {
     background-color: #fff;
     border-left: 2em solid #666;
     border-right: 2em solid #666;
     min-height: 100%;
-    padding: 2em;
+    padding: 4em 2em 2em;
     vertical-align: middle;
 }
 
@@ -42,6 +42,9 @@ a {
     font-family: 'Raleway';
     line-height: 1.5em;
     text-align: center;
+    max-width: 620px;
+    display: block;
+    margin: 0 auto 0.5em;
 }
 
 .yarner-highlight {
@@ -65,4 +68,42 @@ ul.social-media li {
     display: inline-block;
     font-size: 3em;
     margin: 0 0.2em;
+}
+
+/* ////////////////// Tabs //////////////// */
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
+
+.tabs-control-container {
+    position: fixed;
+    height: 2em;
+    width: 100%;
+    background-color: #fff;
+    font-family: 'Raleway';
+    line-height: 2em;
+}
+
+.tabs-control {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tabs-control li {
+    transition: background-color linear 0.1s;
+    text-align: center;
+    width: 100%;
+    border-bottom: #ddd solid 3px;
+}
+
+.tabs-control li:hover {
+    background-color: #eee;
+}
+
+.tabs-control .active {
+    border-bottom: red solid 3px;
 }
