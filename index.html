@@ -9,11 +9,11 @@
 <body>
 <nav class="tabs-control-container" onclick="toggleMenu(this)">
     <ul class="tabs-control">
-        <li onclick="showTab(this, 'rafael')" class="active">Rafael</li>
-        <li onclick="showTab(this, 'yarner')">Yarner</li>
-        <li onclick="showTab(this, 'virada')">Virada Cultural</li>
-        <li onclick="showTab(this, 'playkids')">PlayKids</li>
-        <li onclick="showTab(this, 'others')">Others</li>
+        <li onclick="showTab('rafael', this)" class="active">Rafael</li>
+        <li onclick="showTab('yarner', this)">Yarner</li>
+        <li onclick="showTab('virada', this)">Virada Cultural</li>
+        <li onclick="showTab('playkids', this)">PlayKids</li>
+        <li onclick="showTab('others', this)">Others</li>
     </ul>
 </nav>
 <div class="content">
@@ -132,8 +132,10 @@
 
     <div id="others" class="tab">
         <ul class="projects-list">
-            <li onclick="showTab(this, 'cms')">Content Management Systems</li>
-            <li onclick="showTab(this, 'voidcall')">Void Call</li>
+            <li onclick="showTab('cms')">Content Management Systems</li>
+            <li onclick="showTab('datastructure')">Data Structure Studies</li>
+            <li onclick="showTab('email')">E-mail Client</li>
+            <li onclick="showTab('voidcall')">Void Call (Game)</li>
         </ul>
     </div>
 
@@ -205,12 +207,74 @@
             map and organize and load it into the game. Developed in 2013, with Java.
         </p>
         <p class="description">
+            In 2014, Rafael developed with Edylson Torikai a CMS for artists and songs.
+            It worked as a database for songs with a very interactive UI. It was
+            developed with JSP and JavaScript.
+        </p>
+        <p class="description">
             Between 2015 and 2016, Rafael developed a CMS for multiple kind of
             content (videos, books, games, characters) to be served globally. It
             had many business rules and specific needs for each kind of content.
             It allowed metadata and information to be used in n-trees format and
             create localized version for each content. Developed with Ruby on Rails
             and JavaScript.
+        </p>
+    </div>
+
+    <!-- ////////////// Data Structure Studies /////////////////-->
+    <div id="datastructure" class="tab">
+        <div class="main">
+            <img src="img/playkids.png" class="picture" />
+            <h1 class="home-title">
+                <a href="https://playkids.com" target="_blank">
+                    Data Structure Studies
+                </a>
+            </h1>
+        </div>
+        <p class="description">
+            With the intention to study data structure, Rafael developed a couple of
+            projects in Java in 2013.
+        </p>
+        <p class="description">
+            "Tourist" was an application which allowed the user to create maps
+            with locations and paths between those points. Using the weigh for
+            each path it was possible to see the shortest paths between two points,
+            the shortest paths which passed in only some points or which passed
+            in some points. It was possible to create notes for each route, intended
+            to be used by tourist. It allowed to create a schedule for each day / hour
+            and customize maps.
+        </p>
+        <p class="description">
+            "Lar" was an file compressor. Using Huffman Tree Algorithm, it allowed
+            the user to compress files in ".lar" format. It allowed password use to
+            protect the compressed file.
+        </p>
+    </div>
+
+    <!-- ////////////// E-mail Client /////////////////-->
+    <div id="email" class="tab">
+        <div class="main">
+            <img src="img/playkids.png" class="picture" />
+            <h1 class="home-title">
+                <a href="https://playkids.com" target="_blank">
+                    E-mail Client
+                </a>
+            </h1>
+        </div>
+        <p class="description">
+            In 2014, Rafael developed an email client using JSP,
+            Java and JavaScript.
+        </p>
+        <p class="description">
+            The web email client allowed the user to connect with
+            different accounts (Gmail, Yahoo Mail, UOL) and read all
+            the emails; mark as important; organize emails; reply,
+            replay for all and forward emails, with HTML editor;
+            and attachment of any kind of file, including inline
+            images.
+        </p>
+        <p class="description">
+            The database used was Microsoft SQL Server.
         </p>
     </div>
 
@@ -222,12 +286,18 @@
 </body>
 </html>
 <script>
-    function showTab(link, tabId) {
-        document.querySelectorAll('.active').forEach(function (activeElement) {
+    function showTab(tabId, link) {
+        var selector = '.active';
+        if (!link) {
+            selector = '.tab.active';
+        }
+        document.querySelectorAll(selector).forEach(function (activeElement) {
             activeElement.classList.remove('active');
         });
         document.getElementById(tabId).classList.add('active');
-        link.classList.add('active');
+        if (link) {
+            link.classList.add('active');
+        }
     }
 
     function toggleMenu(menu) {
