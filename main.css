@@ -74,6 +74,25 @@ ul.social-media li {
     margin: 0 0.2em;
 }
 
+.projects-list {
+    display: block;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.projects-list li {
+    padding: 0.5em;
+    border-bottom: 2px solid transparent;
+}
+
+.projects-list li:hover {
+    border-bottom: 2px solid red;
+}
+
+.projects-list li:nth-child(odd) {
+    background-color: #eee;
+}
+
 /* ////////////////// Tabs //////////////// */
 .tab {
     display: none;
@@ -102,6 +121,7 @@ ul.social-media li {
     text-align: center;
     width: 100%;
     border-bottom: #ddd solid 3px;
+    cursor: pointer;
 }
 
 .tabs-control li:hover {
