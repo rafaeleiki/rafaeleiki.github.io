@@ -75,6 +75,10 @@ ul.social-media li {
     margin: 0 0.2em;
 }
 
+ul.social-media li:hover * {
+    color: #1572d8;
+}
+
 .projects-list {
     display: block;
     background-color: #fff;
