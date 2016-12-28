@@ -47,6 +47,10 @@ a {
     margin: 0 auto 0.5em;
 }
 
+.description * {
+    max-width: 100%;
+}
+
 .yarner-highlight {
     color: #1B98D6;
     font-weight: bold;
@@ -106,4 +110,32 @@ ul.social-media li {
 
 .tabs-control .active {
     border-bottom: red solid 3px;
+    background-color: #eee;
+}
+
+/* Mobile version */
+@media all and (max-width: 600px) {
+    .tabs-control {
+        display: block;
+        background-color: #fff;
+    }
+
+    .tabs-control-container:before {
+        content: '\f0c9';
+        font-family: FontAwesome;
+        text-align: center;
+        display: block;
+        border-bottom: 1px solid #ccc;
+        z-index: 10;
+        position: relative;
+    }
+
+    .tabs-control li {
+        display: none;
+    }
+
+    .tabs-control-container.open li {
+        display: block;
+        width: 100%;
+    }
 }

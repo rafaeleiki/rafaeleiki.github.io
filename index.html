@@ -7,7 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<nav class="tabs-control-container">
+<nav class="tabs-control-container" onclick="toggleMenu(this)">
     <ul class="tabs-control">
         <li onclick="showTab(this, 'home')" class="active">Home</li>
         <li onclick="showTab(this, 'yarner')">Yarner</li>
@@ -120,8 +120,8 @@
         <p class="description">
             It is one of the biggest apps for kids in the world. Rafael worked
             at the development of PlayKids' content web server area, with both
-            front-end and back-end activities. He worked with a diverse team
-            across the world with a global app.
+            web front-end and back-end activities. He worked with a diverse team
+            across the world with a global app in iOS and Android versions.
         </p>
         <p class="description">
             More details at <a href="https://playkids.com" target="_blank">playkids.com</a>
@@ -142,5 +142,9 @@
         });
         document.getElementById(tabId).classList.add('active');
         link.classList.add('active');
+    }
+
+    function toggleMenu(menu) {
+        menu.classList.toggle('open');
     }
 </script>
