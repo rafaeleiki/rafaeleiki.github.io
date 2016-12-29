@@ -88,6 +88,9 @@ a {
     display: block;
     margin: 3em auto;
     max-width: 125px;
+    position: fixed;
+    right: 3em;
+    bottom: 0;
 }
 
 ul.social-media li {
@@ -106,12 +109,12 @@ ul.social-media li:hover * {
     cursor: pointer;
 }
 
-.projects-list li {
+.projects-list a {
     padding: 0.5em;
     border-bottom: 2px solid transparent;
 }
 
-.projects-list li:hover {
+.projects-list a:hover {
     border-bottom: 2px solid red;
 }
 
@@ -121,11 +124,10 @@ ul.social-media li:hover * {
 
 /* ////////////////// Tabs //////////////// */
 .tab {
-    display: none;
-}
-
-.tab.active {
-    display: block;
+    padding: 3em 0;
+    min-height: 100%;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1em;
 }
 
 .tabs-control-container {
@@ -146,12 +148,16 @@ ul.social-media li:hover * {
     transition: background-color linear 0.1s;
     text-align: center;
     width: 100%;
-    border-bottom: #ddd solid 3px;
-    cursor: pointer;
 }
 
 .tabs-control li:hover {
     background-color: #eee;
+}
+
+.tabs-control a, .projects-list a {
+    display: block;
+    border-bottom: #ddd solid 3px;
+    cursor: pointer;
 }
 
 .tabs-control .active {
@@ -183,5 +189,12 @@ ul.social-media li:hover * {
     .tabs-control-container.open li {
         display: block;
         width: 100%;
+    }
+
+    .social-media {
+        position: relative;
+        display: block;
+        margin: auto;
+        right: auto;
     }
 }
