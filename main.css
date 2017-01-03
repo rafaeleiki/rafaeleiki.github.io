@@ -12,11 +12,12 @@
 }
 
 .pt.lang-selector {
-    background-color: #1572d8;
+    color: #1572d8;
+    border-bottom: #1572d8 3px solid;
 }
 
 .en.lang-selector {
-    background-color: #249044;
+    color: #249044;
 }
 
 .content {
@@ -66,7 +67,7 @@ a {
     text-align: center;
     max-width: 620px;
     display: block;
-    margin: 0 auto 0.5em;
+    margin: 0.25em auto;
 }
 
 .description * {
