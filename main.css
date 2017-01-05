@@ -1,22 +1,40 @@
 /* Initial lang selector */
-.lang-selector {
+.home-top {
+    margin: 3em;
+}
+
+.home-top:before {
+    content: ' ';
+    border-bottom: #666 solid 2px;
     display: block;
     width: 100%;
-    height: 4em;
+    position: relative;
+    top: 5rem;
+    z-index: -1;
+}
+
+.lang-selector {
+    display: inline-block;
+    width: 100%;
+    height: 8rem;
     font-size: 3em;
     text-align: center;
     color: #fff;
-    line-height: 4em;
+    line-height: 8rem;
     font-weight: bold;
     font-family: Raleway;
+    box-sizing: border-box;
 }
 
 .pt.lang-selector {
-    background-color: #1572d8;
+    color: #1572d8;
+    border-bottom: #1572d8 2px solid;
+    z-index: 2;
 }
 
 .en.lang-selector {
-    background-color: #249044;
+    color: #249044;
+    margin-bottom: 1em;;
 }
 
 .content {
@@ -66,7 +84,7 @@ a {
     text-align: center;
     max-width: 620px;
     display: block;
-    margin: 0 auto 0.5em;
+    margin: 0.25em auto;
 }
 
 .description * {
@@ -88,6 +106,9 @@ a {
     display: block;
     margin: 3em auto;
     max-width: 125px;
+    position: fixed;
+    right: 3em;
+    bottom: 0;
 }
 
 ul.social-media li {
@@ -106,12 +127,12 @@ ul.social-media li:hover * {
     cursor: pointer;
 }
 
-.projects-list li {
+.projects-list a {
     padding: 0.5em;
     border-bottom: 2px solid transparent;
 }
 
-.projects-list li:hover {
+.projects-list a:hover {
     border-bottom: 2px solid red;
 }
 
@@ -121,11 +142,10 @@ ul.social-media li:hover * {
 
 /* ////////////////// Tabs //////////////// */
 .tab {
-    display: none;
-}
-
-.tab.active {
-    display: block;
+    padding: 3em 0;
+    min-height: 100%;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1em;
 }
 
 .tabs-control-container {
@@ -146,12 +166,16 @@ ul.social-media li:hover * {
     transition: background-color linear 0.1s;
     text-align: center;
     width: 100%;
-    border-bottom: #ddd solid 3px;
-    cursor: pointer;
 }
 
 .tabs-control li:hover {
     background-color: #eee;
+}
+
+.tabs-control a, .projects-list a {
+    display: block;
+    border-bottom: #ddd solid 3px;
+    cursor: pointer;
 }
 
 .tabs-control .active {
@@ -183,5 +207,73 @@ ul.social-media li:hover * {
     .tabs-control-container.open li {
         display: block;
         width: 100%;
+    }
+
+    .social-media {
+        position: relative;
+        display: block;
+        margin: auto;
+        right: auto;
+    }
+
+    .lang-selector {
+        position: relative;
+        display: block;
+    }
+
+    .description:not(.center) {
+        text-align: justify;
+    }
+}
+
+@media all and (min-width: 601px) {
+    .lang-selector {
+        width: 50%;
+        width: calc(50% - 4rem);
+        position: absolute;
+        transition: width 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    }
+
+    .lang-selector:hover {
+        width: 100%;
+        z-index: 3;
+    }
+
+    .pt.lang-selector {
+        background-color: #1572d8;
+        color: #fff;
+        text-align: left;
+        padding-left: 1em;
+    }
+
+    .en.lang-selector {
+        background-color: #249044;
+        right: 0;
+        color: #fff;
+        text-align: right;
+        padding-right: 1em;
+    }
+
+    .en.lang-selector:after {
+        content: ' ';
+        width: 0;
+        height: 0;
+        border: 4rem solid transparent;
+        border-top-color: #249044;
+        border-right-color: #249044;
+        position: absolute;
+        left: -8rem;
+    }
+
+
+    .pt.lang-selector:after {
+        content: ' ';
+        width: 0;
+        height: 0;
+        border: 4rem solid transparent;
+        border-bottom-color: #1572d8;
+        border-left-color: #1572d8;
+        position: absolute;
+        left: 100%;
     }
 }

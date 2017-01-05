@@ -10,15 +10,15 @@
 <body>
 <nav class="tabs-control-container" onclick="toggleMenu(this)">
     <ul class="tabs-control">
-        <li onclick="showTab('rafael', this)" class="active">Rafael</li>
-        <li onclick="showTab('yarner', this)">Yarner</li>
-        <li onclick="showTab('virada', this)">Virada Cultural</li>
-        <li onclick="showTab('playkids', this)">PlayKids</li>
-        <li onclick="showTab('others', this)">Others</li>
+        <li><a href="#rafael" class="active">Rafael</a></li>
+        <li><a href="#yarner">Yarner</a></li>
+        <li><a href="#virada">Virada Cultural</a></li>
+        <li><a href="#playkids">PlayKids</a></li>
+        <li><a href="#others">Others</a></li>
     </ul>
 </nav>
 <div class="content">
-    <div id="rafael" class="tab active">
+    <div id="rafael" class="tab">
         <div class="main">
             <img src="../img/rafaeleiki.jpg" class="picture" />
             <h1 class="home-title">
@@ -132,11 +132,15 @@
     </div>
 
     <div id="others" class="tab">
+        <h1 class="home-title description">
+            Other projects
+        </h1>
+
         <ul class="projects-list">
-            <li onclick="showTab('cms')">Content Management Systems</li>
-            <li onclick="showTab('datastructure')">Data Structure Studies</li>
-            <li onclick="showTab('email')">E-mail Client</li>
-            <li onclick="showTab('voidcall')">Void Call (Game)</li>
+            <li><a href="#cms">Content Management Systems</a></li>
+            <li><a href="#datastructure">Data Structure Studies</a></li>
+            <li><a href="#email">E-mail Client</a></li>
+            <li><a href="#voidcall">Void Call (Game)</a></li>
         </ul>
     </div>
 
@@ -271,6 +275,10 @@
         </p>
     </div>
 
+    <div>
+        <p class="description center">Updated at jan/2017</p>
+    </div>
+
     <ul class="social-media">
         <li><a href="http://fb.com/eikirafael" target="_blank"><span class="fa fa-facebook-square"></span></a></li>
         <li><a href="https://www.linkedin.com/in/rafaelimamura" target="_blank"><span class="fa fa-linkedin-square"></span></a></li>
@@ -279,21 +287,55 @@
 </body>
 </html>
 <script>
-    function showTab(tabId, link) {
-        var selector = '.active';
+    function toggleMenu(menu) {
+        menu.classList.toggle('open');
+    }
+
+    function queryForHash(hash) {
+        return '.tabs-control [href="' + hash + '"]';
+    }
+
+    function activateLink(hash) {
+        var query = queryForHash(hash);
+        var link = document.querySelector(query);
         if (!link) {
-            selector = '.tab.active';
+            link = document.querySelector(queryForHash('#others'));
         }
-        document.querySelectorAll(selector).forEach(function (activeElement) {
-            activeElement.classList.remove('active');
+        document.querySelectorAll('.active').forEach(function (element) {
+            element.classList.remove('active');
         });
-        document.getElementById(tabId).classList.add('active');
-        if (link) {
-            link.classList.add('active');
+        link.classList.add('active');
+    }
+
+    var tabs = [];
+    document.querySelectorAll('.tab').forEach(function (tab) {
+        tabs.push(tab);
+    });
+
+    function onScroll() {
+        var position = window.pageYOffset;
+        var tabFound = false;
+        var localTabs = tabs.concat([]);
+
+        while (localTabs.length > 0 && !tabFound) {
+            tabFound = checkTab(position, localTabs.pop());
         }
     }
 
-    function toggleMenu(menu) {
-        menu.classList.toggle('open');
+    function checkTab(position, tab) {
+        var distance = position - tab.offsetTop;
+        var isTabActive = distance >= -250 && distance < tab.offsetHeight;
+        if (isTabActive) {
+            activateLink('#' + tab.id);
+        }
+        return isTabActive;
+    }
+
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('hashchange', function () {
+        activateLink(window.location.hash);
+    });
+    if (window.location.hash) {
+        activateLink(window.location.hash);
     }
 </script>
