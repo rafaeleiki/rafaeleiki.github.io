@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.elevate, .rounded-elevate {
+  box-sizing: border-box;
+  border: solid transparent 0;
+  transition: box-shadow linear 0.2s, border linear 0.1s;
+  cursor: pointer;
+}
+
+.rounded-elevate {
+  border-radius: 50%;
+}
+
+.elevate:hover, .rounded-elevate:hover {
+  box-shadow: inset 0 0 12px #000;
+}
+
+.elevate:active, .rounded-elevate:active {
+}
