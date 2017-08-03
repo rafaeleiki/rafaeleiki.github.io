@@ -6,9 +6,9 @@
 
     <div class="group-2 flex-column">
       <div class="flex-row">
-        <a class="elevate card-1 playkids" href="/projects/playkids">
+        <button class="elevate card-1 playkids" (click)="goTo('playkids')">
           <img src="assets/img/playkids.png" />
-        </a>
+        </button>
 
         <button class="elevate card-1 cms">
           CMS
@@ -25,9 +25,9 @@
     </div>
 
 
-    <a class="elevate card-3 yarner" href="/projects/yarner">
+    <button class="elevate card-3 yarner" (click)="goTo('yarner')">
       <img src="assets/img/yarner-f.png" />
-    </a>
+    </button>
 
     <div class="group-2 flex-column">
       <button class="elevate card-2 lcfv">
@@ -101,7 +101,7 @@
     <!--Void Call-->
     <!--</button>-->
 
-    <button class="elevate card-3 cooking">
+    <button class="elevate ripple card-3 cooking" (click)="goTo('cooking')">
       <img src="assets/img/cooking.svg" />
     </button>
   </li>

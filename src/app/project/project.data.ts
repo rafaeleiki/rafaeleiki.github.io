@@ -32,4 +32,18 @@ export const PROJECTS: Project[] = [
               Estados Unidos, incluindo prêmios de empresas como Intel, 3M, Oracle e GoDaddy.</p>
            <p>Disponível em <a href="http://www.yarner.com.br" target="_blank">www.yarner.com.br</a></p>`,
   },
+  {
+    id: 'cooking',
+    name: 'CooKing',
+    color: '#f26644',
+    symbol: '<img src="assets/img/cooking.svg" />',
+    desc: `<p>CooKing é um aplicativo que funciona como seu assistente na cozinha. Com ele,
+              é possível controlar e obter ajuda com tudo na cozinha: da seleção do prato
+              ao momento de preparo.</p>
+           <p>Rafael é co-fundador do CooKing.</p>
+           <p>O projeto recebeu 2 prêmios de empreendedorismo e foi finalista
+              da final nacional da Imagine Cup 2017.</p>
+           <p>Saiba mais na <a href="http://fb.com/projetocooking" target="_blank">página do Facebook do projeto
+              </a></p>`,
+  },
 ];

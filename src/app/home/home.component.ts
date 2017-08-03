@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Router} from '@angular/router';
+import {window} from 'rxjs/operator/window';
 
 @Component({
   selector: 'app-home',
@@ -35,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   isMenuOpened: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -48,4 +50,7 @@ export class HomeComponent implements OnInit {
     this.isMenuOpened = false;
   }
 
+  goTo(id) {
+    setTimeout(() => this.router.navigate(['projects', id]), 800);
+  }
 }
