@@ -1,0 +1,22 @@
+<div class="container" [style.backgroundColor]="(project && project.color) || 'transparent'">
+  <div class="app-bar">
+    <a class="home-button" href="/home">
+      <span class="fa-stack">
+        <i class="fa fa-circle fa-stack-2x icon-bg bg"></i>
+        <i class="fa fa-circle-o fa-stack-2x bg"></i>
+        <i class="fa fa-arrow-left fa-stack-1x arrow"></i>
+      </span>
+    </a>
+  </div>
+  <div *ngIf="project; else loading" class="content-container">
+    <h1>{{project.name}}</h1>
+    <div class="content">
+      <div [innerHTML]="project.symbol" class="symbol"></div>
+      <section class="description" [innerHTML]="project.desc"></section>
+    </div>
+  </div>
+  <ng-template #loading>
+    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+  </ng-template>
+</div>

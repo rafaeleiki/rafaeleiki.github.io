@@ -1,0 +1,74 @@
+:host {
+  display: block;
+  height: 100%;
+  background-color: transparent;
+}
+
+.container {
+  height: 100%;
+}
+
+.app-bar {
+  background-color: transparent;
+  height: 6em;
+  padding: 0 1em;
+}
+
+.home-button {
+  background-color: transparent;
+  border: none;
+  color: #000;
+  font-size: 2.5em;
+  cursor: pointer;
+  height: 100%;
+  line-height: 2.5em;
+}
+
+.bg {
+  transition: transform 0.2s linear;
+}
+
+.home-button:hover .arrow {
+  animation: move-arrow infinite 1s;
+}
+
+.home-button:hover .bg {
+  transform: scale(1.2);
+}
+
+@keyframes move-arrow {
+  0%   { margin-left: -4px; }
+  50%  { margin-left: 0; }
+  75%  { margin-left: 2px; }
+  95%  { margin-left: 0; }
+  100% { margin-left: -4px; }
+}
+
+.content-container {
+  padding: 2em;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.icon-bg {
+  color: #fff;
+}
+
+h1, h2, h3, p, section {
+  font-family: 'Raleway', sans-serif;
+}
+
+.symbol {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.description {
+  flex: 2;
+  padding: 2em;
+}

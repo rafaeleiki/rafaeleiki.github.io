@@ -1,0 +1,240 @@
+.menu-trigger {
+  background-color: #3c8aff;
+  font-size: 3em !important;
+}
+
+.menu-close {
+  width: 1.25em;
+  height: 1.25em;
+  position: absolute;
+  top: 0.1em;
+  right: 0.2em;
+  background-color: transparent;
+  border: none;
+  font-size: 4em;
+  color: #fff;
+}
+
+.menu-close:hover {
+  border: 2px solid #fff;
+}
+
+.menu-container {
+  background-color: rgba(0, 0, 0, 0.97);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  overflow-y: auto;
+}
+
+.home-panel {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.card-1 {
+  flex: 1;
+}
+
+.card-2 {
+  flex: 2;
+}
+
+.card-3 {
+  flex: 3;
+}
+
+.card-1, .card-2, .card-3 {
+  font-size: 2em;
+  min-width: 2em;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.card-1 *, .card-2 *, .card-3 * {
+  flex: 1;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+.flex-row {
+  display: flex;
+  flex: 1;
+  padding: 0;
+  flex-direction: row;
+  height: 100%;
+}
+
+.group-1 {
+  flex: 1;
+  display: flex;
+}
+
+.group-2 {
+  flex: 2;
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.circle-pic {
+  border-radius: 50%;
+  transform: scale(0.85, 0.85);
+  border: solid rgba(255, 255, 255, 0.5) 2px;
+}
+
+/* Particular styles */
+.author-name {
+  flex: 0.5;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background-color: #f26428;
+}
+
+.linkedin {
+  background-color: #0077b5;
+  color: #fff;
+}
+
+.facebook {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+.playkids {
+  background-color: #a900ff;
+}
+
+.yarner {
+  background-color: #1B98D6;
+}
+
+.author {
+  background-color: #f26428;
+  border: none;
+}
+
+.virada {
+  background-color: #ffe835;
+}
+
+.smart-rep {
+  background-color: #1c4587;
+}
+
+.cientista-beta {
+  background-color: #ff002c;
+}
+
+.defense-snap {
+  background-color: #6000d5;
+}
+
+.interhad {
+  background-color: #6caf35;
+}
+
+.cotuca {
+  background-color: #fff;
+}
+
+.cooking {
+  background-color: #f26644;
+}
+
+.trophy {
+  background-color: gold;
+  font-size: 4em;
+}
+
+.socio-enactive {
+  background-color: #078f07;
+}
+
+.void-call {
+  background-color: purple;
+}
+
+.mostractc {
+  background-color: #13a855;
+}
+
+.lcfv {
+  background: url('/assets/img/lcfv-bg.jpg') center;
+  background-size: cover;
+  padding: 0;
+}
+
+.lcfv-bg {
+  width: 100%;
+  height: 100%;
+  background: rgba(39, 255, 0, 0.9);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.lcfv-icon {
+  transform: rotate(180deg);
+  vert-align: middle;
+  font-size: 4em;
+}
+
+.cms {
+  background-color: #00ffe7;
+  font-weight: bold;
+  color: #222;
+}
+
+.data {
+  background-color: #0047ff;
+  color: #fff;
+  font-size: 3em;
+}
+
+@media all and (max-width: 600px) {
+
+  .menu-close {
+    font-size: 2.5em;
+  }
+
+  .home-panel {
+    display: block;
+  }
+
+  .flex-row {
+    display: block;
+    height: auto;
+  }
+
+  /*.flex-row .flex-row {*/
+  /*height: 3em;*/
+  /*}*/
+
+  .flex-column {
+    display: block;
+  }
+
+  .card-1, .card-2, .card-3 {
+    display: block;
+    width: 100%;
+    height: 3em;
+  }
+
+  .lcfv-icon {
+    font-size: 2em;
+  }
+}

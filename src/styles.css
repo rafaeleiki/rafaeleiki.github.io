@@ -21,3 +21,14 @@ html, body {
 
 .elevate:active, .rounded-elevate:active {
 }
+
+/* Used for project HTML injection */
+.symbol * {
+  flex: 1;
+  max-width: 100%;
+}
+
+.description a {
+  color: #fff;
+  font-weight: bold;
+}
