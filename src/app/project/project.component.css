@@ -12,6 +12,7 @@
   background-color: transparent;
   height: 6em;
   padding: 0 1em;
+  position: absolute;
 }
 
 .home-button {
@@ -37,15 +38,15 @@
 }
 
 @keyframes move-arrow {
-  0%   { margin-left: -4px; }
-  50%  { margin-left: 0; }
-  75%  { margin-left: 2px; }
-  95%  { margin-left: 0; }
-  100% { margin-left: -4px; }
+  0%   { left: -4px; }
+  50%  { left: 0; }
+  75%  { left: 2px; }
+  95%  { left: 0; }
+  100% { left: -4px; }
 }
 
 .content-container {
-  padding: 2em;
+  padding: 6em 2em;
 }
 
 .content {
