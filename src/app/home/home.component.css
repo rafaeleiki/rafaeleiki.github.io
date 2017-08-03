@@ -56,6 +56,7 @@
   height: 100%;
   width: 100%;
   text-align: center;
+  text-decoration: none;
 }
 
 .card-1 *, .card-2 *, .card-3 * {
@@ -102,6 +103,11 @@
   text-align: center;
   color: #fff;
   background-color: #f26428;
+}
+
+.linkedin, .facebook {
+  display: flex;
+  align-items: center;
 }
 
 .linkedin {
