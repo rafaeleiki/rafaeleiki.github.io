@@ -54,12 +54,19 @@ html, body {
 
 /* Used for project HTML injection */
 .symbol * {
-  flex: 1;
   max-width: 100%;
+  height: auto;
+  margin: auto;
 }
 
 .description a {
   color: #fff;
   font-weight: bold;
+}
+
+.project-icon {
+  font-size: 8em !important;
+  text-align: center;
+  color: #fff;
 }
 /* End project HTML injection */
