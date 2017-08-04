@@ -36,6 +36,7 @@ import {window} from 'rxjs/operator/window';
 export class HomeComponent implements OnInit {
 
   isMenuOpened: boolean = false;
+  isGoingToShowProject: boolean = false;
 
   constructor(private router: Router) { }
 
@@ -51,6 +52,9 @@ export class HomeComponent implements OnInit {
   }
 
   goTo(id) {
-    setTimeout(() => this.router.navigate(['projects', id]), 800);
+    if (!this.isGoingToShowProject) {
+      this.isGoingToShowProject = true;
+      setTimeout(() => this.router.navigate(['projects', id]), 800);
+    }
   }
 }
