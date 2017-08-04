@@ -12,7 +12,7 @@
     <h1>{{project.name}}</h1>
     <div class="content">
       <div [innerHTML]="project.symbol" class="symbol"></div>
-      <section class="description" [innerHTML]="project.desc"></section>
+      <section class="description" [innerHTML]="bypassSanitizer(project.desc)"></section>
     </div>
   </div>
   <ng-template #loading>

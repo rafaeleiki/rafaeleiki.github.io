@@ -4,6 +4,7 @@ import 'rxjs/add/operator/switchMap';
 import {ProjectService} from './project.service';
 import {Project} from './project';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-project',
@@ -31,11 +32,16 @@ export class ProjectComponent implements OnInit {
   @HostBinding('@routeAnimation') routeAnimation = true;
 
   constructor(private route: ActivatedRoute,
-              private projectService: ProjectService) { }
+              private projectService: ProjectService,
+              private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.route.params
       .switchMap((params: Params) => this.projectService.getProject(params['id']))
       .subscribe((project) => this.project = project);
+  }
+
+  bypassSanitizer(htmlString) {
+    return this.sanitizer.bypassSecurityTrustHtml(htmlString);
   }
 }

@@ -46,4 +46,28 @@ export const PROJECTS: Project[] = [
            <p>Saiba mais na <a href="http://fb.com/projetocooking" target="_blank">página do Facebook do projeto
               </a></p>`,
   },
+  {
+    id: 'virada',
+    name: 'Virada das Coisas',
+    color: '#ff559e',
+    symbol: '<img src="assets/img/virada.jpg" />',
+    desc: `<p>A Virada Cultural é um evento que acontece anualmente em diversas cidades do Brasil.
+              Ela reúne arte em suas mais diversas formas para todos, de forma gratuita,
+              incluindo apresentações de circenses, dança, shows e outras atrações.
+           </p>
+           <p>Esse projeto procura construir elementos de design baseado em Internet das Coisas (IoT)
+              para o evento. Algumas dessas interações podem não estar disponíveis no momento, mas
+              seriam possíveis num futuro próximo. A ideia central é usar IoT para criar mais
+              interações sociais através de displays e outras tecnologias que estariam espalhadas
+              pela cidade.
+           </p>
+           <p>Mais sobre o projeto pode ser visto no
+              <a href="https://github.com/rafaeleiki/virada-cultural" target="_blank">GitHub</a>
+           </p>
+           <div>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/2facGiyaGW4"
+                      frameborder="0" allowfullscreen>
+              </iframe>
+           </div>`,
+  },
 ];
