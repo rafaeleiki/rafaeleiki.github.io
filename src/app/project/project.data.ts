@@ -197,4 +197,50 @@ export const PROJECTS: Project[] = [
               </a>.
            </p>`,
   },
+  {
+    id: 'cotuca',
+    name: 'Mostra de Trabalhos de Cursos Técnicos',
+    color: '#13a855',
+    symbol: '<img src="assets/img/mostra.png" />',
+    desc: `<p>A Mostra de Trabalhos de Cursos Técnicos (Mostractc) é um evento que ocorre
+              anualmente em Campinas, São Paulo, organizado pelo Colégio Técnico de 
+              Campinas, da UNICAMP. Ela promove a exibição de trabalhos desenvolvidos
+              por estudantes de ensino médio e técnico de todo o país.
+           </p>
+           <p>A primeira edição da mostra ocorreu em 2010, com 86 trabalhos da 
+              Região Metropolitana de Campinas, com projetos de 12 escolas.
+              Em 2015, esse número saltou para 428 projetos e cerca de 2000 participantes
+              de 6 estados do país.
+           </p>
+           <p>Rafael participou da mostra de 2014, levando o prêmio principal do evento.
+              Em 2016, voltou para o evento como avaliador. Desde então, atua como
+              responsável pela comunicação e conteúdo e membro do comitê científico
+              do evento.
+           </p>
+           <p>Saiba mais no 
+              <a href="http://mostradetrabalhos.cotuca.unicamp.br/" target="_blank">
+                site oficial da mostra
+              </a>.
+           </p>`,
+  },
+  {
+    id: 'ic',
+    name: 'Iniciação Científica',
+    color: 'rgba(39, 255, 0, 1)',
+    symbol: '<div class="lcfv-bg project-icon">\n' +
+    '          <span class="fa fa-simplybuilt lcfv-icon"></span>\n' +
+    '        </div>',
+    desc: `<p>Rafael atualmente é bolsista de Iniciação Científica pelo
+              Instituto de Computação na UNICAMP. Com a orientação de Maria
+              Cecília Calani Baranauskas, ele trabalha com tecnologia
+              voltada para práticas de leitura.
+           </p>
+           <p>Com o projeto iniciado em 2017, Rafael trabalha para o desenvolvimento
+              do conceito de leitura colaborativa multiambiente através do uso
+              de tecnologias contemporâneas.
+           </p>
+           <p>O projeto está vinculado ao Projeto Temático FAPESP para
+              o desenvolvimento do conceito de sistemas socioenativos.
+           </p>`,
+  },
 ];
