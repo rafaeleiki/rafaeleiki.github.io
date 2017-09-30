@@ -4,7 +4,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'playkids',
     name: 'PlayKids',
-    color: '#a900ff',
+    color: '#947cfb',
     symbol: '<img src="assets/img/playkids.png" />',
     desc: `<p>PlayKids é uma plataforma educativa com desenhos, livros, 
            jogos e atividades para as crianças.</p> 
@@ -152,7 +152,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'cientista-beta',
     name: 'Cientista Beta',
-    color: '#ff002c',
+    color: '#f73f46',
     symbol: '<img src="assets/img/cientista_beta.png" />',
     desc: `<p> Cientista Beta surgiu em 2015 como uma iniciativa que visa 
                aproximar os jovens da ciência. Além de fornecer conteúdo
