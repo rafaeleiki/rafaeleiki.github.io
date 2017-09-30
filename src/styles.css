@@ -82,6 +82,6 @@ html, body {
 .lcfv-icon {
   transform: rotate(180deg);
   vertical-align: middle;
-  font-size: 4em !important;
+  font-size: 3em !important;
 }
 /* End project HTML injection */

@@ -198,7 +198,7 @@ export const PROJECTS: Project[] = [
            </p>`,
   },
   {
-    id: 'cotuca',
+    id: 'mostractc',
     name: 'Mostra de Trabalhos de Cursos Técnicos',
     color: '#13a855',
     symbol: '<img src="assets/img/mostra.png" />',
