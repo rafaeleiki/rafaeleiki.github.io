@@ -95,6 +95,11 @@
   border: solid rgba(255, 255, 255, 0.5) 2px;
 }
 
+.link-image {
+  max-width: 90% !important;
+  max-height: 90% !important;
+}
+
 /* Particular styles */
 .author-name {
   flex: 0.5;
@@ -157,6 +162,10 @@
 
 .devy {
   background-color: #6851a6;
+}
+.devy .link-image {
+  top: 20%;
+  position: relative;
 }
 
 .cooking {
