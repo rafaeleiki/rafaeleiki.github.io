@@ -44,4 +44,8 @@ export class ProjectComponent implements OnInit {
   bypassSanitizer(htmlString) {
     return this.sanitizer.bypassSecurityTrustHtml(htmlString);
   }
+
+  bgColor() {
+  return (this.project && this.project.color) || 'transparent';
+}
 }

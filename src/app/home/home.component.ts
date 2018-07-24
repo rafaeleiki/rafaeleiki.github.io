@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
   goTo(id) {
     if (!this.isGoingToShowProject) {
       this.isGoingToShowProject = true;
-      setTimeout(() => this.router.navigate(['projects', id]), 500);
+      this.router.navigate(['projects', id]);
     }
   }
 }

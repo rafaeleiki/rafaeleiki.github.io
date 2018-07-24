@@ -16,6 +16,28 @@ export const PROJECTS: Project[] = [
             atuando tanto com front-end quanto com back-end. Ele trabalhou com um time
             diversificado e espalhado pelo mundo num app global.</p>
            <p>Aplicativo disponível para iOS, Android, Apple Watch e Apple TV.
+            Mais detalhes em <a href="https://playkids.com" target="_blank">playkids.com</a></p>
+<p>PlayKids é uma plataforma educativa com desenhos, livros, 
+           jogos e atividades para as crianças.</p> 
+           <p> A empresa possui vários aplicativos com conteúdos de vídeos, games e
+            outras atividades para melhorar as habilidades das crianças enquanto
+            elas estão se entretendo. O PlayKids, um dos produtos da empresa, é um
+            dos maiores aplicativos para crianças no mundo.</p>
+           <p>Rafael trabalhou no desenvolvimento da área de servidor de conteúdo da empresa,
+            atuando tanto com front-end quanto com back-end. Ele trabalhou com um time
+            diversificado e espalhado pelo mundo num app global.</p>
+           <p>Aplicativo disponível para iOS, Android, Apple Watch e Apple TV.
+            Mais detalhes em <a href="https://playkids.com" target="_blank">playkids.com</a></p>
+<p>PlayKids é uma plataforma educativa com desenhos, livros, 
+           jogos e atividades para as crianças.</p> 
+           <p> A empresa possui vários aplicativos com conteúdos de vídeos, games e
+            outras atividades para melhorar as habilidades das crianças enquanto
+            elas estão se entretendo. O PlayKids, um dos produtos da empresa, é um
+            dos maiores aplicativos para crianças no mundo.</p>
+           <p>Rafael trabalhou no desenvolvimento da área de servidor de conteúdo da empresa,
+            atuando tanto com front-end quanto com back-end. Ele trabalhou com um time
+            diversificado e espalhado pelo mundo num app global.</p>
+           <p>Aplicativo disponível para iOS, Android, Apple Watch e Apple TV.
             Mais detalhes em <a href="https://playkids.com" target="_blank">playkids.com</a></p>`,
   },
   {
@@ -23,6 +45,7 @@ export const PROJECTS: Project[] = [
     name: 'Yarner',
     color: '#1B98D6',
     symbol: '<img src="assets/img/yarner-f.png" />',
+    short: true,
     desc: `<p>Yarner é um projeto que tem como objetivo melhorar os hábitos culturais
               de leitura e escrita através de uma plataforma que permite a criação,
               leitura e compartilhamento de livros digitais interativos.</p>
@@ -37,6 +60,7 @@ export const PROJECTS: Project[] = [
     name: 'CooKing',
     color: '#f26644',
     symbol: '<img src="assets/img/cooking.svg" />',
+    short: true,
     desc: `<p>CooKing é um aplicativo que funciona como seu assistente na cozinha. Com ele,
               é possível controlar e obter ajuda com tudo na cozinha: da seleção do prato
               ao momento de preparo.</p>
@@ -51,6 +75,7 @@ export const PROJECTS: Project[] = [
     name: 'Virada das Coisas',
     color: '#ff559e',
     symbol: '<img src="assets/img/virada.jpg" />',
+    short: true,
     desc: `<p>A Virada Cultural é um evento que acontece anualmente em diversas cidades do Brasil.
               Ela reúne arte em suas mais diversas formas para todos, de forma gratuita,
               incluindo apresentações de circenses, dança, shows e outras atrações.
@@ -74,6 +99,7 @@ export const PROJECTS: Project[] = [
     id: 'data-structure',
     name: 'Estrutura de Dados',
     color: '#0047ff',
+    short: true,
     symbol: '<span class="fa fa-database project-icon"></span>',
     desc: `<p>Com o objetivo de estudar estruturas de dados, Rafael desenvolveu
               alguns projetos em Java em 2013.
@@ -96,6 +122,7 @@ export const PROJECTS: Project[] = [
     id: 'smart-rep',
     name: 'SmartRep',
     color: '#1c4587',
+    short: true,
     symbol: '<img src="assets/img/smartrep.png" />',
     desc: `<p>É muito comum a divisão de casas por jovens para morarem em comunidade,
               especialmente na época da faculdade. Muitas vezes, é o primeiro momento
@@ -124,6 +151,7 @@ export const PROJECTS: Project[] = [
     id: 'defense-snap',
     name: 'DefenseSnap',
     color: '#6000d5',
+    short: true,
     symbol: '<img src="assets/img/defense_snap.png" />',
     desc: `<p>Segundo o "Mapa da Violência 2015: Homicídio de Mulheres no Brasil",
               a cada 2 horas, uma mulher é assassinada. São 13 mulheres mortas por dia,
@@ -153,6 +181,7 @@ export const PROJECTS: Project[] = [
     id: 'cientista-beta',
     name: 'Cientista Beta',
     color: '#f73f46',
+    short: true,
     symbol: '<img src="assets/img/cientista_beta.png" />',
     desc: `<p> Cientista Beta surgiu em 2015 como uma iniciativa que visa 
                aproximar os jovens da ciência. Além de fornecer conteúdo
@@ -175,6 +204,7 @@ export const PROJECTS: Project[] = [
     id: 'mostractc',
     name: 'Mostra de Trabalhos de Cursos Técnicos',
     color: '#13a855',
+    short: true,
     symbol: '<img src="assets/img/mostra.png" />',
     desc: `<p>A Mostra de Trabalhos de Cursos Técnicos (Mostractc) é um evento que ocorre
               anualmente em Campinas, São Paulo, organizado pelo Colégio Técnico de 
@@ -201,6 +231,7 @@ export const PROJECTS: Project[] = [
     id: 'mostractc',
     name: 'Mostra de Trabalhos de Cursos Técnicos',
     color: '#13a855',
+    short: true,
     symbol: '<img src="assets/img/mostra.png" />',
     desc: `<p>A Mostra de Trabalhos de Cursos Técnicos (Mostractc) é um evento que ocorre
               anualmente em Campinas, São Paulo, organizado pelo Colégio Técnico de 
@@ -227,6 +258,7 @@ export const PROJECTS: Project[] = [
     id: 'ic',
     name: 'Iniciação Científica',
     color: 'rgba(39, 255, 0, 1)',
+    short: true,
     symbol: '<div class="lcfv-bg project-icon">\n' +
     '          <span class="fa fa-simplybuilt lcfv-icon"></span>\n' +
     '        </div>',
