@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'cooking',
     name: 'CooKing',
-    color: '#f26644',
+    color: '#f23100',
     light: true,
     symbol: '<img src="assets/img/cooking.svg" />',
     short: true,
@@ -236,5 +236,34 @@ export const PROJECTS: Project[] = [
            <p>O projeto está vinculado ao Projeto Temático FAPESP para
               o desenvolvimento do conceito de sistemas socioenativos.
            </p>`,
+  },
+  {
+    id: 'vivros',
+    name: 'Vivros',
+    color: '#e9cf1a',
+    light: true,
+    short: true,
+    symbol: '<img src="assets/img/vivros.png" />',
+    desc: `<p>Vivros é uma editora de livros interativos no papel e no celular. Com títulos
+              originais, a Vivros oferece "livro mais vivos", em que dependendo de como são
+              lido, o conteúdo em si muda.</p>
+           <p>Buscando criar um leitura mais criativa e democrática, a Vivros acredita
+              na importância dos livros de papel para o desenvolvimento infantil, mas entende
+              que é necessário a contextualização do material clássico para o mundo atual, digital
+              e dinâmico.</p>
+           <p>Saiba mais em: <a href="https://vivros.com">www.vivros.com</a>.</p>`,
+  },
+  {
+    id: 'devy',
+    name: 'DevY',
+    color: '#6851a7',
+    light: false,
+    short: true,
+    symbol: '<img src="assets/img/devy.png" />',
+    desc: `<p>DevY - Developing You - é um projeto de mentoria de pesquisas científicas de alunos do Ensino Médio.</p>
+           <p>Executado durante os anos de 2017 e 2018, o projeto apoiou mais de 30 alunos,
+           com 12 projetos sendo mentorados de forma fixa. Foram auxiliados alunos de Sâo Paulo,
+           Minas Gerais e Espírito Santo.</p>
+           <p>Saiba mais <a href="https://rafaeleiki.github.io/devy">no site oficial</a>.</p>`,
   },
 ];
