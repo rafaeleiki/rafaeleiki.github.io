@@ -46,7 +46,8 @@
   bottom: 0;
   padding-left: 1em;
   padding-bottom: 1em;
-  color: #fff;
+  color: #000;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -91,6 +92,11 @@
   color: #fff;
   position: relative;
   bottom: 0;
+}
+
+.about-link {
+  text-align: center;
+  text-decoration: none;
 }
 
 .project.vivros { background-color: #e9cf1a; }

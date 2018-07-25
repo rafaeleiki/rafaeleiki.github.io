@@ -2,6 +2,34 @@ import {Project} from './project';
 
 export const PROJECTS: Project[] = [
   {
+    id: 'about',
+    name: 'Rafael Eiki',
+    color: '#343434',
+    light: true,
+    short: true,
+    symbol: '<img src="assets/img/eiki.jpg" />',
+    desc: `<p>Rafael Eiki é um programador e pesquisador de tecnologias educacionais.
+              Formado em Técnico em Informática pelo Colégio Técnico de Campinas e 
+              estudante da graduação em Ciência da Computação na Univesidade Estadual
+              de Campinas, membro do grupo de pesquisa InterHad, Microsoft Student
+              Partner e co-fundador da Vivros.</p>
+           <p>Começou a pesquisar sobre tecnologias para educação em 2014, com detaque
+              para as práticas de letramento digital. Desenvolveu 2 pesquisas entre 2014 e 
+              2016 com o projeto Yarner, sendo um dos representantes do Brasil na Intel ISEF
+              2016, a maior feira de ciências do mundo.</p>
+           <p>Ganhador de mais de 30 prêmios acadêmicos, de empreendedorismo e impacto social
+              e mais 17 prêmios como coorientador de projetos.</p>
+           <p>Principais prêmios: ganhador do Hackathon Facebook Brazil 2018, representando o
+              país na mundial; vencedor da Campus Mobile 2018; ganhador do Hackathon Motorola 
+              Mod the Future 2017; finalista LATAM da Imagine Cup 2017 e 2018; 
+              Oracle Academy Outstanding project in Systems Software 2016; 
+              GoDaddy Web Innovator Award 2016; 4º lugar na Intel ISEF 2016; Melhor pesquisa
+              do estado de São Paulo na Feira Brasileira de Ciências e Engenharia 2016; 
+              Menção honrosa de destaque científico do Instituto 3M; 1º lugar na Mostra de
+              Ciência e Inovação 3M 2015; Medalhista de bronze na Olimpíada Brasileira de
+              Informática 2014; Campeão da Copa Rio Info de Algoritmo 2013.</p>`,
+  },
+  {
     id: 'playkids',
     name: 'PlayKids',
     color: '#947cfb',
