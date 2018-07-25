@@ -9,6 +9,7 @@
   <div [innerHTML]="project.symbol" class="symbol"></div>
   <h1 class="title">{{project.name}}</h1>
 </div>
+<div class="separator"></div>
 <div class="content-container">
   <div class="content">
     <section class="description" [innerHTML]="bypassSanitizer(project.desc)"></section>

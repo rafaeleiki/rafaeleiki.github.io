@@ -1,5 +1,5 @@
 :host {
-  display: block;
+  display: flex;
   min-height: 100%;
   background-color: transparent;
 }
@@ -20,7 +20,8 @@
 }
 
 .general-info {
-  width: 400px;
+  width: 30%;
+  min-width: 320px;
   height: 100%;
   position: fixed;
   display: flex;
@@ -72,7 +73,6 @@
 .content-container {
   padding: 6em 2em 0 2em;
   font-size: 1.2em;
-  margin-left: 400px;
   min-height: 100%;
   position: relative;
   box-sizing: border-box;
@@ -105,8 +105,8 @@ h1, h2, h3, p, section {
   text-align: left;
 }
 
-@media all and (max-width: 880px) {
-  .content {
-    display: block;
+@media all and (max-width: 1080px) {
+  .content-container {
+    padding: 0;
   }
 }

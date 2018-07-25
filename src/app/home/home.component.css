@@ -1,12 +1,13 @@
 .main-container {
   display: flex;
-  background: #fff url("/assets/img/bg.png") no-repeat bottom right;
-  background-size: contain;
+  flex-direction: row;
+  min-height: 100%;
 }
 
 .picture-container {
   height: 100%;
-  width: 400px;
+  width: 30%;
+  min-width: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +58,9 @@
 
 .container {
   flex: 1;
-  margin-left: 400px;
+  background: #fff url("/assets/img/bg.png") no-repeat fixed bottom right;
+  background-size: 70%;
+  min-height: 100%;
 }
 
 .project-list {
@@ -65,11 +68,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 0 1em;
 }
 
 .project {
-  width: 200px;
-  height: 200px;
+  min-width: 200px;
+  width: 20%;
+  height: auto;
   margin: 1em;
   border-radius: 1em;
   line-height: 200px;
@@ -86,7 +92,9 @@
 }
 
 .project img {
-  max-width: 150px;
+  min-width: 150px;
+  width: 80%;
+  height: auto;
   display: inline;
   vertical-align: middle;
 }
@@ -114,3 +122,22 @@
 .project.mostra { background-color: #131313; }
 .project.smart-rep { background-color: #1c4587; }
 .project.virada { background-color: #ff559e; }
+
+@media all and (max-width: 1079px) {
+  .project-list {
+    justify-content: center;
+  }
+
+  .project {
+    flex: 1;
+    min-width: 150px;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .project img {
+    min-width: 150px;
+    min-width: auto;
+  }
+}
