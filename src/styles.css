@@ -68,6 +68,10 @@ html, body {
   text-align: justify;
 }
 
+.description h2 {
+  color: #789789;
+}
+
 .project-icon {
   font-size: 8em !important;
   text-align: center;

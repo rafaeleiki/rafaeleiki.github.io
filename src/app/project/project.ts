@@ -4,6 +4,4 @@ export interface Project {
   color: string;
   symbol: string;
   desc: string;
-  short: boolean;
-  light: boolean;
 }

@@ -46,6 +46,6 @@ export class ProjectComponent implements OnInit {
   }
 
   bgColor() {
-  return (this.project && this.project.color) || 'transparent';
-}
+    return (this.project && this.project.color) || 'transparent';
+  }
 }

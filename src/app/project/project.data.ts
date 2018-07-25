@@ -5,10 +5,9 @@ export const PROJECTS: Project[] = [
     id: 'about',
     name: 'Rafael Eiki',
     color: '#343434',
-    light: true,
-    short: true,
     symbol: '<img src="assets/img/eiki.jpg" />',
-    desc: `<p>Rafael Eiki é um programador e pesquisador de tecnologias educacionais.
+    desc: `<h2>Tecnologia, educação, IHC, P&D</h2>
+           <p>Rafael Eiki é um programador e pesquisador de IHC e tecnologias educacionais.
               Formado em Técnico em Informática pelo Colégio Técnico de Campinas e 
               estudante da graduação em Ciência da Computação na Univesidade Estadual
               de Campinas, membro do grupo de pesquisa InterHad, Microsoft Student
@@ -33,10 +32,9 @@ export const PROJECTS: Project[] = [
     id: 'playkids',
     name: 'PlayKids',
     color: '#947cfb',
-    light: true,
-    short: true,
     symbol: '<img src="assets/img/playkids.png" />',
-    desc: `<p>PlayKids é uma plataforma educativa com desenhos, livros, 
+    desc: `<h2>Desenvolvimento do app #1 infantil em 2015</h2>
+           <p>PlayKids é uma plataforma educativa com desenhos, livros, 
            jogos e atividades para as crianças.</p> 
            <p> A empresa possui vários aplicativos com conteúdos de vídeos, games e
             outras atividades para melhorar as habilidades das crianças enquanto
@@ -52,10 +50,9 @@ export const PROJECTS: Project[] = [
     id: 'yarner',
     name: 'Yarner',
     color: '#1B98D6',
-    light: true,
     symbol: '<img src="assets/img/yarner-f.png" />',
-    short: true,
-    desc: `<p>Yarner é um projeto que tem como objetivo melhorar os hábitos culturais
+    desc: `<h2>Plataforma de criação de livros digitais interativos</h2>
+           <p>Yarner é um projeto que tem como objetivo melhorar os hábitos culturais
               de leitura e escrita através de uma plataforma que permite a criação,
               leitura e compartilhamento de livros digitais interativos.</p>
            <p>Rafael é co-fundador do Yarner, trabalhando com todas as áreas do projeto,
@@ -68,10 +65,9 @@ export const PROJECTS: Project[] = [
     id: 'cooking',
     name: 'CooKing',
     color: '#f23100',
-    light: true,
     symbol: '<img src="assets/img/cooking.svg" />',
-    short: true,
-    desc: `<p>CooKing é um aplicativo que funciona como seu assistente na cozinha. Com ele,
+    desc: `<h2>App de assistente virtual na cozinha</h2>
+           <p>CooKing é um aplicativo que funciona como seu assistente na cozinha. Com ele,
               é possível controlar e obter ajuda com tudo na cozinha: da seleção do prato
               ao momento de preparo.</p>
            <p>Rafael é co-fundador do CooKing.</p>
@@ -85,9 +81,8 @@ export const PROJECTS: Project[] = [
     name: 'Virada das Coisas',
     color: '#ff559e',
     symbol: '<img src="assets/img/virada.jpg" />',
-    short: true,
-    light: true,
-    desc: `<p>A Virada Cultural é um evento que acontece anualmente em diversas cidades do Brasil.
+    desc: `<h2>Design de uma experiência IoT para a Virada Cultural</h2>
+           <p>A Virada Cultural é um evento que acontece anualmente em diversas cidades do Brasil.
               Ela reúne arte em suas mais diversas formas para todos, de forma gratuita,
               incluindo apresentações de circenses, dança, shows e outras atrações.
            </p>
@@ -110,8 +105,6 @@ export const PROJECTS: Project[] = [
     id: 'data-structure',
     name: 'Estrutura de Dados',
     color: '#0047ff',
-    short: true,
-    light: true,
     symbol: '<span class="fa fa-database project-icon"></span>',
     desc: `<p>Com o objetivo de estudar estruturas de dados, Rafael desenvolveu
               alguns projetos em Java em 2013.
@@ -134,10 +127,9 @@ export const PROJECTS: Project[] = [
     id: 'smart-rep',
     name: 'SmartRep',
     color: '#1c4587',
-    short: true,
-    light: false,
     symbol: '<img src="assets/img/smartrep.png" />',
-    desc: `<p>É muito comum a divisão de casas por jovens para morarem em comunidade,
+    desc: `<h2>Compartilhamento de recursos em repúblicas com IoT</h2>
+           <p>É muito comum a divisão de casas por jovens para morarem em comunidade,
               especialmente na época da faculdade. Muitas vezes, é o primeiro momento
               que uma pessoa se muda, indo para outra cidade ou simplesmente para morar
               mais próximo de onde irá estudar. Quando surge a necessidade de dividr recursos
@@ -164,40 +156,29 @@ export const PROJECTS: Project[] = [
     id: 'interhad',
     name: 'InterHad',
     color: '#89b03f',
-    short: true,
-    light: true,
     symbol: '<img src="assets/img/interhad.png" />',
-    desc: `<p>É muito comum a divisão de casas por jovens para morarem em comunidade,
-              especialmente na época da faculdade. Muitas vezes, é o primeiro momento
-              que uma pessoa se muda, indo para outra cidade ou simplesmente para morar
-              mais próximo de onde irá estudar. Quando surge a necessidade de dividr recursos
-              da casa com outras pessoas, podem ocorrer problemas. Muitas coisas
-              não são propriamente divisíveis (como a máquina de lavar e o banheiro)
-              para uso mútuo. 
+    desc: `<h2>Membro do grupo de pesquisa em IHC da Unicamp</h2>
+           <p>O grupo de pesquisa InterHad (Interação Humano-Artefato) da Unicamp
+              faz pesquisas na área de Interação Humano-Computador. Coordenado pela
+              professora Maria Cecília Calani Baranauskas, é considerado um dos
+              grupos mais importantes da área no país. Rafael é membro do grupo desde
+              2016.
            </p>
-           <p>Com a proposta de conseguir dividir "o indivisível", foi criado o projeto
-              SmartRep. Ele consiste em uma série de itens IoT para utilização em
-              repúblicas, permitindo um melhor controle e novas funcionalidades a itens
-              do cotidiano.
+           <p>Lá, Rafael participou dos projetos Sistemas Socioenativos (temático FAPESP),
+              OpenDesign e realizou sua Iniciação Científica com a pesquisa sobre Leitura
+              Colaborativa no ambiente Físico-Virtual (LCFV), fazendo-o desde a concepção
+              da ideia e do conceito, design, implementação e teste.
            </p>
-           <p>Foram aplicadas metodologias de desenvolvimento ágil e construindo
-              a documentação, usando o projeto como caso de estudo em Engenharia de Software.
-              Foram implementados uma máquina de lavar e varal inteligente, ligados
-              com um web app.
-           </p>
-           <p>O projeto foi desenvolvido com Angular 4, servidor Node, Raspberry PI para
-              os itens IoT e foi criado um sensor para interagir com o varal. Para
-              representação do funcionamento, foi criada uma maquete funcional da casa.
+           <p>Mais informações do grupo podem ser vistas na página oficial.
            </p>`,
   },
   {
     id: 'defense-snap',
     name: 'DefenseSnap',
     color: '#6000d5',
-    short: true,
-    light: false,
     symbol: '<img src="assets/img/defense_snap.png" />',
-    desc: `<p>Segundo o "Mapa da Violência 2015: Homicídio de Mulheres no Brasil",
+    desc: `<h2>Moto Mod para defesa da mulher com anel bluetooth</h2>
+           <p>Segundo o "Mapa da Violência 2015: Homicídio de Mulheres no Brasil",
               a cada 2 horas, uma mulher é assassinada. São 13 mulheres mortas por dia,
               vítimas da violência física. Esse problema grave é repetido em 
               diversos outros países do mundo.
@@ -225,10 +206,9 @@ export const PROJECTS: Project[] = [
     id: 'cientista-beta',
     name: 'Cientista Beta',
     color: '#f73f46',
-    short: true,
-    light: true,
     symbol: '<img src="assets/img/cientista_beta.png" />',
-    desc: `<p> Cientista Beta surgiu em 2015 como uma iniciativa que visa 
+    desc: `<h2>Mentor & desenvolvimento das plataformas de TI</h2>
+           <p> Cientista Beta surgiu em 2015 como uma iniciativa que visa 
                aproximar os jovens da ciência. Além de fornecer conteúdo
                relacionados a produção de ciência durante o ensino básico,
                o projeto conta com o Programa de Iniciação Científica Decola Beta.
@@ -237,9 +217,10 @@ export const PROJECTS: Project[] = [
               onde jovens de todo o país recebem mentoria de outros engenheiros
               e cientistas do país. O programa teve início em 2016. 
            </p>
-           <p>Rafael é mentor do Decola Beta, durante a edição 2017. Além de trabalhar
-              com um projeto de uma jovem estudante, procurou criar novas iniciativas
-              para promoção do programa no âmbito de feiras e mostras de ciência. 
+           <p>Rafael foi mentor do Decola Beta durante a edição 2017 e entrou para a
+              equipe da organização em 2018, fazendo parte da equipe de TI, desenvolvendo
+              a plataforma do Decola Beta e o Mapa das Feiras, projeto para mapear as feiras
+              de ciência no Brasil e permitir uma maior democratização desse tipo de evento. 
            </p>
            <p>Para saber mais do projeto, acesse 
               <a href="http://cientistabeta.com.br" target="_blank">o site do Cientista Beta</a>.
@@ -249,10 +230,9 @@ export const PROJECTS: Project[] = [
     id: 'mostractc',
     name: 'Mostractc',
     color: '#131313',
-    short: true,
-    light: false,
     symbol: '<img src="assets/img/mostra.png" />',
-    desc: `<p>A Mostra de Trabalhos de Cursos Técnicos (Mostractc) é um evento que ocorre
+    desc: `<h2>Avaliador, mídias sociais e comitê científico</h2>
+           <p>A Mostra de Trabalhos de Cursos Técnicos (Mostractc) é um evento que ocorre
               anualmente em Campinas, São Paulo, organizado pelo Colégio Técnico de 
               Campinas, da UNICAMP. Ela promove a exibição de trabalhos desenvolvidos
               por estudantes de ensino médio e técnico de todo o país.
@@ -263,9 +243,9 @@ export const PROJECTS: Project[] = [
               de 6 estados do país.
            </p>
            <p>Rafael participou da mostra de 2014, levando o prêmio principal do evento.
-              Em 2016, voltou para o evento como avaliador. Desde então, atua como
-              responsável pela comunicação e conteúdo e membro do comitê científico
-              do evento.
+              Em 2016, voltou para o evento como avaliador. Atuou como
+              responsável pela comunicação e conteúdo em mídias sociais até 2017 e 
+              participou do comitê científico do evento.
            </p>
            <p>Saiba mais no 
               <a href="http://mostradetrabalhos.cotuca.unicamp.br/" target="_blank">
@@ -277,8 +257,6 @@ export const PROJECTS: Project[] = [
     id: 'ic',
     name: 'Iniciação Científica',
     color: 'rgba(39, 255, 0, 1)',
-    short: true,
-    light: true,
     symbol: '<div class="lcfv-bg project-icon">\n' +
     '          <span class="fa fa-simplybuilt lcfv-icon"></span>\n' +
     '        </div>',
@@ -299,10 +277,9 @@ export const PROJECTS: Project[] = [
     id: 'vivros',
     name: 'Vivros',
     color: '#e9cf1a',
-    light: true,
-    short: true,
     symbol: '<img src="assets/img/vivros.png" />',
-    desc: `<p>Vivros é uma editora de livros interativos no papel e no celular. Com títulos
+    desc: `<h2>Livros criativos interativos no papel e no celular</h2>
+           <p>Vivros é uma editora de livros interativos no papel e no celular. Com títulos
               originais, a Vivros oferece "livro mais vivos", em que dependendo de como são
               lido, o conteúdo em si muda.</p>
            <p>Buscando criar um leitura mais criativa e democrática, a Vivros acredita
@@ -315,13 +292,13 @@ export const PROJECTS: Project[] = [
     id: 'devy',
     name: 'DevY',
     color: '#6851a7',
-    light: false,
-    short: true,
     symbol: '<img src="assets/img/devy.png" />',
-    desc: `<p>DevY - Developing You - é um projeto de mentoria de pesquisas científicas de alunos do Ensino Médio.</p>
+    desc: `<h2>Coordenador de programa de mentoria de projetos</h2>
+           <p>DevY - Developing You - é um projeto de mentoria de pesquisas científicas de 
+              alunos do Ensino Médio.</p>
            <p>Executado durante os anos de 2017 e 2018, o projeto apoiou mais de 30 alunos,
            com 12 projetos sendo mentorados de forma fixa. Foram auxiliados alunos de Sâo Paulo,
-           Minas Gerais e Espírito Santo.</p>
+           Minas Gerais e Espírito Santo. Rafael criou o programa e é seu coordenador.</p>
            <p>Saiba mais <a href="https://rafaeleiki.github.io/devy">no site oficial</a>.</p>`,
   },
 ];
