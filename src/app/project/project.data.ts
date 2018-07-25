@@ -5,6 +5,8 @@ export const PROJECTS: Project[] = [
     id: 'playkids',
     name: 'PlayKids',
     color: '#947cfb',
+    light: true,
+    short: false,
     symbol: '<img src="assets/img/playkids.png" />',
     desc: `<p>PlayKids é uma plataforma educativa com desenhos, livros, 
            jogos e atividades para as crianças.</p> 
@@ -44,6 +46,7 @@ export const PROJECTS: Project[] = [
     id: 'yarner',
     name: 'Yarner',
     color: '#1B98D6',
+    light: true,
     symbol: '<img src="assets/img/yarner-f.png" />',
     short: true,
     desc: `<p>Yarner é um projeto que tem como objetivo melhorar os hábitos culturais
@@ -59,6 +62,7 @@ export const PROJECTS: Project[] = [
     id: 'cooking',
     name: 'CooKing',
     color: '#f26644',
+    light: true,
     symbol: '<img src="assets/img/cooking.svg" />',
     short: true,
     desc: `<p>CooKing é um aplicativo que funciona como seu assistente na cozinha. Com ele,
@@ -76,6 +80,7 @@ export const PROJECTS: Project[] = [
     color: '#ff559e',
     symbol: '<img src="assets/img/virada.jpg" />',
     short: true,
+    light: true,
     desc: `<p>A Virada Cultural é um evento que acontece anualmente em diversas cidades do Brasil.
               Ela reúne arte em suas mais diversas formas para todos, de forma gratuita,
               incluindo apresentações de circenses, dança, shows e outras atrações.
@@ -100,6 +105,7 @@ export const PROJECTS: Project[] = [
     name: 'Estrutura de Dados',
     color: '#0047ff',
     short: true,
+    light: true,
     symbol: '<span class="fa fa-database project-icon"></span>',
     desc: `<p>Com o objetivo de estudar estruturas de dados, Rafael desenvolveu
               alguns projetos em Java em 2013.
@@ -123,6 +129,7 @@ export const PROJECTS: Project[] = [
     name: 'SmartRep',
     color: '#1c4587',
     short: true,
+    light: false,
     symbol: '<img src="assets/img/smartrep.png" />',
     desc: `<p>É muito comum a divisão de casas por jovens para morarem em comunidade,
               especialmente na época da faculdade. Muitas vezes, é o primeiro momento
@@ -152,6 +159,7 @@ export const PROJECTS: Project[] = [
     name: 'DefenseSnap',
     color: '#6000d5',
     short: true,
+    light: false,
     symbol: '<img src="assets/img/defense_snap.png" />',
     desc: `<p>Segundo o "Mapa da Violência 2015: Homicídio de Mulheres no Brasil",
               a cada 2 horas, uma mulher é assassinada. São 13 mulheres mortas por dia,
@@ -182,6 +190,7 @@ export const PROJECTS: Project[] = [
     name: 'Cientista Beta',
     color: '#f73f46',
     short: true,
+    light: true,
     symbol: '<img src="assets/img/cientista_beta.png" />',
     desc: `<p> Cientista Beta surgiu em 2015 como uma iniciativa que visa 
                aproximar os jovens da ciência. Além de fornecer conteúdo
@@ -202,36 +211,10 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'mostractc',
-    name: 'Mostra de Trabalhos de Cursos Técnicos',
-    color: '#13a855',
+    name: 'Mostractc',
+    color: '#131313',
     short: true,
-    symbol: '<img src="assets/img/mostra.png" />',
-    desc: `<p>A Mostra de Trabalhos de Cursos Técnicos (Mostractc) é um evento que ocorre
-              anualmente em Campinas, São Paulo, organizado pelo Colégio Técnico de 
-              Campinas, da UNICAMP. Ela promove a exibição de trabalhos desenvolvidos
-              por estudantes de ensino médio e técnico de todo o país.
-           </p>
-           <p>A primeira edição da mostra ocorreu em 2010, com 86 trabalhos da 
-              Região Metropolitana de Campinas, com projetos de 12 escolas.
-              Em 2015, esse número saltou para 428 projetos e cerca de 2000 participantes
-              de 6 estados do país.
-           </p>
-           <p>Rafael participou da mostra de 2014, levando o prêmio principal do evento.
-              Em 2016, voltou para o evento como avaliador. Desde então, atua como
-              responsável pela comunicação e conteúdo e membro do comitê científico
-              do evento.
-           </p>
-           <p>Saiba mais no 
-              <a href="http://mostradetrabalhos.cotuca.unicamp.br/" target="_blank">
-                site oficial da mostra
-              </a>.
-           </p>`,
-  },
-  {
-    id: 'mostractc',
-    name: 'Mostra de Trabalhos de Cursos Técnicos',
-    color: '#13a855',
-    short: true,
+    light: false,
     symbol: '<img src="assets/img/mostra.png" />',
     desc: `<p>A Mostra de Trabalhos de Cursos Técnicos (Mostractc) é um evento que ocorre
               anualmente em Campinas, São Paulo, organizado pelo Colégio Técnico de 
@@ -259,6 +242,7 @@ export const PROJECTS: Project[] = [
     name: 'Iniciação Científica',
     color: 'rgba(39, 255, 0, 1)',
     short: true,
+    light: true,
     symbol: '<div class="lcfv-bg project-icon">\n' +
     '          <span class="fa fa-simplybuilt lcfv-icon"></span>\n' +
     '        </div>',
