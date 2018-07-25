@@ -133,6 +133,36 @@ export const PROJECTS: Project[] = [
            </p>`,
   },
   {
+    id: 'interhad',
+    name: 'InterHad',
+    color: '#89b03f',
+    short: true,
+    light: true,
+    symbol: '<img src="assets/img/interhad.png" />',
+    desc: `<p>É muito comum a divisão de casas por jovens para morarem em comunidade,
+              especialmente na época da faculdade. Muitas vezes, é o primeiro momento
+              que uma pessoa se muda, indo para outra cidade ou simplesmente para morar
+              mais próximo de onde irá estudar. Quando surge a necessidade de dividr recursos
+              da casa com outras pessoas, podem ocorrer problemas. Muitas coisas
+              não são propriamente divisíveis (como a máquina de lavar e o banheiro)
+              para uso mútuo. 
+           </p>
+           <p>Com a proposta de conseguir dividir "o indivisível", foi criado o projeto
+              SmartRep. Ele consiste em uma série de itens IoT para utilização em
+              repúblicas, permitindo um melhor controle e novas funcionalidades a itens
+              do cotidiano.
+           </p>
+           <p>Foram aplicadas metodologias de desenvolvimento ágil e construindo
+              a documentação, usando o projeto como caso de estudo em Engenharia de Software.
+              Foram implementados uma máquina de lavar e varal inteligente, ligados
+              com um web app.
+           </p>
+           <p>O projeto foi desenvolvido com Angular 4, servidor Node, Raspberry PI para
+              os itens IoT e foi criado um sensor para interagir com o varal. Para
+              representação do funcionamento, foi criada uma maquete funcional da casa.
+           </p>`,
+  },
+  {
     id: 'defense-snap',
     name: 'DefenseSnap',
     color: '#6000d5',

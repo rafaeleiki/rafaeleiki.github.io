@@ -15,15 +15,8 @@
 .title {
   color: #fff;
   font-size: 3em;
-}
-
-.light .title {
   text-shadow: #000 2px 0 36px;
-}
-
-.dark .title {
-  color: #eee;
-  text-shadow: #000 0 2px 18px;
+  text-align: center;
 }
 
 .general-info {
@@ -78,6 +71,7 @@
 
 .content-container {
   padding: 6em 2em 0 2em;
+  font-size: 1.2em;
   margin-left: 400px;
   min-height: 100%;
   position: relative;

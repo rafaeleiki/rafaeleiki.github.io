@@ -5,16 +5,13 @@
     <i class="fa fa-arrow-left fa-stack-1x arrow"></i>
   </span>
 </a>
-<div [class]="project.light ? 'light' : 'dark'">
-  <div class="general-info" [style.backgroundColor]="bgColor()">
-    <div [innerHTML]="project.symbol" class="symbol"></div>
-    <h1 class="title">{{project.name}}</h1>
+<div class="general-info" [style.backgroundColor]="bgColor()">
+  <div [innerHTML]="project.symbol" class="symbol"></div>
+  <h1 class="title">{{project.name}}</h1>
+</div>
+<div class="content-container">
+  <div class="content">
+    <section class="description" [innerHTML]="bypassSanitizer(project.desc)"></section>
   </div>
-  <div class="content-container"
-       [style.backgroundColor]="bgColor()"
-       [style.position]="project.short ? 'absolute' : 'relative'">
-    <div class="content">
-      <section class="description" [innerHTML]="bypassSanitizer(project.desc)"></section>
-    </div>
-  </div>
+  <hr />
 </div>

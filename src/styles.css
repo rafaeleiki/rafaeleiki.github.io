@@ -61,14 +61,11 @@ html, body {
 
 .description a {
   font-weight: bold;
+  color: #147443;
 }
 
-.light .description a {
-  color: #000;
-}
-
-.dark .description a {
-  color: #fff;
+.description p {
+  text-align: justify;
 }
 
 .project-icon {
