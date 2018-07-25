@@ -1,6 +1,7 @@
 .main-container {
   display: flex;
-  background-color: #fff;
+  background: #fff url("/assets/img/bg.png") no-repeat bottom right;
+  background-size: contain;
 }
 
 .picture-container {
@@ -26,6 +27,9 @@
   font-weight: bold;
   text-shadow: #000 0 1px 1px;
   margin: 0.5em;
+  background-color: #fff;
+  padding: 0.5em;
+  border-radius: 1em;
 }
 
 .fa-linkedin, .fa-facebook {
