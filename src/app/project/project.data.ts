@@ -6,31 +6,9 @@ export const PROJECTS: Project[] = [
     name: 'PlayKids',
     color: '#947cfb',
     light: true,
-    short: false,
+    short: true,
     symbol: '<img src="assets/img/playkids.png" />',
     desc: `<p>PlayKids é uma plataforma educativa com desenhos, livros, 
-           jogos e atividades para as crianças.</p> 
-           <p> A empresa possui vários aplicativos com conteúdos de vídeos, games e
-            outras atividades para melhorar as habilidades das crianças enquanto
-            elas estão se entretendo. O PlayKids, um dos produtos da empresa, é um
-            dos maiores aplicativos para crianças no mundo.</p>
-           <p>Rafael trabalhou no desenvolvimento da área de servidor de conteúdo da empresa,
-            atuando tanto com front-end quanto com back-end. Ele trabalhou com um time
-            diversificado e espalhado pelo mundo num app global.</p>
-           <p>Aplicativo disponível para iOS, Android, Apple Watch e Apple TV.
-            Mais detalhes em <a href="https://playkids.com" target="_blank">playkids.com</a></p>
-<p>PlayKids é uma plataforma educativa com desenhos, livros, 
-           jogos e atividades para as crianças.</p> 
-           <p> A empresa possui vários aplicativos com conteúdos de vídeos, games e
-            outras atividades para melhorar as habilidades das crianças enquanto
-            elas estão se entretendo. O PlayKids, um dos produtos da empresa, é um
-            dos maiores aplicativos para crianças no mundo.</p>
-           <p>Rafael trabalhou no desenvolvimento da área de servidor de conteúdo da empresa,
-            atuando tanto com front-end quanto com back-end. Ele trabalhou com um time
-            diversificado e espalhado pelo mundo num app global.</p>
-           <p>Aplicativo disponível para iOS, Android, Apple Watch e Apple TV.
-            Mais detalhes em <a href="https://playkids.com" target="_blank">playkids.com</a></p>
-<p>PlayKids é uma plataforma educativa com desenhos, livros, 
            jogos e atividades para as crianças.</p> 
            <p> A empresa possui vários aplicativos com conteúdos de vídeos, games e
             outras atividades para melhorar as habilidades das crianças enquanto

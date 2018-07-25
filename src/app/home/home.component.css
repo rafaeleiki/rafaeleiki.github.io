@@ -1,6 +1,6 @@
 .main-container {
   display: flex;
-  background-color: #3e9231;
+  background-color: #fff;
 }
 
 .picture-container {
@@ -20,11 +20,11 @@
 }
 
 .info {
-  color: #fff;
+  color: #343434;
   font-size: 2em;
   font-family: sans-serif;
   font-weight: bold;
-  text-shadow: #222 0 1px 8px;
+  text-shadow: #000 0 1px 1px;
   margin: 0.5em;
 }
 
@@ -38,8 +38,8 @@
   border-radius: 50%;
 }
 
-.fa-linkedin { background-color: #3b5fc8; }
-.fa-facebook { background-color: #3b5fc8; }
+.fa-linkedin { background-color: #0077b5; }
+.fa-facebook { background-color: #3b5998; }
 
 .footer {
   position: fixed;
@@ -73,7 +73,11 @@
 }
 
 .project:hover {
-  box-shadow: #fff 0 2px 8px;
+  box-shadow: #000 0 4px 16px;
+}
+
+.project a {
+  display: block;
 }
 
 .project img {
