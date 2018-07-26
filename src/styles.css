@@ -56,3 +56,9 @@ html, body {
   font-size: 3em !important;
 }
 /* End project HTML injection */
+
+@media all and (min-width: 700px) {
+  app-project .separator {
+    width: 100%;
+  }
+}
