@@ -2,10 +2,10 @@
   <nav class="tabs is-boxed is-fullwidth">
     <div class="container">
       <ul>
-        <li class="is-active"><a>Eiki</a></li>
-        <li><a>Formação / Acadêmico</a></li>
-        <li><a>Projetos</a></li>
-        <li><a>Profissional</a></li>
+        <li [routerLinkActive]="['is-active']"><a [routerLink]="['/home']">Eiki</a></li>
+        <li [routerLinkActive]="['is-active']"><a [routerLink]="['/academico']">Formação / Acadêmico</a></li>
+        <li [routerLinkActive]="['is-active']"><a [routerLink]="['/projetos']">Projetos</a></li>
+        <li [routerLinkActive]="['is-active']"><a [routerLink]="['/profissional']">Profissional</a></li>
       </ul>
     </div>
   </nav>
