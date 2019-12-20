@@ -1,8 +1,8 @@
 import {animate, animateChild, group, query, style, transition, trigger} from '@angular/animations';
 
-const homeTop = '24.5%';
-const academicTop = '11.5%';
-const projectsTop = '16%';
+const homeTop = '24.6%';
+const academicTop = '11.7%';
+const projectsTop = '6.7%';
 const professionalTop = '0';
 
 const slideLeftHome = [
