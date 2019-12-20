@@ -7,13 +7,13 @@ import {ProfessionalComponent} from './professional/professional.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'academic', component: AcademicComponent },
-  { path: 'academico', component: AcademicComponent },
-  { path: 'projects', component: ProjectsComponent },
-  { path: 'projetos', component: ProjectsComponent },
-  { path: 'professional', component: ProfessionalComponent },
-  { path: 'profissional', component: ProfessionalComponent },
+  { path: 'home', component: HomeComponent, data: { animation: 'Home' } },
+  { path: 'academic', component: AcademicComponent, data: { animation: 'Academic' } },
+  { path: 'academico', component: AcademicComponent, data: { animation: 'Academic' } },
+  { path: 'projects', component: ProjectsComponent, data: { animation: 'Projects' } },
+  { path: 'projetos', component: ProjectsComponent, data: { animation: 'Projects' } },
+  { path: 'professional', component: ProfessionalComponent, data: { animation: 'Professional' } },
+  { path: 'profissional', component: ProfessionalComponent, data: { animation: 'Professional' } },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -21,7 +21,9 @@ const routes: Routes = [
   ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AcademicComponent } from './academic/academic.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProfessionalComponent } from './professional/professional.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ProfessionalComponent } from './professional/professional.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule
   ],
   providers: [],
