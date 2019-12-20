@@ -122,8 +122,13 @@
               "devServerTarget": "rafael-eiki:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "rafael-eiki"
 }
