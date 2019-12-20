@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3" [ngClass]="{ 'video-card': videoUrl }">
+      <img *ngIf="imageUrl" [src]="imageUrl" />
+      <video *ngIf="videoUrl" autoplay loop>
+        <source [src]="videoUrl" type="video/mp4">
+      </video>
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img [src]="projectLogoUrl" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4 has-text-dark is-marginless">{{title}}</p>
+        <div class="columns">
+          <p class="subtitle is-6 column has-text-dark is-inline-block is-marginless">{{subtitle}}</p>
+          <p class="subtitle is-6 column has-text-dark is-inline-block has-text-right is-one-fifth">{{duration}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content" [innerHTML]="content"></div>
+  </div>
+</div>

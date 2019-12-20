@@ -10,6 +10,7 @@ import { AcademicComponent } from './academic/academic.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProfessionalComponent } from './professional/professional.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ProjectCardComponent } from './project-card/project-card.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FooterComponent,
     AcademicComponent,
     ProjectsComponent,
-    ProfessionalComponent
+    ProfessionalComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,
