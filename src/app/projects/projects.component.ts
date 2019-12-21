@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
+  delay = 500;
+
   constructor() { }
 
   ngOnInit() {

@@ -1,10 +1,11 @@
-<div class="card">
+<div class="card" [ngClass]="{'show': show}">
   <div class="card-image">
-    <figure class="image is-4by3" [ngClass]="{ 'video-card': videoUrl }">
+    <figure class="image is-4by3" [ngClass]="{ 'video-card': videoUrl || youtubeId }">
       <img *ngIf="imageUrl" [src]="imageUrl" />
-      <video *ngIf="videoUrl" autoplay loop>
+      <video *ngIf="videoUrl" autoplay loop controls>
         <source [src]="videoUrl" type="video/mp4">
       </video>
+      <iframe *ngIf="youtubeId" [src]="safeYoutubeUrl()" frameborder="0" allowfullscreen></iframe>
     </figure>
   </div>
   <div class="card-content">

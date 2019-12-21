@@ -1,5 +1,16 @@
 .video-card
   padding: 0
 
-.card-image video
-  width: 100%
+.card-image
+  & video, & iframe
+    width: 100%
+  & iframe
+    min-height: 300px
+
+.card
+  margin-bottom: 24px
+  opacity: 0
+  transition: opacity ease-out 0.5s
+
+  &.show
+    opacity: 1
