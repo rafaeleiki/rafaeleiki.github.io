@@ -11,6 +11,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProfessionalComponent } from './professional/professional.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ProjectCardComponent } from './project-card/project-card.component';
+import { NewsCardComponent } from './news-card/news-card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProjectCardComponent } from './project-card/project-card.component';
     AcademicComponent,
     ProjectsComponent,
     ProfessionalComponent,
-    ProjectCardComponent
+    ProjectCardComponent,
+    NewsCardComponent
   ],
   imports: [
     BrowserModule,
