@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng deploy --branch=master"
+    "deploy": "ng deploy --branch=master --cname rafaeleiki.com"
   },
   "private": true,
   "dependencies": {
