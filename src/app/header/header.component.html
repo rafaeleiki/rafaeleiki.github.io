@@ -1,8 +1,8 @@
 <div class="hero-head">
-  <header class="navbar">
+  <header class="navbar is-fixed-top is-dark">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item">
+        <a class="navbar-item" (click)="goToTop()" [routerLink]="['/home']">
           <img src="./assets/images/logo.png" alt="Logo">
         </a>
         <span class="navbar-burger burger"
@@ -16,6 +16,9 @@
       </div>
       <div id="mainNavbar" class="navbar-menu" [ngClass]="{'is-active': menuOpen}">
         <div class="navbar-end">
+          <a class="navbar-item" [routerLinkActive]="['is-active']" (click)="goToTop()" [routerLink]="['/academico']">Formação / Acadêmico</a>
+          <a class="navbar-item" [routerLinkActive]="['is-active']" (click)="goToTop()" [routerLink]="['/projetos']">Projetos</a>
+          <a class="navbar-item" [routerLinkActive]="['is-active']" (click)="goToTop()" [routerLink]="['/profissional']">Profissional</a>
           <a class="navbar-item" target="_blank" href="https://github.com/rafaeleiki">
             <span class="icon"><i class="fab fa-github"></i></span><span>GitHub</span>
           </a>

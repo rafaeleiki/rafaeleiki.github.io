@@ -17,4 +17,8 @@ export class HeaderComponent implements OnInit {
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
+
+  goToTop() {
+    window.scrollTo(0, 0);
+  }
 }
