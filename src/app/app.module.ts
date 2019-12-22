@@ -12,6 +12,7 @@ import { ProfessionalComponent } from './professional/professional.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { NewsCardComponent } from './news-card/news-card.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NewsCardComponent } from './news-card/news-card.component';
     ProjectsComponent,
     ProfessionalComponent,
     ProjectCardComponent,
-    NewsCardComponent
+    NewsCardComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
