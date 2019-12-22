@@ -1,9 +1,9 @@
 import {animate, animateChild, group, query, style, transition, trigger} from '@angular/animations';
 
-const homeTop = '5.5%';
-const academicTop = '5.5%';
-const projectsTop = '5.5%';
-const professionalTop = '5.5%';
+const homeTop = '-8.3%';
+const academicTop = '10%';
+const projectsTop = '10%';
+const professionalTop = '10%';
 
 const slideLeftHome = [
   query(':leave', [

@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: 'academico', component: AcademicComponent, data: { animation: 'Academic' } },
   { path: 'projects', component: ProjectsComponent, data: { animation: 'Projects' } },
   { path: 'projetos', component: ProjectsComponent, data: { animation: 'Projects' } },
-  { path: 'professional', component: ProfessionalComponent, data: { animation: 'Professional' } },
   { path: 'profissional', component: ProfessionalComponent, data: { animation: 'Professional' } },
+  { path: 'professional', component: ProfessionalComponent, data: { animation: 'Professional' } },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'

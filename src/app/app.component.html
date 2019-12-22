@@ -1,9 +1,9 @@
-<section class="hero is-dark is-fullheight">
+<section class="hero is-info is-bold is-fullheight-with-navbar">
   <!-- Header -->
   <app-header></app-header>
 
   <!-- Page content -->
-  <div [@routeAnimations]="prepareRoute(outlet)">
+  <div [@routeAnimations]="prepareRoute(outlet)" class="animation-body">
     <router-outlet #outlet="outlet"></router-outlet>
   </div>
 
