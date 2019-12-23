@@ -1,6 +1,6 @@
 import {animate, animateChild, group, query, style, transition, trigger} from '@angular/animations';
 
-const homeTop = '-8.3%';
+const homeTop = '10%';
 const academicTop = '10%';
 const projectsTop = '10%';
 const professionalTop = '10%';
