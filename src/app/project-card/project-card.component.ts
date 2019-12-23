@@ -17,6 +17,7 @@ export class ProjectCardComponent implements OnInit {
   @Input() projectLogoUrl: string;
   @Input() content: string;
   @Input() delay: number;
+  @Input() role: string;
 
   show = false;
 

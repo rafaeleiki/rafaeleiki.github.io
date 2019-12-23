@@ -8,13 +8,14 @@
     <div class="column">
        <app-project-card
          title="Vivros"
-         subtitle="A gente acredita em livros"
+         subtitle="Livros + Vivos, porque a gente acredita em livros"
+         role="Co-fundador"
          projectLogoUrl="./assets/images/vivros.gif"
          duration="2018 - Momento"
          videoUrl="./assets/images/vivros.mp4"
          [delay]="0 * delay"
          content='Vivros é uma editora de livros interativos no papel e no celular. Com títulos originais, a Vivros
-         oferece "livro mais vivos", em que dependendo de como são lido, o conteúdo em si muda. Buscando criar um
+         oferece livros em que dependendo de como são lidos, a história muda. Buscando criar uma
          leitura mais criativa e democrática, a Vivros acredita na importância dos livros de papel para o desenvolvimento infantil,
          mas entende que é necessário a contextualização do material clássico para o mundo atual, digital e dinâmico.
          <a target="_blank" href="https://vivros.com">www.vivros.com</a>'
@@ -22,53 +23,43 @@
 
       <app-project-card
         title="PaperPlay"
-        subtitle="Programação no papel"
+        subtitle="Ensinando programação com baixo custo"
+        role="Co-autor, desenvolvedor"
         projectLogoUrl="./assets/images/paperplay.jpg"
         duration="2018"
         videoUrl="./assets/images/paperplay.mp4"
         [delay]="3 * delay"
-        content='Trata-se de um jogo feito para ensinar programação. Foi criado um kit de papel usando códigos QR que
-        representavam os comandos de programação e o objetivo era completar uma fase que tinha obstáculos. Cada
-        comando de papel tinha formas físicas diferentes, buscando integrar jogadores cegos e videntes.
-        Os comandos também atendiam a mecenismos de eventos e sensores virtuais do jogo, então a fase podia ser
-        resolvida de formas diferentes. Vencedor do Hackathon Facebook Brazil 2018.'
+        content='Foi criado um kit de papel usando códigos QR que representavam comandos de programação e o objetivo
+        era completar uma fase de um jogo que tinha obstáculos. As opções se assemelhavam às disponíveis em um Arduino.
+        Cada comando de papel tinha formas físicas diferentes, buscando integrar jogadores cegos e videntes.
+        Vencedor do
+        <a target="_blank" href="https://www.facebook.com/events/1831047833866444/permalink/1846529575651603/">Hackathon Facebook Brazil 2018</a>.'
       ></app-project-card>
 
       <app-project-card
         title="SmartRep"
-        subtitle="Items IoT compartilhados"
+        subtitle="Items IoT para repúblicas"
+        role="Co-autor, desenvolvedor"
         projectLogoUrl="./assets/images/smartrep.jpg"
         duration="2017"
         youtubeId="4ZN4b_yljLI"
         [delay]="6 * delay"
-        content='É muito comum a divisão de casas por jovens para morarem em comunidade,
-        especialmente na época da faculdade. Muitas vezes, é o primeiro momento
-        que uma pessoa se muda, indo para outra cidade ou simplesmente para morar
-        mais próximo de onde irá estudar. Quando surge a necessidade de dividr recursos
-        da casa com outras pessoas, podem ocorrer problemas. Muitas coisas
-        não são propriamente divisíveis (como a máquina de lavar e o banheiro) para uso mútuo.
-        Com a proposta de conseguir dividir "o indivisível", foi criado o projeto
-        SmartRep. Ele consiste em uma série de itens IoT para utilização em
-        repúblicas, permitindo um melhor controle e novas funcionalidades a itens do cotidiano.
-        Foram aplicadas metodologias de desenvolvimento ágil e construindo
-        a documentação, usando o projeto como caso de estudo em Engenharia de Software.
-        Foram implementados uma máquina de lavar e varal inteligente, ligados com um web app.
-        O projeto foi desenvolvido com Angular 4, servidor Node, Raspberry PI para
-        os itens IoT e foi criado um sensor para interagir com o varal. Para
-        representação do funcionamento, foi criada uma maquete funcional da casa.'
+        content='Série de itens IoT para utilização em repúblicas, permitindo um melhor controle e compartilhamento
+        de itens de uso comum. Foram implementados protótipos de uma máquina de lavar e varal inteligente, ligados com um web app.
+        O projeto foi desenvolvido com Angular 4, servidor Node, Raspberry PI para os itens IoT e foi criado um
+        sensor para interagir com o varal.'
       ></app-project-card>
 
       <app-project-card
         title="Virada das Coisas"
-        subtitle="Design IoT para evento"
+        subtitle="Design de evento baseado em IoT"
+        role="Co-autor, designer"
         projectLogoUrl="./assets/images/virada.jpg"
         duration="2016"
         youtubeId="2facGiyaGW4"
         [delay]="9 * delay"
-        content='A Virada Cultural é um evento que acontece anualmente em diversas cidades do Brasil. Ela reúne arte em
-        suas mais diversas formas para todos, de forma gratuita, incluindo apresentações de circenses, dança, shows e outras atrações.
-        Esse projeto procura construir elementos de design baseado em Internet das Coisas (IoT)
-        para o evento. Algumas dessas interações podem não estar disponíveis no momento, mas
+        content='Esse projeto procura construir elementos de design baseado em Internet das Coisas (IoT)
+        para a Virada Cultural. Algumas dessas interações podem não estar disponíveis no momento, mas
         seriam possíveis num futuro próximo. A ideia central é usar IoT para criar mais
         interações sociais através de displays e outras tecnologias que estariam espalhadas pela cidade.
         Mais sobre o projeto pode ser visto no <a href="https://github.com/rafaeleiki/virada-cultural" target="_blank">GitHub</a>.'
@@ -80,7 +71,8 @@
     <div class="column">
       <app-project-card
         title="Qual é o artista?"
-        subtitle="Machine Learning + Arte"
+        subtitle="Machine Learning usado para identificar autores de obras"
+        role="Cientista de dados"
         projectLogoUrl="./assets/images/ml-art.jpg"
         duration="2019"
         youtubeId="1uEzj3eGhlc"
@@ -93,30 +85,31 @@
 
       <app-project-card
         title="DevY"
-        subtitle="P&D de jovens"
+        subtitle="Programa de mentoria de P&D de jovens"
+        role="Coordenador"
         projectLogoUrl="./assets/images/devy.jpg"
         duration="2017 - 2018"
         youtubeId="mdhpdorGUTQ"
         [delay]="4 * delay"
-        content='Developing You foi um programa de desenvolvimento de projetos de pesquisa científica com
-        alunos do ensino médio. O projeto contou com 2 turmas, tendo 7 projetos em 2017 e 5 projetos em 2018. As pesquisas
-        foram escolhidas e desenvolvidas pelos alunos, tendo a maioria foco em inovações tecnológicas. Os projetos
-        que saíram do programa receberam 20 prêmios, entre os quais Intel Excelence in Computer Science e 2º lugar
-        na maior feira de ciências da América Latina. Mais detalhes na
+        content='Com 12 projetos (7 em 2017 e 5 em 2018), alunos de ensino médio fizeram pesquisas
+        em suas áreas de interesse, tendo a maioria foco em inovações tecnológicas, o programa de
+        mentoria DevY alcançou bons resultados. Os projetos receberam 20 prêmios, entre os quais Intel Excelence in
+        Computer Science e 2º lugar na maior feira de ciências da América Latina. Mais detalhes na
         <a target="_blank" href="https://rafaeleiki.com/devy/home">página do projeto</a>.'
       ></app-project-card>
 
       <app-project-card
         title="CooKing"
         subtitle="App assistente na cozinha"
+        role="Co-autor, desenvolvedor"
         projectLogoUrl="./assets/images/cooking.svg"
         duration="2017"
         videoUrl="./assets/images/cooking.mp4"
         [delay]="7 * delay"
         content='CooKing é um aplicativo que funciona como seu assistente na cozinha. Com ele, é possível controlar e
-        obter ajuda com tudo na cozinha: da seleção do prato ao momento de preparo. Rafael é co-fundador do CooKing.
+        obter ajuda com tudo na cozinha: da seleção do prato ao momento de preparo.
         O projeto recebeu 2 prêmios de empreendedorismo e foi finalista da final nacional da Imagine Cup 2017.
-        <a target="_blank" href="https://fb.com/projetocooking">Facebook do projeto</a>'
+        Saiba mais na <a target="_blank" href="https://fb.com/projetocooking">página do projeto</a>.'
       ></app-project-card>
 
     </div>
@@ -126,43 +119,44 @@
 
       <app-project-card
         title="LCFV"
-        subtitle="P&D sistema socioenativo"
+        subtitle="Pesquisa de sistema socioenativo educativo"
+        role="Pesquisador"
         projectLogoUrl="./assets/images/lcfv.svg"
         duration="2017 - 2019"
         imageUrl="./assets/images/lcfv-banner.jpg"
         [delay]="2 * delay"
-        content='Estudo e desenvolvimento dos sistemas socioenativos para a educação, mais especificamente com práticas
-        de leitura crítica colaborativa, iniciação científica orientado por Maria Cecília Calani Baranauskas.
-        Usando tecnologias vestíveis de baixo custo e criando narrativas imersivas físico-virtuais, criou os conceitos
-        de Leitura Colaborativa no ambiente Físico-Virtual (LCFV) e o Framework SEES (Socio-Enactive Educational System).
-        4 artigos publicados sobre a pesquisa e ganhadora da Melhor Iniciação Científica 2018 do Instituto de Computação
-        da Unicamp.'
+        content='Criando narrativas imersivas físico-virtuais com leitura colaborativa usando tecnologias de baixo custo,
+        o projeto ganhou o prêmio "Melhor Iniciação Científica 2018" do IC/UNICAMP.
+        Com orientação de Cecília Baranauskas, os conceitos de Leitura Colaborativa no
+        ambiente Físico-Virtual (LCFV) e o Framework SEES (Socio-Enactive Educational System) foram publicados em 4 artigos.'
       ></app-project-card>
 
       <app-project-card
         title="DefenseSnap"
-        subtitle="Defesa pessoal IoT"
+        subtitle="Moto Mod para defesa da mulher"
+        role="Co-autor, desenvolvedor"
         projectLogoUrl="./assets/images/defense-snap.jpg"
         duration="2017"
         youtubeId="5UKubnSYDfk"
         [delay]="5 * delay"
         content='Moto Mod criado com o intuito de servir como uma ferramenta de defesa pessoal, especialmente
         da mulher. Com um anel Bluetooth integrado ao Snap com uma sirene, é possível pedir ajuda em uma
-        situação de emergência usando apenas uma mão, de dois modos: ativando a sirene, ou enviando mensagem
-        informando a situação e localização para contatos selecionados. Vencedor do Hackathon Motorola Mod the Future 2017.'
+        situação de emergência usando apenas uma mão. Vencedor do
+        <a target="_blank" href="https://www.hellomoto.com.br/hackathon-mod-the-future-nos-vimos-o-futuro/">
+        Hackathon Motorola Mod the Future 2017</a>.'
       ></app-project-card>
 
       <app-project-card
         title="Yarner"
-        subtitle="P&D E-books interativos"
+        subtitle="Pesquisa sobre tecnologia e leitura nas escolas"
+        role="Pesquisador"
         projectLogoUrl="./assets/images/yarner.gif"
         duration="2014 - 2016"
         videoUrl="./assets/images/yarner.mp4"
         [delay]="8 * delay"
-        content='Yarner é um projeto que tem como objetivo melhorar os hábitos culturais de leitura e escrita através de uma plataforma que permite a criação, leitura e compartilhamento de livros digitais interativos.
-                Rafael é co-fundador do Yarner, trabalhando com todas as áreas do projeto, incluindo a pesquisa que foi feita baseada nele.
+        content='Yarner é um projeto de pesquisa que tem como objetivo melhorar os hábitos culturais de leitura e escrita através de uma plataforma que permite a criação, leitura e compartilhamento de livros digitais interativos.
                 O projeto recebeu mais de 20 prêmios em feiras de ciência no Brasil e nos Estados Unidos, incluindo prêmios de empresas como Intel, 3M, Oracle e GoDaddy.
-                <a target="_blank" href="https://yarner.herokuapp.com">yarner.herokuapp.com</a>'
+                Detalhes <a target="_blank" href="https://fb.com/yarnerapp">na página do projeto</a>.'
       ></app-project-card>
 
     </div>
