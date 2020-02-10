@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { NewsCardComponent } from './news-card/news-card.component';
 import { NewsComponent } from './news/news.component';
+import {GoogleAnalyticsService} from './google-analytics.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,12 @@ import { NewsComponent } from './news/news.component';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [GoogleAnalyticsService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(protected gaService: GoogleAnalyticsService) {
+  }
+
+}
