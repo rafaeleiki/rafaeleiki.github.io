@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import NEWS from "./news";
 
 @Component({
   selector: 'app-news',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
+  @Input() limit: number;
+  news: any;
+
+  constructor() {}
 
   ngOnInit() {
+    this.news = NEWS;
+
+    if (this.limit && this.limit > 0) {
+      this.news = NEWS.splice(0, this.limit);
+    }
   }
 
 }
