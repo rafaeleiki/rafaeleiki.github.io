@@ -1,6 +1,12 @@
 @import "node_modules/bulma/sass/utilities/_all.sass"
 
-@include mobile
+.news-container
+  justify-content: center
+
+.news-card
+  max-width: 500px
+
+@include touch
   .news-container
     overflow-x: scroll
     max-width: 100%

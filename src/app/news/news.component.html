@@ -6,7 +6,7 @@
   <div class="news-container columns is-multiline">
 
 
-    <div *ngFor="let newsPiece of news;" class="column is-one-third">
+    <div *ngFor="let newsPiece of news;" class="column is-one-third news-card">
       <app-news-card
         title={{newsPiece.title}}
         subtitle={{newsPiece.subtitle}}
@@ -17,21 +17,6 @@
         time={{newsPiece.time}}
       ></app-news-card>
     </div>
-
-    <!-- <div class=
-
-
-    <div class="column is-one-third">
-      <app-news-card
-        title="UNICAMP"
-        subtitle="Cotuca vence 67 escolas técnicas do país na Copa Rio Info de Algoritmo"
-        link="https://www.unicamp.br/unicamp/noticias/2013/09/24/cotuca-vence-67-escolas-tecnicas-do-pais-na-copa-rio-info-de-algoritmo"
-        image="./assets/images/cria.jpg"
-        logo="./assets/images/unicamp.png"
-        description="Alunos vencem a competição nacional de algoritmo, orientados pelo professor Francisco Rodrigues."
-        time="3:16 PM - 24 Set 2013"
-      ></app-news-card>
-    </div> -->
 
   </div>
 </section>
