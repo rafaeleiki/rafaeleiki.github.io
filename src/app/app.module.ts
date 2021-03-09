@@ -14,6 +14,7 @@ import { ProjectCardComponent } from './project-card/project-card.component';
 import { NewsCardComponent } from './news-card/news-card.component';
 import { NewsComponent } from './news/news.component';
 import {GoogleAnalyticsService} from './google-analytics.service';
+import { MediaComponent } from './media/media.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {GoogleAnalyticsService} from './google-analytics.service';
     ProfessionalComponent,
     ProjectCardComponent,
     NewsCardComponent,
-    NewsComponent
+    NewsComponent,
+    MediaComponent
   ],
   imports: [
     BrowserModule,

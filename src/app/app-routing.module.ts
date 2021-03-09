@@ -1,3 +1,4 @@
+import { MediaComponent } from './media/media.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
@@ -8,6 +9,8 @@ import {ProfessionalComponent} from './professional/professional.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { animation: 'Home' } },
+  { path: 'news', component: MediaComponent, data: { animation: 'Media' } },
+  { path: 'noticias', component: MediaComponent, data: { animation: 'Media' } },
   { path: 'academic', component: AcademicComponent, data: { animation: 'Academic' } },
   { path: 'academico', component: AcademicComponent, data: { animation: 'Academic' } },
   { path: 'projects', component: ProjectsComponent, data: { animation: 'Projects' } },

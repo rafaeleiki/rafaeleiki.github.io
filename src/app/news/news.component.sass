@@ -3,8 +3,10 @@
 .news-container
   justify-content: center
 
-.news-card
-  max-width: 500px
+
+@include desktop
+  .news-card
+    max-width: 500px
 
 @include touch
   .news-container
@@ -12,7 +14,7 @@
     max-width: 100%
 
   .columns
-    display: flex
+    display: -webkit-box
     flex-direction: row
     flex-wrap: nowrap
 

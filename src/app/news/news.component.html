@@ -1,22 +1,15 @@
-<section class="section">
+<div class="news-container columns is-multiline">
 
-  <p class="title has-text-centered">Mídia</p>
-  <p class="subtitle has-text-centered">Notícias, aparições online, entre outros</p>
-
-  <div class="news-container columns is-multiline">
-
-
-    <div *ngFor="let newsPiece of news;" class="column is-one-third news-card">
-      <app-news-card
-        title={{newsPiece.title}}
-        subtitle={{newsPiece.subtitle}}
-        link={{newsPiece.link}}
-        image={{newsPiece.image}}
-        logo={{newsPiece.logo}}
-        description={{newsPiece.description}}
-        time={{newsPiece.time}}
-      ></app-news-card>
-    </div>
-
+  <div *ngFor="let newsPiece of news;" class="column is-one-third news-card">
+    <app-news-card
+      title={{newsPiece.title}}
+      subtitle={{newsPiece.subtitle}}
+      link={{newsPiece.link}}
+      image={{newsPiece.image}}
+      logo={{newsPiece.logo}}
+      description={{newsPiece.description}}
+      time={{newsPiece.time}}
+    ></app-news-card>
   </div>
-</section>
+
+</div>

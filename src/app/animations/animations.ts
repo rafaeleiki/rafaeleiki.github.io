@@ -170,10 +170,16 @@ export const slideRightProfessional = [
 export const slideInOutAnimation =
   trigger('routeAnimations', [
     transition('Home => *', slideLeftHome),
+    transition('Media => Home', slideRightAcademic),
+    transition('Media => Academic', slideLeftAcademic),
+    transition('Media => Projects', slideLeftAcademic),
+    transition('Media => Professional', slideLeftAcademic),
     transition('Academic => Home', slideRightAcademic),
+    transition('Academic => Media', slideRightAcademic),
     transition('Academic => Projects', slideLeftAcademic),
     transition('Academic => Professional', slideLeftAcademic),
     transition('Projects => Home', slideRightProjects),
+    transition('Projects => Media', slideRightProjects),
     transition('Projects => Academic', slideRightProjects),
     transition('Projects => Professional', slideLeftProjects),
     transition('Professional => *', slideRightProfessional),

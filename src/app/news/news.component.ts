@@ -14,10 +14,10 @@ export class NewsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.news = NEWS;
+    this.news = [...NEWS];
 
     if (this.limit && this.limit > 0) {
-      this.news = NEWS.splice(0, this.limit);
+      this.news = this.news.splice(0, this.limit);
     }
   }
 
