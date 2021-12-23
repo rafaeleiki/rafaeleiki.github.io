@@ -4,17 +4,17 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Rafael Eiki</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Rafael Eiki
         </h1>
 
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          Full-stack Software Engineer, EdTech Researcher, Entrepreneur
         </p>
 
         <div className="grid">
@@ -61,6 +61,8 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-image: url(images/bg.png);
+          color: #fff;
         }
 
         main {
