@@ -27,13 +27,11 @@ export default function Home(props) {
             src="/images/rafael-full.webp"
             layout="fill"
             objectFit="cover"
-            width={1000}
-            height={1500}
           />
         </div>
 
         <div className="column p-6 title-column">
-          <h1 className="is-size-1 block">
+          <h1 className="is-size-1 block title">
             Rafael Eiki
           </h1>
 
@@ -41,8 +39,9 @@ export default function Home(props) {
           <p className="is-size-4 block">Pesquisador de EdTech</p>
           <p className="is-size-4 block">Empreendedor</p>
 
-          <div className="column-footer">
-            sadsad
+          <div className="column-footer pb-3">
+            <span>R.Eiki - 2021</span>
+            
             <style jsx>{`
               .column-footer {
                 position: absolute;

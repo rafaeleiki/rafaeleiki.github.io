@@ -1,10 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
+
+:root {
+  --font-family: 'Licorice', cursive;
+}
+
 .home-hero {
   min-height: 100vh;
   margin-top: 0;
 }
 
+.title {
+  font-family: var(--font-family);
+  color: #2b4231;
+}
+
 .cover-column {
   max-height: 100vh;
+  max-width: 600px;
   position: relative;
 }
 
@@ -41,6 +53,10 @@
 
   .home-hero > .column:first-child {
     display: none;
+  }
+
+  .title {
+    color: #9ae7ae;
   }
 
   .title-column {
