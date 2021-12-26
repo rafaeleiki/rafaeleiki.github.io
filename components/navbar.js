@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useIntl } from "react-intl";
 
 export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
+
+  const { formatMessage: f } = useIntl();
   
   return (
     <nav class="navbar is-transparent is-fixed-top pl-4">
@@ -35,7 +38,7 @@ export default function Navbar() {
               height={28}
               className="p-1"
             />
-            GitHub
+            { f({ id: 'navbar.github' }) }
           </a>
           <a class="navbar-item" href="https://www.linkedin.com/in/rafaelimamura/" target="_blank">
             <Image
@@ -44,7 +47,7 @@ export default function Navbar() {
               height={28}
               className="p-1"
             />
-            LinkedIn
+            { f({ id: 'navbar.linkedin' }) }
           </a>
         </div>
       </div>
