@@ -1,7 +1,191 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+const TEXT_COLUMN = 1;
+const IMAGE_COLUMN = 2;
+
+function Grid({title, grid}) {
+  return (
+    <div>
+      {
+        grid.map((columns, i) => (
+          <div className="section columns">
+            { columns.map((column) => 
+                column.type === TEXT_COLUMN 
+                ? (<div className="column text-column">
+                    { i === 0 && 
+                      (<h1 className="title is-size-1 block">{title}</h1>) 
+                    }
+                    { column.experiences.map(experience => (
+                      <article class="media">
+                        <figure class="media-left">
+                          <p class="image is-64x64">
+                            <Image
+                              src={experience.companyLogoSrc}
+                              width={64}
+                              height={64}
+                            />
+                          </p>
+                        </figure>
+                        <div class="media-content">
+                          <div class="content">
+                            <p>
+                              <strong>{ experience.title }</strong>{' '}
+                              <small className="is-inline-block">@{ experience.company }</small>{'  '} 
+                              <small className="is-inline-block">{ experience.time }</small>
+                              <br />
+                              { experience.description }
+                            </p>
+                          </div>
+                        </div>
+                      </article>
+                    )) }
+                  </div>)
+                : (
+                    <div className="column image-column">
+                      <Image
+                        src={column.imageSrc}
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition={column.objectPosition}
+                      />
+                    </div>
+                  )
+              ) 
+            }
+          </div>    
+        ))
+      }
+    </div>
+  );
+}
+
 export default function Developer() {
+
+  const experienceGrid = [
+    [
+      {
+        type: TEXT_COLUMN,
+        experiences: [
+          {
+            title: 'Engenheiro de Software Senior',
+            company: 'Lift Ventures',
+            time: 'Jan/2021-Presente',
+            description: 'Desenvolvedor Full-Stack, trabalhando com Ruby on Rails e React.',
+            companyLogoSrc: '/images/lift-ventures.webp',
+          },
+          {
+            title: 'Engenheiro de Software III',
+            company: 'QuintoAndar',
+            time: 'Abr/2021-Dez/2021',
+            description: 'Desenvolvedor Full-Stack, trabalhando com Java (Spring, Hibernate) e React.',
+            companyLogoSrc: '/images/quintoandar.webp',
+          },
+          {
+            title: 'Cofundador',
+            company: 'Vivros',
+            time: 'Jan/2018-Mar/2021',
+            description: 'Co-fundador da Vivros, uma startup de livros interativos no papel e no app. Além de responsabilidades de negócio, fiz parte do desenvolvimento do site (Ruby on Rails, React) e do aplicativo Android (Java, Kotlin).',
+            companyLogoSrc: '/images/vivros.gif',
+          }
+        ]
+      },
+      {
+        type: IMAGE_COLUMN,
+        imageSrc: '/images/cm20-abertura.webp',
+        objectPosition: 'top',
+      },
+    ],
+    [
+      {
+        type: IMAGE_COLUMN,
+        imageSrc: '/images/microsoft-internship.webp',
+        objectPosition: 'center',
+      },
+      {
+        type: TEXT_COLUMN,
+        experiences: [
+          {
+            title: 'Estágio de Inverno - Engenheiro Back-end',
+            company: 'Microsoft',
+            time: 'Dez/2018-Mar/2019',
+            description: 'Estágio no Business Application Group desenvolvendo uma feature para ajudar publicadores parceiros e clientes do Dynamics 365 em uma estrutura backend complexa usando C#.',
+            companyLogoSrc: '/images/microsoft.webp',
+          },
+          {
+            title: 'Líder Técnico de Engenharia - Full-stack',
+            company: 'Instituto Cientista Beta',
+            time: 'Fev/2018-Dez/2018',
+            description: 'Desenvolvimento das plataformas virtuais do Decola Beta e Mapa das Feiras, impactando o programa com mais de 100 jovens, mentores e mentores parceiros. Coordenação de uma equipe de 3 engenheiros. Projetos desenvolvidos usando Ruby on Rails e JavaScript.',
+            companyLogoSrc: '/images/cientista-beta.webp',
+          },
+        ]
+      },
+    ],
+    [
+      {
+        type: TEXT_COLUMN,
+        experiences: [
+          {
+            title: 'P&D de Iniciação Científica',
+            company: 'Unicamp',
+            time: 'Nov/2016-Jun/2019',
+            description: 'Além das responsabilidades de pesquisa, atuei no desenvolvimento (principalmente web, JavaScript, AR.js) de tecnologias para suporte à minha pesquisa e as do laboratório de pesquisa LInterHAD. Mais detalhes da parte de pesquisa aqui.',
+            companyLogoSrc: '/images/unicamp.webp',
+          },
+          {
+            title: 'Desenvolvedor Full-Stack Jr.',
+            company: 'PlayKids (Movile)',
+            time: 'Nov/2015-Jun/2016',
+            description: 'Desenvolvimento do CMS da equipe do PlayKids, com 6 milhões de usuários ativos por mês em mais de 25 países. Tecnologias: Ruby on Rails, jQuery, Spring (Java).',
+            companyLogoSrc: '/images/playkids.webp',
+          },
+          {
+            title: 'Estagiário de Desenvolvimento Full-stack',
+            company: 'PlayKids (Movile)',
+            time: 'Jan/2015-Out/2015',
+            description: 'Co-fundador da Vivros, uma startup de livros interativos no papel e no app. Além de responsabilidades de negócio, fiz parte do desenvolvimento do site (Ruby on Rails, React) e do aplicativo Android (Java, Kotlin).',
+            companyLogoSrc: '/images/playkids.webp',
+          }
+        ]
+      },
+      {
+        type: IMAGE_COLUMN,
+        imageSrc: '/images/ihc2019.webp',
+        objectPosition: 'center',
+      },
+    ],
+  ];
+
+  const educationGrid = [
+    [
+      {
+        type: IMAGE_COLUMN,
+        imageSrc: '/images/fb-hack.webp',
+        objectPosition: 'center',
+      },
+      {
+        type: TEXT_COLUMN,
+        experiences: [
+          {
+            title: 'Bacharel em Ciência da Computação',
+            company: 'UNICAMP',
+            time: 'Fev/2015-Dez/2019',
+            description: 'Bacharel em Ciência da Computação, certificado em Sistemas de Informação, formado na Universidade Estadual de Campinas (UNICAMP) em 2019. Foco de pesquisa em Interação Humano-Computador e tecnologias para educação, orientado por Cecília Baranauskas, referência mundial na área. Ganhador do prêmio "Melhor Iniciação Científica 2018" do Instituto de Computação da UNICAMP.',
+            companyLogoSrc: '/images/unicamp.webp',
+          },
+          {
+            title: 'Técnico em Informática',
+            company: 'COTUCA',
+            time: 'Fev/2012-Nov/2015',
+            description: 'Técnico em Informática com ênfase em tecnologia para educação no Trabalho de Conclusão de Curso.',
+            companyLogoSrc: '/images/cotuca.webp',
+          },
+        ]
+      },
+    ]
+  ];
+
   return (
     <main className="navbar-padded-contrainer container">
       <div className="block px-5 py-6">
@@ -13,175 +197,9 @@ export default function Developer() {
         </nav>
       </div>
 
-      <div className="section is-medium columns">
-        <div className="column text-column">
-          <h1 className="title is-size-1 block">
-            Experiências
-          </h1>
-          
-          <div className="block">
-            <div className="block">
-              <h3 className="is-size-5 title">Engenheiro de Software Senior</h3>
-              <h4 className="is-size-6 subtitle">Lift Ventures - Jan/2021 - Presente</h4>
-            </div>
-            <p className="block">
-              Desenvolvedor Full-Stack, trabalhando com Ruby on Rails e React.
-            </p>
-            <hr />
-          </div>
+      { <Grid title="Experiências" grid={experienceGrid} /> }
 
-          <div className="block">
-            <div className="block">
-              <h3 className="is-size-5 title">Engenheiro de Software III</h3>
-              <h4 className="is-size-6 subtitle">QuintoAndar - Abr/2021 - Dez/2021</h4>
-            </div>
-            <p className="block">
-              Desenvolvedor Full-Stack, trabalhando com Java (Spring, Hibernate) e React.
-            </p>
-            <hr />
-          </div>
-
-          <div className="block">
-            <div className="block">
-              <h3 className="is-size-5 title">Cofundador</h3>
-              <h4 className="is-size-6 subtitle">Vivros - Jan/2018 - Mar/2021</h4>
-            </div>
-            <p className="block">
-              Co-fundador da Vivros, uma startup de livros interativos no papel e no app. Além de responsabilidades
-              de negócio, fiz parte do desenvolvimento do site (Ruby on Rails, React) e do aplicativo Android (Java, Kotlin).
-            </p>
-          </div>
-        </div>
-
-        <div className="column image-column">
-          <Image
-            src="/images/cm20-abertura.webp"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      </div>
-
-      <div className="section is-medium columns">
-        <div className="column image-column">
-          <Image
-            src="/images/microsoft-internship.webp"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-
-        <div className="column text-column">
-          
-          <div className="block">
-            <div className="block">
-              <h3 className="is-size-5 title">Estágio de Inverno - Engenheiro Back-end</h3>
-              <h4 className="is-size-6 subtitle">Microsoft - Dez/2018 - Mar/2019</h4>
-            </div>
-            <p className="block">
-              Estágio no Business Application Group desenvolvendo uma feature para ajudar publicadores parceiros e clientes do Dynamics 365 em uma estrutura backend complexa usando C#.
-            </p>
-            <hr />
-          </div>
-
-          <div className="block">
-            <div className="block">
-              <h3 className="is-size-5 title">Líder Técnico de Engenharia - Full-stack</h3>
-              <h4 className="is-size-6 subtitle">Instituto Cientista Beta - Fev/2018 - Dez/2018</h4>
-            </div>
-            <p className="block">
-              Desenvolvimento das plataformas virtuais do Decola Beta e Mapa das Feiras, impactando o programa com mais de 100 jovens, mentores e mentores parceiros. Coordenação de uma equipe de 3 engenheiros. Projetos desenvolvidos usando Ruby on Rails e JavaScript.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-      <div className="section is-medium columns">
-        <div className="column text-column">
-          
-          <div className="block">
-            <div className="block">
-              <h3 className="is-size-5 title">P&D de Iniciação Científica</h3>
-              <h4 className="is-size-6 subtitle">Unicamp - Nov/2016 - Jun/2019</h4>
-            </div>
-            <p className="block">
-              Além das responsabilidades de pesquisa, atuei no desenvolvimento (principalmente web, JavaScript, AR.js) 
-                de tecnologias para suporte à minha pesquisa e as do laboratório de pesquisa LInterHAD.
-                Mais detalhes da parte de pesquisa aqui.
-            </p>
-            <hr />
-          </div>
-
-          <div className="block">
-            <div className="block">
-              <h3 className="is-size-5 title">Desenvolvedor Full-Stack Jr.</h3>
-              <h4 className="is-size-6 subtitle">PlayKids - Nov/2015 - Jun/2016</h4>
-            </div>
-            <p className="block">
-              Desenvolvimento do CMS da equipe do PlayKids, com 6 milhões de usuários ativos por mês em mais de 25 países.
-                Tecnologias: Ruby on Rails, jQuery, Spring (Java).
-            </p>
-          </div>
-          
-
-          <div className="block">
-            <div className="block">
-              <h3 className="is-size-5 title">Estagiário de Desenvolvimento Full-stack</h3>
-              <h4 className="is-size-6 subtitle">PlayKids - Jan/2015 - Out/2015</h4>
-            </div>
-            <p className="block">
-              Desenvolvimento do CMS da equipe do PlayKids, com 6 milhões de usuários ativos por mês em mais de 25 países.
-                Tecnologias: Ruby on Rails, jQuery, Spring (Java).
-            </p>
-          </div>
-        </div>
-
-        <div className="column image-column">
-          <Image
-            src="/images/ihc2019.webp"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      </div>
-
-      <div className="section is-medium columns">
-      <div className="column image-column">
-          <Image
-            src="/images/fb-hack.webp"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-
-        <div className="column text-column">
-          <h1 className="title is-size-1 block">
-            Formação
-          </h1>
-          
-          <div className="block">
-            <div className="block">
-              <h3 className="title is-size-5">Bacharel em Ciência da Computação</h3>
-              <h4 className="is-size-6 subtitle">Unicamp - 2015 a 2019</h4>
-            </div>
-            <p className="block">
-              Bacharel em Ciência da Computação, certificado em Sistemas de Informação, formado na UNICAMP em 2019. Foco de pesquisa em Interação Humano-Computador e tecnologias para educação, orientado por Cecília Baranauskas, referência mundial na área. Ganhador do prêmio "Melhor Iniciação Científica 2018" do Instituto de Computação da UNICAMP.
-            </p>
-            <hr />
-          </div>
-
-          <div className="block">
-            <div className="block">
-              <h3 className="title is-size-5">Técnico em Informática</h3>
-              <h4 className="is-size-6 subtitle">COTUCA (Unicamp) - 2012 a 2015</h4>
-            </div>
-            <p className="block">
-              Técnico em Informática com ênfase em tecnologia para educação no Trabalho de Conclusão de Curso.
-            </p>
-          </div>
-        </div>
-      </div>
+      { <Grid title="Formação" grid={educationGrid} /> }
 
     </main>
   );
