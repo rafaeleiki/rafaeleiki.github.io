@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
+
+:root {
+  --font-family: 'Licorice', cursive;
+  --navbar-height: 52px;
+}
+
+.navbar { opacity: 0; animation: fadeInTop 0.6s ease-in-out 1.5s forwards; }
+
+.navbar-padded-container {
+  padding: var(--navbar-height);
+}
+
+.title {
+  color: #2b4231;
+}
+
+h1.title {
+  font-family: var(--font-family);
+}
+
+.text-column {
+  padding-left: 3rem;
+  padding-right: 1.5rem;
+  opacity: 0;
+  animation: fadeInLeft 0.6s ease-in-out forwards 0.7s;
+}
+
+.image-column {
+  min-height: 200px;
+  position: relative;
+  opacity: 0;
+  animation: fadeInLeft 0.6s ease-in-out forwards;
+}
+
+.text-column + .image-column {
+  animation: fadeInRight 0.6s ease-in-out forwards;
+}
+
+.image-column + .text-column {
+  animation: fadeInRight 0.6s ease-in-out forwards 0.7s;
+}
+
+@keyframes fadeInTop {
+  0%   { opacity: 0; transform: translateY(-100%); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+  0%   { opacity: 0; transform: translateX(20%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInLeft {
+  0%   { opacity: 0; transform: translateX(-100%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@media screen and (max-width: 768px) {
+  .text-column {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

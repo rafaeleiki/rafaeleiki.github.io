@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -7,13 +8,15 @@ export default function Navbar() {
   return (
     <nav class="navbar is-transparent is-fixed-top pl-4">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          <Image
-            src="/images/logo-new.webp"
-            width={73}
-            height={44}
-          />
-        </a>
+        <Link href="/">
+          <a class="navbar-item">
+            <Image
+              src="/images/logo-new.webp"
+              width={73}
+              height={44}
+            />
+          </a>
+        </Link>
         <div 
           className="navbar-burger" 
           onClick={() => setOpen(!isOpen)}>

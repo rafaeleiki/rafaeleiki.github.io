@@ -1,17 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
-
-:root {
-  --font-family: 'Licorice', cursive;
-}
-
 .home-hero {
   min-height: 100vh;
   margin-top: 0;
-}
-
-.title {
-  font-family: var(--font-family);
-  color: #2b4231;
 }
 
 .cover-column {
@@ -26,7 +15,6 @@
   justify-content: center;
 }
 
-.navbar { opacity: 0; animation: fadeInTop 0.6s ease-in-out 2.4s forwards; }
 .cover-column { animation: fadeInLeft 1s ease-in-out; }
 .title-column > * { opacity: 0; animation: fadeInRight 0.6s ease-in-out forwards; }
 .title-column > *:nth-child(1) { animation-delay: 0.8s; }
@@ -34,28 +22,13 @@
 .title-column > *:nth-child(3) { animation-delay: 1.4s; }
 .title-column > *:nth-child(4) { animation-delay: 1.7s; }
 
-@keyframes fadeInTop {
-  0%   { opacity: 0; transform: translateY(-100%); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInRight {
-  0%   { opacity: 0; transform: translateX(20%); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeInLeft {
-  0%   { opacity: 0; transform: translateX(-100%); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
 @media only screen and (max-width: 768px) {
 
   .home-hero > .column:first-child {
     display: none;
   }
 
-  .title {
+  .home-hero .title {
     color: #9ae7ae;
   }
 
