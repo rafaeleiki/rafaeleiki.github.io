@@ -23,6 +23,9 @@ h1.title {
   padding-left: 3rem;
   padding-right: 1.5rem;
   opacity: 0;
+}
+
+.columns.show .text-column {
   animation: fadeInLeft 0.6s ease-in-out forwards 0.7s;
 }
 
@@ -30,14 +33,17 @@ h1.title {
   min-height: 200px;
   position: relative;
   opacity: 0;
+}
+
+.columns.show .image-column {
   animation: fadeInLeft 0.6s ease-in-out forwards;
 }
 
-.text-column + .image-column {
+.columns.show .text-column + .image-column {
   animation: fadeInRight 0.6s ease-in-out forwards;
 }
 
-.image-column + .text-column {
+.columns.show .image-column + .text-column {
   animation: fadeInRight 0.6s ease-in-out forwards 0.7s;
 }
 

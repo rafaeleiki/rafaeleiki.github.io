@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import {
@@ -8,15 +9,44 @@ import {
   EDUCATION_GRID,
 } from './_constants';
 
-function Grid({title, grid}) {
+const intersectionOptions = {
+  threshold: 0.2,
+};
+
+function Grid({title, initialGrid}) {
+  const [grid, setGrid] = useState(initialGrid);
+  const containerRef = useRef(null);
+
   const { formatMessage } = useIntl();
   const fCompany = (company, id) => formatMessage({ id: `experiences.${company}.${id}` });
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+
+      if (entry.isIntersecting) {
+        const { index } = entry.target.dataset;
+
+        const newGrid = [...grid];
+        newGrid[index].show = true;
+
+        setGrid(newGrid);
+        observer.unobserve(entry.target);
+      }
+    }, intersectionOptions);
+
+    if (containerRef.current) {
+      containerRef.current.querySelectorAll('.section.columns:not(.show)').forEach((e) => observer.observe(e));
+    }
+
+    return () => observer.disconnect();
+  }, [containerRef, grid]);
+
   return (
-    <div>
+    <div ref={containerRef}>
       {
-        grid.map((columns, i) => (
-          <div className="section columns">
+        grid.map(({ show, columns }, i) => (
+          <div key={i} data-index={i} className={`section columns ${ show ? 'show' : '' }`}>
             { columns.map((column) => 
                 column.type === TEXT_COLUMN 
                 ? (<div className="column text-column">
@@ -24,9 +54,9 @@ function Grid({title, grid}) {
                       (<h1 className="title is-size-1 block">{title}</h1>) 
                     }
                     { column.experiences.map(({ company, imageSrc }) => (
-                      <article class="media">
-                        <figure class="media-left">
-                          <p class="image is-64x64">
+                      <article className="media">
+                        <figure className="media-left">
+                          <p className="image is-64x64">
                             <Image
                               src={imageSrc}
                               width={64}
@@ -34,8 +64,8 @@ function Grid({title, grid}) {
                             />
                           </p>
                         </figure>
-                        <div class="media-content">
-                          <div class="content">
+                        <div className="media-content">
+                          <div className="content">
                             <p>
                               <strong>{ fCompany(company, 'title') }</strong>{' '}
                               <small className="is-inline-block">@{ fCompany(company, 'company') }</small>{'  '} 
@@ -82,9 +112,9 @@ export default function Developer() {
         </nav>
       </div>
 
-      { <Grid title={f({ id: 'experiences.title' })} grid={EXPERIENCE_GRID} /> }
+      { <Grid title={f({ id: 'experiences.title' })} initialGrid={EXPERIENCE_GRID} key="experiences-section" /> }
 
-      { <Grid title={f({ id: 'education.title' })} grid={EDUCATION_GRID} /> }
+      { <Grid title={f({ id: 'education.title' })} initialGrid={EDUCATION_GRID} key="education-section" /> }
 
     </main>
   );
