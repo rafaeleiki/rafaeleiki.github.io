@@ -2,6 +2,7 @@ export const pt = {
     'shared': {
         'navbar.github': 'GitHub',
         'navbar.linkedin': 'LinkedIn',
+        'navbar.showOtherLanguage' : 'In English',
     },
 
     '/': {
@@ -9,7 +10,7 @@ export const pt = {
         'developer': 'Desenvolvedor Full-Stack',
         'researcher': 'Pesquisador de EdTech',
         'entrepreneur': 'Empreendedor',
-        'footer': 'R. Eiki - 2021',
+        'footer': 'R. Eiki - 2022',
     },
 
     '/developer': {
@@ -19,7 +20,7 @@ export const pt = {
 
         'experiences.liftventures.title': 'Engenheiro de Software Senior',
         'experiences.liftventures.company': 'Lift Ventures',
-        'experiences.liftventures.time': 'Jan/2021-Presente',
+        'experiences.liftventures.time': 'Jan/2022-Presente',
         'experiences.liftventures.description': 'Desenvolvedor Full-Stack, trabalhando com Ruby on Rails e React.',
         
         'experiences.quintoandar.title': 'Engenheiro de Software III',

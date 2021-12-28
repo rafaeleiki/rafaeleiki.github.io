@@ -1,18 +1,25 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import { useIntl } from "react-intl";
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from "next/router";
 
 export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
 
+  const router = useRouter();
+  const { locale } = router;
+
   const { formatMessage: f } = useIntl();
+
+  const otherLocale = locale === 'pt' ? 'en' : 'pt'; 
   
   return (
-    <nav class="navbar is-transparent is-fixed-top pl-4">
-      <div class="navbar-brand">
+    <nav className="navbar is-transparent is-fixed-top pl-4">
+      <div className="navbar-brand">
         <Link href="/">
-          <a class="navbar-item">
+          <a className="navbar-item">
             <Image
               src="/images/logo-new.webp"
               width={73}
@@ -31,7 +38,7 @@ export default function Navbar() {
 
       <div className={`navbar-menu ${ isOpen && 'is-active' }`}>
         <div className="navbar-end">
-          <a class="navbar-item" href="https://github.com/rafaeleiki" target="_blank">
+          <a className="navbar-item is-flex" href="https://github.com/rafaeleiki" target="_blank">
             <Image 
               src="/images/icons/github.svg" 
               width={28}
@@ -40,7 +47,7 @@ export default function Navbar() {
             />
             { f({ id: 'navbar.github' }) }
           </a>
-          <a class="navbar-item" href="https://www.linkedin.com/in/rafaelimamura/" target="_blank">
+          <a className="navbar-item is-flex" href="https://www.linkedin.com/in/rafaelimamura/" target="_blank">
             <Image
               src="/images/icons/linkedin.svg"
               width={28}
@@ -49,6 +56,11 @@ export default function Navbar() {
             />
             { f({ id: 'navbar.linkedin' }) }
           </a>
+
+          <Link href="#" locale={otherLocale}>
+            <a className="navbar-item">{ f({ id: 'navbar.showOtherLanguage' })}</a>
+          </Link>
+          
         </div>
       </div>
 
