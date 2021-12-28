@@ -10,21 +10,21 @@ export const EXPERIENCE_GRID = [
         experiences: [
           {
             company: 'liftventures',
-            imageSrc: '/images/lift-ventures.webp',
+            imageSrc: '/images/icons/lift-ventures.webp',
           },
           {
             company: 'quintoandar',
-            imageSrc: '/images/quintoandar.webp',
+            imageSrc: '/images/icons/quintoandar.webp',
           },
           {
             company: 'vivros',
-            imageSrc: '/images/vivros.gif',
+            imageSrc: '/images/icons/vivros.gif',
           },
         ],
       },
       {
         type: IMAGE_COLUMN,
-        imageSrc: '/images/cm20-abertura.webp',
+        imageSrc: '/images/experiences/cm20-abertura.webp',
         objectPosition: 'top',
       },
     ],
@@ -34,7 +34,7 @@ export const EXPERIENCE_GRID = [
     columns: [
       {
         type: IMAGE_COLUMN,
-        imageSrc: '/images/microsoft-internship.webp',
+        imageSrc: '/images/experiences/microsoft-internship.webp',
         objectPosition: 'center',
       },
       {
@@ -42,11 +42,11 @@ export const EXPERIENCE_GRID = [
         experiences: [
           {
             company: 'microsoft',
-            imageSrc: '/images/microsoft.webp',
+            imageSrc: '/images/icons/microsoft.webp',
           },
           {
             company: 'cientistabeta',
-            imageSrc: '/images/cientista-beta.webp',
+            imageSrc: '/images/icons/cientista-beta.webp',
           },
         ]
       },
@@ -60,21 +60,21 @@ export const EXPERIENCE_GRID = [
         experiences: [
           {
             company: 'unicamp',
-            imageSrc: '/images/unicamp.webp',
+            imageSrc: '/images/icons/unicamp.webp',
           },
           {
             company: 'playkids-ft',
-            imageSrc: '/images/playkids.webp',
+            imageSrc: '/images/icons/playkids.webp',
           },
           {
             company: 'playkids-intern',
-            imageSrc: '/images/playkids.webp',
+            imageSrc: '/images/icons/playkids.webp',
           }
         ]
       },
       {
         type: IMAGE_COLUMN,
-        imageSrc: '/images/ihc2019.webp',
+        imageSrc: '/images/experiences/ihc2019.webp',
         objectPosition: 'center',
       },
     ],
@@ -87,7 +87,7 @@ export const EDUCATION_GRID = [
     columns: [
       {
         type: IMAGE_COLUMN,
-        imageSrc: '/images/fb-hack.webp',
+        imageSrc: '/images/experiences/fb-hack.webp',
         objectPosition: 'center',
       },
       {
@@ -95,11 +95,11 @@ export const EDUCATION_GRID = [
         experiences: [
           {
             company: 'ed-unicamp',
-            imageSrc: '/images/unicamp.webp',
+            imageSrc: '/images/icons/unicamp.webp',
           },
           {
             company: 'ed-cotuca',
-            imageSrc: '/images/cotuca.webp',
+            imageSrc: '/images/icons/cotuca.webp',
           },
         ]
       },

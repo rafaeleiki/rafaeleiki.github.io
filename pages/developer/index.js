@@ -47,14 +47,14 @@ function Grid({title, initialGrid}) {
       {
         grid.map(({ show, columns }, i) => (
           <div key={i} data-index={i} className={`section columns ${ show ? 'show' : '' }`}>
-            { columns.map((column) => 
+            { columns.map((column, i) => 
                 column.type === TEXT_COLUMN 
-                ? (<div className="column text-column">
+                ? (<div className="column text-column" key={i}>
                     { i === 0 && 
                       (<h1 className="title is-size-1 block">{title}</h1>) 
                     }
-                    { column.experiences.map(({ company, imageSrc }) => (
-                      <article className="media">
+                    { column.experiences.map(({ company, imageSrc }, i) => (
+                      <article className="media" key={i}>
                         <figure className="media-left">
                           <p className="image is-64x64">
                             <Image
@@ -79,7 +79,7 @@ function Grid({title, initialGrid}) {
                     )) }
                   </div>)
                 : (
-                    <div className="column image-column">
+                    <div className="column image-column" key={i}>
                       <Image
                         src={column.imageSrc}
                         layout="fill"

@@ -17,6 +17,7 @@ export default function Home(props) {
           src="/images/rafael-full.webp"
           layout="fill"
           objectFit="cover"
+          priority
         />
       </div>
 
