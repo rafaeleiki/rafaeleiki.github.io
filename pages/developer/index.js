@@ -106,7 +106,7 @@ export default function Developer() {
       <div className="block px-5 py-6">
         <nav className="breadcrumb mt-6" aria-label="breadcrumbs">
           <ul>
-            <li><Link href="/"><a href="#">Home</a></Link></li>
+            <li><Link href="/"><a href="#">{ f({ id: 'navbar.home' }) }</a></Link></li>
             <li className="is-active"><a href="#" aria-current="page">{ f({ id: 'title' }) }</a></li>
           </ul>
         </nav>

@@ -38,6 +38,10 @@ export default function Navbar() {
 
       <div className={`navbar-menu ${ isOpen && 'is-active' }`}>
         <div className="navbar-end">
+        <Link href="/">
+            <a className="navbar-item">{ f({ id: 'navbar.home' })}</a>
+          </Link>
+
           <a className="navbar-item is-flex" href="https://github.com/rafaeleiki" target="_blank">
             <Image 
               src="/images/icons/github.svg" 

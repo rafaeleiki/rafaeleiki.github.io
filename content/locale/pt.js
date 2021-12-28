@@ -1,5 +1,6 @@
 export const pt = {
     'shared': {
+        'navbar.home': 'Início',
         'navbar.github': 'GitHub',
         'navbar.linkedin': 'LinkedIn',
         'navbar.showOtherLanguage' : 'In English',
