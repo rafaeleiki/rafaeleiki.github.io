@@ -22,7 +22,7 @@ export default function Home(props) {
       </div>
 
       <div className="column p-6 title-column">
-        <h1 className="is-size-1 block title">{ f({ id: 'name' }) }</h1>
+        <h1 className="is-size-1 block special title">{ f({ id: 'name' }) }</h1>
 
         <p className="is-size-4 block"><Link href="/developer">{ f({ id: 'developer' }) }</Link></p>
         <p className="is-size-4 block"><Link href="/researcher">{ f({ id: 'researcher' }) }</Link></p>

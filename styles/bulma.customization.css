@@ -31,7 +31,13 @@ h1.title {
   color: var(--accent-color);
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 1024px) {
+  .breadcrumb {
+    padding-left: 4em;
+  }
+}
+
+@media (max-width: 768px) {
 
   .navbar-menu {
     background-color: transparent;
@@ -50,4 +56,13 @@ h1.title {
     color: #fff;
   }
 
+
+  .image.is-64x64 {
+    width: 24px;
+    height: 24px;
+  }
+
+  .breadcrumb {
+    padding-left: 1em;
+  }
 }

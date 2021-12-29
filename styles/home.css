@@ -3,6 +3,18 @@
   margin-top: 0;
 }
 
+.home-hero a::before {
+  content: '';
+  transition: all 0.4s ease-out;
+  opacity: 0;
+}
+
+.home-hero a:hover::before {
+  border-left: 1px solid var(--primary-color);
+  padding-right: 0.3em;
+  opacity: 1;
+}
+
 .cover-column {
   max-height: 100vh;
   max-width: 600px;
@@ -26,10 +38,6 @@
 
   .home-hero > .column:first-child {
     display: none;
-  }
-
-  .home-hero .title {
-    color: #9ae7ae;
   }
 
   .title-column {

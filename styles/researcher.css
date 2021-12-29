@@ -1,0 +1,29 @@
+.hero-level {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  width: 100%;
+}
+
+.hero-level .title {
+  color: var(--light-color);
+}
+
+.researcher-video {
+  width: 100%;
+  position: relative;
+  background-color: #000;
+  min-height: 400px;
+  opacity: 0;
+  border-radius: 0.5em;
+  filter: blur(1px) brightness(0.16);
+
+  animation: showHero 0.8s linear forwards 0.4s;
+}
+
+@keyframes showHero {
+  0%   { clip-path: circle(0); }
+  100% { clip-path: circle(100%); opacity: 1; }
+}

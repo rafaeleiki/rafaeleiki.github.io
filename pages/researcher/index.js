@@ -32,35 +32,41 @@ export default function ResearcherPage() {
 
       <section className="hero">
         <div className="hero-body">
-          <p className="title">{ f({ id: 'heroTitle'}) }</p>
-          <p className="subtitle">{ f({ id: 'heroSubtitle'}) }</p>
+          <div className="is-relative">
+            <video loop muted autoPlay className="researcher-video">
+              <source src="/images/research/devy.webm" />
+            </video>
 
-          <nav className="level">
-            <div className="level-item has-text-centered">
-              <div>
-                <p className="heading">{ f({ id: 'papers' }) }</p>
-                <p className="title">4</p>
-              </div>
+            <div className="hero-level">
+              <nav className="level">
+                <div className="level-item has-text-centered">
+                  <div>
+                    <p className="heading">{ f({ id: 'papers' }) }</p>
+                    <p className="title">4</p>
+                  </div>
+                </div>
+                <div className="level-item has-text-centered">
+                  <div>
+                    <p className="heading">{ f({ id: 'advisored' }) }</p>
+                    <p className="title">22</p>
+                  </div>
+                </div>
+                <div className="level-item has-text-centered">
+                  <div>
+                    <p className="heading">{ f({ id: 'directAwards' }) }</p>
+                    <p className="title">19</p>
+                  </div>
+                </div>
+                <div className="level-item has-text-centered">
+                  <div>
+                    <p className="heading">{ f({ id: 'studentAwards' }) }</p>
+                    <p className="title">+20</p>
+                  </div>
+                </div>
+              </nav>
             </div>
-            <div className="level-item has-text-centered">
-              <div>
-                <p className="heading">{ f({ id: 'advisored' }) }</p>
-                <p className="title">22</p>
-              </div>
-            </div>
-            <div className="level-item has-text-centered">
-              <div>
-                <p className="heading">{ f({ id: 'directAwards' }) }</p>
-                <p className="title">19</p>
-              </div>
-            </div>
-            <div className="level-item has-text-centered">
-              <div>
-                <p className="heading">{ f({ id: 'studentAwards' }) }</p>
-                <p className="title">+20</p>
-              </div>
-            </div>
-          </nav>
+            
+          </div>
 
         </div>
       </section>

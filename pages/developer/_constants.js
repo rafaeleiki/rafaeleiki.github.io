@@ -2,7 +2,7 @@ import { TEXT_COLUMN, IMAGE_COLUMN } from "../../components/grid";
 
 export const EXPERIENCE_GRID = [
   {
-    show: false,
+    show: true,
     columns: [
       {
         type: TEXT_COLUMN,
@@ -34,7 +34,7 @@ export const EXPERIENCE_GRID = [
       {
         type: IMAGE_COLUMN,
         imageSrc: '/images/experiences/microsoft-internship.webp',
-        objectPosition: 'center',
+        objectPosition: '70% center',
       },
       {
         type: TEXT_COLUMN,
@@ -74,7 +74,7 @@ export const EXPERIENCE_GRID = [
       {
         type: IMAGE_COLUMN,
         imageSrc: '/images/experiences/ihc2019.webp',
-        objectPosition: 'center',
+        objectPosition: 'right center',
       },
     ],
   }

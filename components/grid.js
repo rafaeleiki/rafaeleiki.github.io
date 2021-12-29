@@ -47,7 +47,7 @@ export default function Grid({initialGrid, messagesPrefix}) {
                 column.type === TEXT_COLUMN 
                 ? (<div className="column text-column" key={columnIndex}>
                     { sectionIndex === 0 && 
-                      (<h1 className="title is-size-1 block">{ f({ id: `${messagesPrefix}.title` }) }</h1>) 
+                      (<h1 className="special title is-size-1 block">{ f({ id: `${messagesPrefix}.title` }) }</h1>) 
                     }
                     { column.experiences.map(({ company, imageSrc }, experienceIndex) => (
                       <article className="media" key={experienceIndex}>
@@ -64,9 +64,9 @@ export default function Grid({initialGrid, messagesPrefix}) {
                           <div className="content">
                             <p>
                               <strong>{ fCompany(company, 'title') }</strong>{' '}
-                              <small className="is-inline-block">@{ fCompany(company, 'company') }</small>{'  '} 
-                              <small className="is-inline-block">{ fCompany(company, 'time') }</small>
-                              <br />
+                              <small className="is-block">
+                                @{ fCompany(company, 'company') }{'  '}{ fCompany(company, 'time') }
+                              </small>
                               { fCompany(company, 'description') }
                             </p>
                           </div>
