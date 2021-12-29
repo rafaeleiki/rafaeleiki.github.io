@@ -1,5 +1,4 @@
-export const TEXT_COLUMN = 1;
-export const IMAGE_COLUMN = 2;
+import { TEXT_COLUMN, IMAGE_COLUMN } from "../../components/grid";
 
 export const EXPERIENCE_GRID = [
   {

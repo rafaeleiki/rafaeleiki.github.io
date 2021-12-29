@@ -59,14 +59,30 @@ export const en = {
         'experiences.playkids-intern.time': 'Jan/2015-Out/2015',
         'experiences.playkids-intern.description': 'Development of the CMS of PlayKids, an app with 6 million active users per month in over 25 countries. Technologies: Ruby on Rails, jQuery, Spring (Java).',
 
-        'experiences.ed-unicamp.title': 'Bachelor of Computer Science',
-        'experiences.ed-unicamp.company': 'UNICAMP',
-        'experiences.ed-unicamp.time': 'Feb/2015-Dec/2019',
-        'experiences.ed-unicamp.description': 'Bachelor of Computer Science, certifier in Information Systems, graduated at the State University of Campinas (UNICAMP) em 2019. Researh focus in Human-Computer Interaction and EdTech, advisored by Cecília Baranauskas, global reference in the area. Winner of the "Best Undergraduate Research 2018" of the Computing Institute.',
+        'education.ed-unicamp.title': 'Bachelor of Computer Science',
+        'education.ed-unicamp.company': 'UNICAMP',
+        'education.ed-unicamp.time': 'Feb/2015-Dec/2019',
+        'education.ed-unicamp.description': 'Bachelor of Computer Science, certifier in Information Systems, graduated at the State University of Campinas (UNICAMP) em 2019. Researh focus in Human-Computer Interaction and EdTech, advisored by Cecília Baranauskas, global reference in the area. Winner of the "Best Undergraduate Research 2018" of the Computing Institute.',
 
-        'experiences.ed-cotuca.title': 'Software Development Technician',
-        'experiences.ed-cotuca.company': 'COTUCA',
-        'experiences.ed-cotuca.time': 'Feb/2012-Nov/2015',
-        'experiences.ed-cotuca.description': 'Software Development Technician course, focusing in EdTech in my Course Final Project.',
+        'education.ed-cotuca.title': 'Software Development Technician',
+        'education.ed-cotuca.company': 'COTUCA',
+        'education.ed-cotuca.time': 'Feb/2012-Nov/2015',
+        'education.ed-cotuca.description': 'Software Development Technician course, focusing in EdTech in my Course Final Project.',
     },
+
+    '/researcher': {
+        'title': 'EdTech Researcher',
+
+        'tabs.papers': 'Papers',
+        'tabs.awards': 'Awards',
+        'tabs.advising': 'Advising',
+        'tabs.initiatives': 'Initiatives',
+
+        'heroTitle': 'Human-Computer Interaction and Educational Tecnhnologies Researcher',
+        'heroSubtitle': 'Focused in reading and writing technologies',
+        'papers': 'Papers',
+        'advisored': 'Advisee',
+        'directAwards': 'Awards',
+        'studentAwards': 'Advised project awards',
+    }
 };

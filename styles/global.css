@@ -23,12 +23,25 @@ body {
   padding: var(--navbar-height);
 }
 
+main.container {
+  min-height: 100vh;
+}
+
 .title {
   color: #2b4231;
 }
 
 h1.title {
   font-family: var(--font-family);
+}
+
+.breadcrumb {
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-in-out forwards;
 }
 
 .text-column {
@@ -71,9 +84,9 @@ h1.title {
   animation: fadeInRight 0.6s ease-in-out forwards 0.7s;
 }
 
-@keyframes fadeInBackground {
-  0% { background-position-x: calc(100% + var(--background-image-size)); }
-  100% { background-position-x: calc(100% + var(--background-image-size) / 2); }
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @keyframes fadeInTop {

@@ -59,14 +59,30 @@ export const pt = {
         'experiences.playkids-intern.time': 'Jan/2015-Out/2015',
         'experiences.playkids-intern.description': 'Desenvolvimento do CMS da equipe do PlayKids, com 6 milhões de usuários ativos por mês em mais de 25 países. Tecnologias: Ruby on Rails, jQuery, Spring (Java).',
 
-        'experiences.ed-unicamp.title': 'Bacharel em Ciência da Computação',
-        'experiences.ed-unicamp.company': 'UNICAMP',
-        'experiences.ed-unicamp.time': 'Fev/2015-Dez/2019',
-        'experiences.ed-unicamp.description': 'Bacharel em Ciência da Computação, certificado em Sistemas de Informação, formado na Universidade Estadual de Campinas (UNICAMP) em 2019. Foco de pesquisa em Interação Humano-Computador e tecnologias para educação, orientado por Cecília Baranauskas, referência mundial na área. Ganhador do prêmio "Melhor Iniciação Científica 2018" do Instituto de Computação da UNICAMP.',
+        'education.ed-unicamp.title': 'Bacharel em Ciência da Computação',
+        'education.ed-unicamp.company': 'UNICAMP',
+        'education.ed-unicamp.time': 'Fev/2015-Dez/2019',
+        'education.ed-unicamp.description': 'Bacharel em Ciência da Computação, certificado em Sistemas de Informação, formado na Universidade Estadual de Campinas (UNICAMP) em 2019. Foco de pesquisa em Interação Humano-Computador e tecnologias para educação, orientado por Cecília Baranauskas, referência mundial na área. Ganhador do prêmio "Melhor Iniciação Científica 2018" do Instituto de Computação da UNICAMP.',
 
-        'experiences.ed-cotuca.title': 'Técnico em Informática',
-        'experiences.ed-cotuca.company': 'COTUCA',
-        'experiences.ed-cotuca.time': 'Fev/2012-Nov/2015',
-        'experiences.ed-cotuca.description': 'Técnico em Informática com ênfase em tecnologia para educação no Trabalho de Conclusão de Curso.',
+        'education.ed-cotuca.title': 'Técnico em Informática',
+        'education.ed-cotuca.company': 'COTUCA',
+        'education.ed-cotuca.time': 'Fev/2012-Nov/2015',
+        'education.ed-cotuca.description': 'Técnico em Informática com ênfase em tecnologia para educação no Trabalho de Conclusão de Curso.',
     },
+
+    '/researcher': {
+        'title': 'Pesquisador EdTech',
+
+        'tabs.papers': 'Artigos',
+        'tabs.awards': 'Prêmios',
+        'tabs.advising': 'Orientações',
+        'tabs.initiatives': 'Iniciativas', 
+
+        'heroTitle': 'Pesquisador de Interação Humano-Computador e Tecnologias Educacionais',
+        'heroSubtitle': 'Foco em tecnologias que envolvem leitura e escrita',
+        'papers': 'Artigos',
+        'advisored': 'Orientados',
+        'directAwards': 'Prêmios diretos',
+        'studentAwards': 'Prêmios (orientados)',
+    }
 };
