@@ -8,10 +8,10 @@ import { useRouter } from "next/router";
 export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
 
+  const { formatMessage: f } = useIntl();
+
   const router = useRouter();
   const { locale } = router;
-
-  const { formatMessage: f } = useIntl();
 
   const otherLocale = locale === 'pt' ? 'en' : 'pt'; 
   
@@ -67,13 +67,6 @@ export default function Navbar() {
           
         </div>
       </div>
-
-      <style >{`
-        .navbar {
-          background: linear-gradient(45deg, #2b2523d6, #0f0c0b4f);
-          font-weight: bold;
-        }
-      `}</style>
     </nav>
     );
   };
