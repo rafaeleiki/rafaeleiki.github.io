@@ -11,6 +11,7 @@
   --visited-color: #5d6945;
   --dark-color: #081600;
   --dark-lighter-color: #4C4637;
+  --block-gradient: linear-gradient(45deg, #2b2523d6, #043c32dc);
 }
 
 body {
@@ -90,13 +91,16 @@ a:visited { color: var(--visited-color); }
 .column-footer {
   position: absolute !important;
   bottom: 0;
-  display: grid;
-  gap: 1em;
-  grid-template-areas: '1 1 1';
 }
 
-.column-footer img {
-  filter: invert(42%) sepia(.6) saturate(8) hue-rotate(40deg) brightness(1) contrast(1.4);
+.column-footer .footer {
+  background: transparent !important;
+  padding: 0;
+  color: var(--dark-color);
+}
+
+.column-footer .footer a {
+  color: var(--dark-color);
 }
 
 @keyframes fadeIn {
@@ -132,5 +136,14 @@ a:visited { color: var(--visited-color); }
 
   .special.title {
     font-size: 3em !important;
+  }
+
+  .column-footer .footer, .column-footer .footer a {
+    color: var(--light-color);
+  }
+
+  .column-footer .footer .content {
+    gap: 1em;
+    flex-direction: row;
   }
 }

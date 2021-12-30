@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useIntl } from "react-intl";
+import Footer from "../components/footer";
 
 export default function Home(props) {
   const router = useRouter();
@@ -29,26 +30,7 @@ export default function Home(props) {
         <p className="main-link is-size-4 block">{ f({ id: 'entrepreneur' }) }</p>
 
         <div className="column-footer pb-3">
-          <span className="">{ f({ id: 'footer' }) }</span>
-
-          <a className=" is-flex" href="https://github.com/rafaeleiki" target="_blank">
-            <Image 
-              src="/images/icons/github.svg" 
-              width={28}
-              height={28}
-              className="p-1 testeste"
-            />
-            { f({ id: 'footer.github' }) }
-          </a>
-          <a className="is-flex" href="https://www.linkedin.com/in/rafaelimamura/" target="_blank">
-            <Image
-              src="/images/icons/linkedin.svg"
-              width={28}
-              height={28}
-              className="p-1 testeste"
-            />
-            { f({ id: 'footer.linkedin' }) }
-          </a>
+          <Footer />
         </div>
       </div>
     </main>

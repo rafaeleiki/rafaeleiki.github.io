@@ -3,6 +3,7 @@ export const pt = {
         'navbar.home': 'Início',
         'navbar.showOtherLanguage' : 'In English',
 
+        'footer.title': 'R. Eiki - 2022',
         'footer.github': 'GitHub',
         'footer.linkedin': 'LinkedIn',
     },
