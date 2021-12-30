@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { render } from "react-dom";
 import { useIntl } from "react-intl";
 import Breadcrumb from "../../components/breadcrumb";
+import PapersTab from "./_papers";
 
 const tabs = [
   {
     id: 'papers',
-    render: () => <div>papers</div>
+    render: () => <PapersTab />
   },
   {
     id: 'awards',

@@ -84,7 +84,19 @@ a:visited { color: var(--visited-color); }
   font-size: 5em !important;
   background-clip: text;
   color: transparent;
-  padding: 0 0.2em 0 0.02em;
+  padding: 0 0.2em 0.02em 0.06em;
+}
+
+.column-footer {
+  position: absolute !important;
+  bottom: 0;
+  display: grid;
+  gap: 1em;
+  grid-template-areas: '1 1 1';
+}
+
+.column-footer img {
+  filter: invert(42%) sepia(.6) saturate(8) hue-rotate(40deg) brightness(1) contrast(1.4);
 }
 
 @keyframes fadeIn {

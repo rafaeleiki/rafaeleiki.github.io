@@ -1,9 +1,10 @@
 export const en = {
     'shared': {
         'navbar.home': 'Home',
-        'navbar.github': 'GitHub',
-        'navbar.linkedin': 'LinkedIn',
         'navbar.showOtherLanguage' : 'Em português',
+
+        'footer.github': 'GitHub',
+        'footer.linkedin': 'LinkedIn',
     },
 
     '/': {

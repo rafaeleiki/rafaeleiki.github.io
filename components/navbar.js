@@ -14,9 +14,11 @@ export default function Navbar() {
   const { locale } = router;
 
   const otherLocale = locale === 'pt' ? 'en' : 'pt'; 
+
+  const isActiveClass = isOpen ? 'is-active' : '';
   
   return (
-    <nav className="navbar is-transparent is-fixed-top pl-4">
+    <nav className="navbar is-fixed-top pl-4">
       <div className="navbar-brand">
         <Link href="/">
           <a className="navbar-item">
@@ -28,7 +30,7 @@ export default function Navbar() {
           </a>
         </Link>
         <div 
-          className="navbar-burger" 
+          className={`navbar-burger ${ isActiveClass }`}
           onClick={() => setOpen(!isOpen)}>
           <span></span>
           <span></span>
@@ -36,30 +38,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className={`navbar-menu ${ isOpen && 'is-active' }`}>
+      <div className={`navbar-menu ${ isActiveClass }`}>
         <div className="navbar-end">
         <Link href="/">
             <a className="navbar-item">{ f({ id: 'navbar.home' })}</a>
           </Link>
-
-          <a className="navbar-item is-flex" href="https://github.com/rafaeleiki" target="_blank">
-            <Image 
-              src="/images/icons/github.svg" 
-              width={28}
-              height={28}
-              className="p-1"
-            />
-            { f({ id: 'navbar.github' }) }
-          </a>
-          <a className="navbar-item is-flex" href="https://www.linkedin.com/in/rafaelimamura/" target="_blank">
-            <Image
-              src="/images/icons/linkedin.svg"
-              width={28}
-              height={28}
-              className="p-1"
-            />
-            { f({ id: 'navbar.linkedin' }) }
-          </a>
 
           <Link href="#" locale={otherLocale}>
             <a className="navbar-item">{ f({ id: 'navbar.showOtherLanguage' })}</a>
