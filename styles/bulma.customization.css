@@ -39,7 +39,7 @@ main.container {
   Title
   =====================================
 */
-.title {
+.title, strong {
   color: var(--primary-color);
 }
 

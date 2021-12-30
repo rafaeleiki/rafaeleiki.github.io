@@ -42,7 +42,7 @@ export default function Grid({initialGrid, messagesPrefix}) {
     <div ref={containerRef}>
       {
         grid.map(({ show, columns }, sectionIndex) => (
-          <div key={sectionIndex} data-index={sectionIndex} className={`section columns ${ show ? 'show' : '' }`}>
+          <div key={sectionIndex} data-index={sectionIndex} className={`section columns grid ${ show ? 'show' : '' }`}>
             { columns.map((column, columnIndex) => 
                 column.type === TEXT_COLUMN 
                 ? (<div className="column text-column" key={columnIndex}>
