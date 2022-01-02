@@ -15,16 +15,16 @@ export default function DeveloperPage() {
 
       <Breadcrumb />
 
-      { <Grid 
+      { <Grid
           messagesPrefix="experiences"
-          initialGrid={EXPERIENCE_GRID} 
-          key="experiences-section" 
+          initialGrid={EXPERIENCE_GRID}
+          key="experiences-section"
         /> }
 
-      { <Grid 
+      { <Grid
           messagesPrefix="education"
-          initialGrid={EDUCATION_GRID} 
-          key="education-section" 
+          initialGrid={EDUCATION_GRID}
+          key="education-section"
         /> }
 
       </main>

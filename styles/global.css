@@ -16,7 +16,7 @@
   --visited-color: #5d6945;
   --dark-color: #081600;
   --dark-lighter-color: #4C4637;
-  --block-gradient: linear-gradient(45deg, #2b2523d6, #043c32dc);
+  --block-gradient: linear-gradient(45deg, #0c1f1ad6, #043c32dc);
 }
 
 /*
@@ -51,7 +51,7 @@ a:visited { color: var(--visited-color); }
   font-size: 5em !important;
   background-clip: text;
   color: transparent;
-  padding: 0 0.2em 0.02em 0.06em;
+  padding: 0 0.2em 0.06em 0.06em;
 }
 
 /*
@@ -89,10 +89,6 @@ a:visited { color: var(--visited-color); }
   opacity: 0;
 }
 
-.columns.show .text-column {
-  animation: fadeInLeft 0.6s ease-in-out forwards 0.7s;
-}
-
 .image-column > span {
   border-radius: 0.5em;
 }
@@ -109,16 +105,44 @@ a:visited { color: var(--visited-color); }
   transform: scale(1.06) rotate(2deg);
 }
 
-.columns.show .image-column {
-  animation: fadeInLeft 0.6s ease-in-out forwards;
+.columns.show .column {
+  animation-name: fadeInLeft;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
-.columns.show .text-column + .image-column {
-  animation: fadeInRight 0.6s ease-in-out forwards;
+.columns.show .column + .column {
+  animation-name: fadeInRight;
 }
 
-.columns.show .image-column + .text-column {
-  animation: fadeInRight 0.6s ease-in-out forwards 0.7s;
+.columns.show .text-column {
+  animation-delay: 0.7s;
+}
+
+.columns.show .text-column + .text-column {
+  animation-delay: 1.2s;
+}
+
+/*
+  =====================================
+  Grid components
+  =====================================
+*/
+.grid-media details {
+  padding-top: 1em;
+}
+
+.grid-media details > summary {
+  list-style: none;
+  color: var(--accent-color);
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.grid-media details[open] > summary {
+  display: none;
 }
 
 /*
@@ -185,19 +209,20 @@ a:visited { color: var(--visited-color); }
   }
 
   .columns.grid {
-    grid-template-areas: 
+    grid-template-areas:
       "first"
       "second";
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
 
-  .columns.grid .image-column { 
+  .columns.grid.has-image .image-column {
     grid-area: first !important;
-    max-height: 300px;
+    height: min(40vh, 400px);
   }
 
-  .columns.grid .text-column  { 
+  .columns.grid.columns.grid.has-image .text-column {
     grid-area: second !important;
   }
+
 }

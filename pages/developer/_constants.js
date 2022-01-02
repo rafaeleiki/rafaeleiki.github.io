@@ -1,22 +1,30 @@
 import { TEXT_COLUMN, IMAGE_COLUMN } from "../../components/grid";
 
+const createExperience = (name) => ({
+  title: `${name}.title`,
+  subtitle: `${name}.company`,
+  time: `${name}.time`,
+  description: `${name}.description`,
+});
+
 export const EXPERIENCE_GRID = [
   {
     show: true,
     columns: [
       {
         type: TEXT_COLUMN,
+        title: 'experiences.title',
         experiences: [
           {
-            company: 'liftventures',
+            ...createExperience('experiences.liftventures'),
             imageSrc: '/images/icons/lift-ventures.webp',
           },
           {
-            company: 'quintoandar',
+            ...createExperience('experiences.quintoandar'),
             imageSrc: '/images/icons/quintoandar.webp',
           },
           {
-            company: 'vivros',
+            ...createExperience('experiences.vivros'),
             imageSrc: '/images/icons/vivros.gif',
           },
         ],
@@ -25,6 +33,7 @@ export const EXPERIENCE_GRID = [
         type: IMAGE_COLUMN,
         imageSrc: '/images/experiences/cm20-abertura.webp',
         objectPosition: 'top',
+        priority: true,
       },
     ],
   },
@@ -35,16 +44,17 @@ export const EXPERIENCE_GRID = [
         type: IMAGE_COLUMN,
         imageSrc: '/images/experiences/microsoft-internship.webp',
         objectPosition: '70% center',
+        priority: true,
       },
       {
         type: TEXT_COLUMN,
         experiences: [
           {
-            company: 'microsoft',
+            ...createExperience('experiences.microsoft'),
             imageSrc: '/images/icons/microsoft.webp',
           },
           {
-            company: 'cientistabeta',
+            ...createExperience('experiences.cientistabeta'),
             imageSrc: '/images/icons/cientista-beta.webp',
           },
         ]
@@ -58,15 +68,15 @@ export const EXPERIENCE_GRID = [
         type: TEXT_COLUMN,
         experiences: [
           {
-            company: 'unicamp',
+            ...createExperience('experiences.unicamp'),
             imageSrc: '/images/icons/unicamp.webp',
           },
           {
-            company: 'playkids-ft',
+            ...createExperience('experiences.playkids-ft'),
             imageSrc: '/images/icons/playkids.webp',
           },
           {
-            company: 'playkids-intern',
+            ...createExperience('experiences.playkids-intern'),
             imageSrc: '/images/icons/playkids.webp',
           }
         ]
@@ -91,13 +101,14 @@ export const EDUCATION_GRID = [
       },
       {
         type: TEXT_COLUMN,
+        title: 'education.title',
         experiences: [
           {
-            company: 'ed-unicamp',
+            ...createExperience('education.ed-unicamp'),
             imageSrc: '/images/icons/unicamp.webp',
           },
           {
-            company: 'ed-cotuca',
+            ...createExperience('education.ed-cotuca'),
             imageSrc: '/images/icons/cotuca.webp',
           },
         ]

@@ -1,11 +1,16 @@
 export const en = {
     'shared': {
+        // Navbar ===================================
         'navbar.home': 'Home',
         'navbar.showOtherLanguage' : 'Em português',
 
+        // Footer ===================================
         'footer.title': 'R. Eiki - 2022',
         'footer.github': 'GitHub',
         'footer.linkedin': 'LinkedIn',
+
+        // Grid Media ===============================
+        'grid-media.more': 'See more'
     },
 
     '/': {
@@ -25,7 +30,7 @@ export const en = {
         'experiences.liftventures.company': 'Lift Ventures',
         'experiences.liftventures.time': 'Jan/2022-Present',
         'experiences.liftventures.description': 'Full-Stack Developer, working with Ruby on Rails and React.',
-        
+
         'experiences.quintoandar.title': 'Software Engineer III',
         'experiences.quintoandar.company': 'QuintoAndar',
         'experiences.quintoandar.time': 'Apr/2021-Dec/2021',
@@ -75,16 +80,63 @@ export const en = {
     '/researcher': {
         'title': 'EdTech Researcher',
 
-        'tabs.papers': 'Papers',
-        'tabs.awards': 'Awards',
-        'tabs.advising': 'Advising',
-        'tabs.initiatives': 'Initiatives',
+        // Papers section ===========================
+        'papers.title': 'Papers',
 
-        'heroTitle': 'Human-Computer Interaction and Educational Tecnhnologies Researcher',
-        'heroSubtitle': 'Focused in reading and writing technologies',
-        'papers': 'Papers',
-        'advisored': 'Advisee',
-        'directAwards': 'Awards',
-        'studentAwards': 'Advised project awards',
+        'papers.1.title': 'A framework for socio-enactive educational systems: linking learning, design, and technology',
+        'papers.1.conference': 'IHC \'19 Proceedings of the 18th Brazilian Symposium on Human Factors in Computing Systems',
+        'papers.1.time': 'Out 2019',
+        'papers.1.description': 'Enactive interfaces are information systems which are guided by action and interaction with the whole body and senses. Enactive systems are a challenging type of system to develop due to the multimodal human-technology coupling. Socio-enactive systems are an extension of this concept, bringing attention to socio-cultural values in the dynamic coupling of human and technology. While socio-enactive systems are promising for learning purposes, different aspects of the environment can impact the development of these systems in an educational context. This paper presents a framework to develop such systems, named Socio-Enactive Educational System Framework (SEES Framework). The framework is based on Human-Computer Interaction and learning theories and is illustrated with a case study conducted with people of different ages. Results of the case study show that the process and use of the framework might be an alternative for the design of collaborative learning tools that allow students to express their individual values, and the framework has the potential to increase the likelihood to implement successfully such systems.',
+
+        'papers.2.title': 'Reading as a Collaborative Construction: supporting the design of physico-virtual environments',
+        'papers.2.conference': 'Nuevas Ideas en Informática Educativa, Volumen 1 - Full paper presented in the International Conference in Educational Informatics 2018',
+        'papers.2.time': 'Nov 2018',
+        'papers.2.description': 'Collaborative reading and hypertext allow readers to have an active role through their points of view and interests in the text. The active interaction in the reading of these texts brings cognitive advantages, since it changes interpretation of its contents. Although we find literature research on this type of reading, we do not find forms of hypertexts created to favor collaborative reading in richer interaction. Thus, this work proposes a framework for the construction of systems with the concept of Collaborative Reading in the Physico-Virtual environment (CRPV). This framework is based on Organizational Semiotics artifacts, the structure of hypertexts and the concept of enaction. In this work, text structures of this model and corresponding multimodal interfaces were created. The CRPV scenarios implement the interactions with contemporary technologies, including augmented reality, seeking to achieve the concept of an enactive and socio-enactive system. One of these scenarios has already been tested and the initial experiment showed engagement and high motivation of participants in the activity. This research has the potential to contribute to the creation of new spaces and reading processes through multimodal interfaces studies, offering highly dynamic interactions in environments that can be built at low cost.',
+
+        'papers.3.title': 'Sistemas socioenativos para leitura colaborativa: construção técnica, pedagógica e de design',
+        'papers.3.conference': 'WTD IC Unicamp',
+        'papers.3.time': 'Nov 2018',
+        'papers.3.description': 'Este artigo aborda a criação de um framework teórico e técnico para desenvolver sistemas socioenativos para educação, com a concepção de um sistema que implementa o conceito de leitura colaborativa com uso de tecnologias contemporâneas em um ambiente Físico-Virtual. Aspectos técnicos computacionais socioenativos e fatores pedagógicos foram envolvidos no processo de design. Em experimentos com diferentes grupos, a experiência de leitura colaborativa foi motivadora, integradora e criativa. Os frameworks criados foram derivados dos experimentos e de artefatos teóricos, trilhando caminhos para novos sistemas interativos usarem a socioenação na educação.',
+
+        'papers.4.title': 'Criando uma experiência de leitura colaborativa de histórias fictícias físico-virtuais com realidade aumentada',
+        'papers.4.conference': 'BRAZILIAN SYMPOSIUM ON COMPUTERS IN EDUCATION (SIMPÓSIO BRASILEIRO DE INFORMÁTICA NA EDUCAÇÃO - SBIE)',
+        'papers.4.time': 'Out 2018',
+        'papers.4.description': 'No contexto de sociedade da informação, as práticas de leitura tornam-se chaves para exercer cidadania. Em textos que geram discussão, essas habilidades são ainda mais necessárias e uma das práticas possíveis para facilitar o debate é a leitura colaborativa. Neste artigo, é apresentado um protótipo inicial para o conceito de Leitura Colaborativa no ambiente Físico-Virtual, levando a leitura colaborativa a uma aplicação web voltada para smartphones com uso de realidade aumentada. A experimentação de um cenário que usa o software foi de grande interesse dos participantes e pode servir como uma nova forma de estruturação de mídia para uso em diferentes contextos.',
+
+        // Advising section =========================
+        'advising.title': 'Advising',
+
+        'advising.unicamp.title': 'Maria C. C. Baranauskas',
+        'advising.unicamp.subtitle': 'UNICAMP - State University of Campinas',
+        'advising.unicamp.time': '2017-2019',
+        'advising.unicamp.description': 'Advisor of my undergraduate research abour Collaborative Reading in the Physico-Virtual environment (CRPV). The project was part of a thematic project by FAPESP about socioenactive systems. The project received a PIBIC scholarship, a FAPESP scholarship, an Alumni scholarship by the Computing Institute (CI) at UNICAMP, and had 4 papers published 4 artigos and award as Best Undergraduate Research by the CI-UNICAMP in 2018.',
+
+        'advising.cotuca.title': 'Andréia C. Souza, Cristine Megid',
+        'advising.cotuca.subtitle': 'COTUCA - Technical High School of UNICAMP',
+        'advising.cotuca.time': '2014-2016',
+        'advising.cotuca.description': 'They advisored the project Orientadoras do projeto "Yarner: Study of Technologies Inside Classrooms Focusing on Literacy with the Development of a Digital Web and Mobile Application". The project received over 20 awards in science fairs in Brazil and the USA, including awards given by organizations such as Intel, 3M, Organization of American States, Oracle, and GoDaddy.',
+
+        // Initiatives section ======================
+        'initiatives.title': 'Initiatives',
+
+        'initiatives.febrace.title': 'Moderator for the STEM category',
+        'initiatives.febrace.subtitle': 'FEBRACE',
+        'initiatives.febrace.time': '2021',
+        'initiatives.febrace.description': 'Moderator of the finalists\' presentations at the National Brazilian Science and Engineering Fair, being member of the organization of one of the biggest science fairs in Brazil.',
+
+        'initiatives.devy.title': 'Creator & Coordinator of the program',
+        'initiatives.devy.subtitle': 'DevY',
+        'initiatives.devy.time': '2017-2019',
+        'initiatives.devy.description': 'Mentorship program to advise young researchers. Classes of 2017 and 2018 had 12 projects in total. The projects received 20 awards, among them Intel Excelence in Computer Science and 2nd place in the largest science fair in Latin America, Mostratec.',
+
+        'initiatives.cientistabeta.title': 'Mentor & Developer',
+        'initiatives.cientistabeta.subtitle': 'Cientista Beta Institute',
+        'initiatives.cientistabeta.time': '2017-2018',
+        'initiatives.cientistabeta.description': 'Mentor in the Decola Beta Program and volunteer developer for the science programs of the NGO',
+
+        'initiatives.mostracotuca.title': 'Social Media Manager & Science Fair Judge',
+        'initiatives.mostracotuca.subtitle': 'Technical Courses Projects Fair',
+        'initiatives.mostracotuca.time': '2017',
+        'initiatives.mostracotuca.description': 'Responsible for comunication in social media for the tecnical-scientific fair.',
     }
 };

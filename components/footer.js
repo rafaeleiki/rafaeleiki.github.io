@@ -9,12 +9,12 @@ export default function Footer() {
   return (
     <footer className="footer">
 
-      <div class="content has-text-centered">
+      <div className="content has-text-centered">
         <span>{ f({ id: 'footer.title' }) }</span>
 
         <a href="https://github.com/rafaeleiki" target="_blank">
-          <Image 
-            src="/images/icons/github.svg" 
+          <Image
+            src="/images/icons/github.svg"
             width={28}
             height={28}
             className="p-1 testeste"
@@ -31,7 +31,7 @@ export default function Footer() {
           { f({ id: 'footer.linkedin' }) }
         </a>
       </div>
-      
+
     </footer>
   );
 };
