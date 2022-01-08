@@ -5,7 +5,7 @@ import Grid from '../../components/grid';
 import {
   EXPERIENCE_GRID,
   EDUCATION_GRID,
-} from './_constants';
+} from '../../components/page-constants/developer-constants';
 
 export default function DeveloperPage() {
 

@@ -3,7 +3,7 @@ import { useIntl } from "react-intl";
 import Breadcrumb from "../../components/breadcrumb";
 import Footer from "../../components/footer";
 import Grid from "../../components/grid";
-import { PAPERS_GRID } from "./_constants";
+import { PAPERS_GRID } from "../../components/page-constants/researcher-constants";
 
 export default function ResearcherPage() {
 
