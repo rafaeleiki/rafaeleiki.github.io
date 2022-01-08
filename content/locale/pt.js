@@ -2,6 +2,8 @@ export const pt = {
     'shared': {
         // Navbar ===================================
         'navbar.home': 'Início',
+        'navbar.developer': 'Desenvolvedor',
+        'navbar.researcher': 'Pesquisador',
         'navbar.showOtherLanguage' : 'In English',
 
         // Footer ===================================
@@ -104,7 +106,7 @@ export const pt = {
         'papers.4.description': 'No contexto de sociedade da informação, as práticas de leitura tornam-se chaves para exercer cidadania. Em textos que geram discussão, essas habilidades são ainda mais necessárias e uma das práticas possíveis para facilitar o debate é a leitura colaborativa. Neste artigo, é apresentado um protótipo inicial para o conceito de Leitura Colaborativa no ambiente Físico-Virtual, levando a leitura colaborativa a uma aplicação web voltada para smartphones com uso de realidade aumentada. A experimentação de um cenário que usa o software foi de grande interesse dos participantes e pode servir como uma nova forma de estruturação de mídia para uso em diferentes contextos.',
 
         // Advising section =========================
-        'advising.title': 'Orientações',
+        'advising.title': 'Orientadoras',
 
         'advising.unicamp.title': 'Maria C. C. Baranauskas',
         'advising.unicamp.subtitle': 'UNICAMP - Universidade Estadual de Campinas',

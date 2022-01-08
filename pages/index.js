@@ -27,7 +27,6 @@ export default function Home(props) {
 
         <p className="main-link is-size-4 block"><Link href="/developer">{ f({ id: 'developer' }) }</Link></p>
         <p className="main-link is-size-4 block"><Link href="/researcher">{ f({ id: 'researcher' }) }</Link></p>
-        <p className="main-link is-size-4 block">{ f({ id: 'entrepreneur' }) }</p>
 
         <div className="column-footer pb-3">
           <Footer />
