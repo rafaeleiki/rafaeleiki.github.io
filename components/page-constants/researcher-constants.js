@@ -1,4 +1,4 @@
-import { TEXT_COLUMN, IMAGE_COLUMN } from "../../components/grid";
+import { TEXT_COLUMN, IMAGE_COLUMN } from "../grid";
 
 export const PAPERS_GRID = [
   {
