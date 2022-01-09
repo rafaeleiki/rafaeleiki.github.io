@@ -8,7 +8,7 @@
     "compile:i18n": "formatjs compile-folder --ast --format simple content/locales content/compiled-locales",
     "i18n": "npm run extract:i18n && npm run compile:i18n",
     "export": "next export",
-    "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin master"
+    "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git push origin `git subtree split --prefix out layout-2021`:master --force"
   },
   "dependencies": {
     "bulma": "^0.9.3",
