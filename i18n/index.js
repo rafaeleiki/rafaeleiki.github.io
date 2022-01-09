@@ -1,5 +1,5 @@
-import en from './translations.en.json';
-import pt from './translations.pt.json';
+var en = require('./translations.en.json');
+var pt = require('./translations.pt.json');
 
 const i18n = {
   translations: {
