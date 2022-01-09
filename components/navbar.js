@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useIntl } from "react-intl";
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from "next/router";
+import { useLanguageQuery, LanguageSwitcher } from 'next-export-i18n';
+
+import useTranslation from './hooks/useTranslation';
+import Link from './link';
 
 export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
 
-  const { formatMessage: f } = useIntl();
+  const { fShared } = useTranslation();
+  const [query] = useLanguageQuery();
 
-  const router = useRouter();
-  const { locale } = router;
-
-  const otherLocale = locale === 'pt' ? 'en' : 'pt';
+  const otherLocale = query?.lang === 'pt' ? 'en' : 'pt';
 
   const isActiveClass = isOpen ? 'is-active' : '';
 
@@ -54,13 +53,13 @@ export default function Navbar() {
 
       <div className={`navbar-menu ${ isActiveClass }`}>
         <div className="navbar-end">
-          <Link href="/"><a className="navbar-item">{ f({ id: 'navbar.home' })}</a></Link>
-          <Link href="/developer"><a className="navbar-item">{ f({ id: 'navbar.developer' })}</a></Link>
-          <Link href="/researcher"><a className="navbar-item">{ f({ id: 'navbar.researcher' })}</a></Link>
+          <Link href="/"><a className="navbar-item">{ fShared('navbar.home')}</a></Link>
+          <Link href="/developer"><a className="navbar-item">{ fShared('navbar.developer')}</a></Link>
+          <Link href="/researcher"><a className="navbar-item">{ fShared('navbar.researcher')}</a></Link>
 
-          <Link href="#" locale={otherLocale}>
-            <a className="navbar-item">{ f({ id: 'navbar.showOtherLanguage' })}</a>
-          </Link>
+          <LanguageSwitcher lang={otherLocale}>
+            <a className="navbar-item">{ fShared('navbar.showOtherLanguage')}</a>
+          </LanguageSwitcher>
 
         </div>
       </div>

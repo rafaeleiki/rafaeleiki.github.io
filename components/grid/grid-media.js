@@ -1,9 +1,9 @@
-import { useIntl } from 'react-intl';
 import Image from 'next/image';
+import useTranslation from '../hooks/useTranslation';
 
-export default function GridMedia ({ title, subtitle, time, description, imageSrc, long }) {
+export default function GridMedia ({ prefix, title, subtitle, time, description, imageSrc, long }) {
 
-  const { formatMessage: f } = useIntl();
+  const { f, fShared } = useTranslation(prefix);
 
   return (
     <article className="media grid-media">
@@ -23,20 +23,20 @@ export default function GridMedia ({ title, subtitle, time, description, imageSr
       <div className="media-content">
         <div className="content">
           <p className='mb-1'>
-            <strong>{ f({ id: title }) }</strong>{' '}
+            <strong>{ f(title) }</strong>{' '}
             <small className="is-block">
-              { f({ id: subtitle }) }{'  '}{ f({ id: time }) }
+              { f(subtitle) }{'  '}{ f(time) }
             </small>
           </p>
           {
             long
             ? (
               <details>
-                <summary>{ f({ id: 'grid-media.more' }) }</summary>
-                { f({ id: description }) }
+                <summary>{ fShared('grid-media.more') }</summary>
+                { f(description) }
               </details>
             )
-            : <p className='mt-1'>{ f({ id: description }) }</p>
+            : <p className='mt-1'>{ f(description) }</p>
           }
         </div>
       </div>

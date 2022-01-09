@@ -1,0 +1,199 @@
+{
+    "i18n": {
+        "shared": {
+
+            "navbar": {
+                "home": "Início",
+                "developer": "Desenvolvedor",
+                "researcher": "Pesquisador",
+                "showOtherLanguage" : "In English"
+            },
+
+            "footer": {
+                "title": "R. Eiki - 2022",
+                "github": "GitHub",
+                "linkedin": "LinkedIn"
+            },
+
+            "grid-media": {
+                "more": "Ver mais"
+            }
+        },
+
+        "/": {
+            "name": "Rafael Eiki",
+            "developer": "Desenvolvedor Full-Stack",
+            "researcher": "Pesquisador de EdTech",
+            "entrepreneur": "Empreendedor",
+            "footer": "R. Eiki - 2022"
+        },
+
+        "/developer": {
+            "title": "Desenvolvedor Full-Stack",
+
+            "experiences": {
+                "title": "Experiências",
+
+                "liftventures": {
+                    "title": "Engenheiro de Software Senior",
+                    "company": "Lift Ventures",
+                    "time": "Jan/2022-Presente",
+                    "description": "Desenvolvedor Full-Stack, trabalhando com Ruby on Rails e React."
+                },
+
+                "quintoandar": {
+                    "title": "Engenheiro de Software III",
+                    "company": "QuintoAndar",
+                    "time": "Abr/2021-Dez/2021",
+                    "description": "Desenvolvedor Full-Stack, trabalhando com Java (Spring, Hibernate) e React."
+                },
+
+                "vivros": {
+                    "title": "Cofundador",
+                    "company": "Vivros",
+                    "time": "Jan/2018-Mar/2021",
+                    "description": "Co-fundador da Vivros, uma startup de livros interativos no papel e no app. Além de responsabilidades de negócio, fiz parte do desenvolvimento do site (Ruby on Rails, React) e do aplicativo Android (Java, Kotlin)."
+                },
+
+                "microsoft": {
+                    "title": "Estágio em Engenharia de Software",
+                    "company": "Microsoft",
+                    "time": "Dez/2018-Mar/2019",
+                    "description": "Estágio no Business Application Group desenvolvendo uma feature para ajudar publicadores parceiros e clientes do Dynamics 365 em uma estrutura backend complexa usando C#."
+                },
+
+                "cientistabeta": {
+                    "title": "Líder Técnico de Engenharia - Full-stack",
+                    "company": "Instituto Cientista Beta",
+                    "time": "Fev/2018-Dez/2018",
+                    "description": "Desenvolvimento das plataformas virtuais do Decola Beta e Mapa das Feiras, impactando o programa com mais de 100 jovens, mentores e mentores parceiros. Coordenação de uma equipe de 3 engenheiros. Projetos desenvolvidos usando Ruby on Rails e JavaScript."
+                },
+
+                "unicamp": {
+                    "title": "P&D de Iniciação Científica",
+                    "company": "Unicamp",
+                    "time": "Nov/2016-Jun/2019",
+                    "description": "Além das responsabilidades de pesquisa, atuei no desenvolvimento (principalmente web, JavaScript, AR.js) de tecnologias para suporte à minha pesquisa e as do laboratório de pesquisa LInterHAD."
+                },
+
+                "playkids-ft": {
+                    "title": "Desenvolvedor Full-Stack Jr.",
+                    "company": "PlayKids (Movile)",
+                    "time": "Nov/2015-Jun/2016",
+                    "description": "Desenvolvimento do CMS da equipe do PlayKids, com 6 milhões de usuários ativos por mês em mais de 25 países. Tecnologias: Ruby on Rails, jQuery, Spring (Java)."
+                },
+
+                "playkids-intern": {
+                    "title": "Estagiário de Desenvolvimento Full-stack",
+                    "company": "PlayKids (Movile)",
+                    "time": "Jan/2015-Out/2015",
+                    "description": "Desenvolvimento do CMS da equipe do PlayKids, com 6 milhões de usuários ativos por mês em mais de 25 países. Tecnologias: Ruby on Rails, jQuery, Spring (Java)."
+                }
+            },
+
+            "education": {
+                "title": "Formação",
+
+                "ed-unicamp": {
+                    "title": "Bacharel em Ciência da Computação",
+                    "company": "UNICAMP",
+                    "time": "Fev/2015-Dez/2019",
+                    "description": "Bacharel em Ciência da Computação, certificado em Sistemas de Informação, formado na Universidade Estadual de Campinas (UNICAMP) em 2019. Foco de pesquisa em Interação Humano-Computador e tecnologias para educação, orientado por Cecília Baranauskas, referência mundial na área. Ganhador do prêmio \"Melhor Iniciação Científica 2018\" do Instituto de Computação da UNICAMP."
+                },
+
+                "ed-cotuca": {
+                    "title": "Técnico em Informática",
+                    "company": "COTUCA",
+                    "time": "Fev/2012-Nov/2015",
+                    "description": "Técnico em Informática com ênfase em tecnologia para educação no Trabalho de Conclusão de Curso."
+                }
+            }
+        },
+
+        "/researcher": {
+            "title": "Pesquisador EdTech",
+
+            "papers": {
+                "title": "Artigos",
+
+                "1": {
+                    "title": "A framework for socio-enactive educational systems: linking learning, design, and technology",
+                    "conference": "IHC \"19 Proceedings of the 18th Brazilian Symposium on Human Factors in Computing Systems",
+                    "time": "Out 2019",
+                    "description": "Enactive interfaces are information systems which are guided by action and interaction with the whole body and senses. Enactive systems are a challenging type of system to develop due to the multimodal human-technology coupling. Socio-enactive systems are an extension of this concept, bringing attention to socio-cultural values in the dynamic coupling of human and technology. While socio-enactive systems are promising for learning purposes, different aspects of the environment can impact the development of these systems in an educational context. This paper presents a framework to develop such systems, named Socio-Enactive Educational System Framework (SEES Framework). The framework is based on Human-Computer Interaction and learning theories and is illustrated with a case study conducted with people of different ages. Results of the case study show that the process and use of the framework might be an alternative for the design of collaborative learning tools that allow students to express their individual values, and the framework has the potential to increase the likelihood to implement successfully such systems."
+                },
+
+                "2": {
+                    "title": "Reading as a Collaborative Construction: supporting the design of physico-virtual environments",
+                    "conference": "Nuevas Ideas en Informática Educativa, Volumen 1 - Full paper presented in the International Conference in Educational Informatics 2018",
+                    "time": "Nov 2018",
+                    "description": "Collaborative reading and hypertext allow readers to have an active role through their points of view and interests in the text. The active interaction in the reading of these texts brings cognitive advantages, since it changes interpretation of its contents. Although we find literature research on this type of reading, we do not find forms of hypertexts created to favor collaborative reading in richer interaction. Thus, this work proposes a framework for the construction of systems with the concept of Collaborative Reading in the Physico-Virtual environment (CRPV). This framework is based on Organizational Semiotics artifacts, the structure of hypertexts and the concept of enaction. In this work, text structures of this model and corresponding multimodal interfaces were created. The CRPV scenarios implement the interactions with contemporary technologies, including augmented reality, seeking to achieve the concept of an enactive and socio-enactive system. One of these scenarios has already been tested and the initial experiment showed engagement and high motivation of participants in the activity. This research has the potential to contribute to the creation of new spaces and reading processes through multimodal interfaces studies, offering highly dynamic interactions in environments that can be built at low cost."
+                },
+
+                "3": {
+                    "title": "Sistemas socioenativos para leitura colaborativa: construção técnica, pedagógica e de design",
+                    "conference": "WTD IC Unicamp",
+                    "time": "Nov 2018",
+                    "description": "Este artigo aborda a criação de um framework teórico e técnico para desenvolver sistemas socioenativos para educação, com a concepção de um sistema que implementa o conceito de leitura colaborativa com uso de tecnologias contemporâneas em um ambiente Físico-Virtual. Aspectos técnicos computacionais socioenativos e fatores pedagógicos foram envolvidos no processo de design. Em experimentos com diferentes grupos, a experiência de leitura colaborativa foi motivadora, integradora e criativa. Os frameworks criados foram derivados dos experimentos e de artefatos teóricos, trilhando caminhos para novos sistemas interativos usarem a socioenação na educação."
+                },
+
+                "4": {
+                    "title": "Criando uma experiência de leitura colaborativa de histórias fictícias físico-virtuais com realidade aumentada",
+                    "conference": "BRAZILIAN SYMPOSIUM ON COMPUTERS IN EDUCATION (SIMPÓSIO BRASILEIRO DE INFORMÁTICA NA EDUCAÇÃO - SBIE)",
+                    "time": "Out 2018",
+                    "description": "No contexto de sociedade da informação, as práticas de leitura tornam-se chaves para exercer cidadania. Em textos que geram discussão, essas habilidades são ainda mais necessárias e uma das práticas possíveis para facilitar o debate é a leitura colaborativa. Neste artigo, é apresentado um protótipo inicial para o conceito de Leitura Colaborativa no ambiente Físico-Virtual, levando a leitura colaborativa a uma aplicação web voltada para smartphones com uso de realidade aumentada. A experimentação de um cenário que usa o software foi de grande interesse dos participantes e pode servir como uma nova forma de estruturação de mídia para uso em diferentes contextos."
+                }
+            },
+
+            "advising": {
+                "title": "Orientadoras",
+
+                "unicamp": {
+                    "title": "Maria C. C. Baranauskas",
+                    "subtitle": "UNICAMP - Universidade Estadual de Campinas",
+                    "time": "2017-2019",
+                    "description": "Orientadora da pesquisa de iniciação científica sobre Leitura Colaborativa no ambiente Físico-Virtual (LCFV). O projeto fez parte do projeto temático da FAPESP sobre sistemas socioenativos. Rendeu uma bolsa PIBIC, uma bolsa FAPESP, uma bolsa Alumni do Instituto de Computação (IC) da UNICAMP, 4 artigos e prêmio de melhor Iniciação Científica do IC em 2018."
+                },
+
+                "cotuca": {
+                    "title": "Andréia C. Souza, Cristine Megid",
+                    "subtitle": "COTUCA - Colégio Técnico da Unicamp",
+                    "time": "2014-2016",
+                    "description": "Orientadoras do projeto \"Yarner - estudo da utilização de tecnologias em salas de aula a favor das práticas de letramento com plataforma de criação de livros digitais interativos\". O projeto recebeu mais de 20 prêmios em feiras de ciência no Brasil e nos Estados Unidos, incluindo prêmios de organizações como Intel, 3M, Organização dos Estados Americanos, Oracle e GoDaddy."
+                }
+            },
+
+            "initiatives": {
+                "title": "Iniciativas",
+
+                "febrace": {
+                    "title": "Moderador da Categoria Ciências Exatas e da Terra",
+                    "subtitle": "FEBRACE",
+                    "time": "2021",
+                    "description": "Moderador das apresentações dos finalistas na Feira Brasileira de Ciência e Engenharia, fazendo parte da organização de uma das maiores feiras de ciência do país."
+                },
+
+                "devy": {
+                    "title": "Criador & Coordenador do programa",
+                    "subtitle": "DevY",
+                    "time": "2017-2019",
+                    "description": "Programa de mentoria e orientação de pesquisadores jovens. Contou com duas turmas, tendo ao todo 12 projetos. Os projetos receberam 20 prêmios, entre os quais Intel Excelence in Computer Science e 2º lugar na maior feira de ciências da América Latina."
+                },
+
+                "cientistabeta": {
+                    "title": "Mentor & Desenvolvedor",
+                    "subtitle": "Instituto Cientista Beta",
+                    "time": "2017-2018",
+                    "description": "Mentor do programa Decola Beta e desenvolvedor voluntário para os programas de ciência da ONG."
+                },
+
+                "mostracotuca": {
+                    "title": "Comunicação em redes sociais & Avaliador",
+                    "subtitle": "Mostra de Trabalhos de Cursos Técnicos",
+                    "time": "2017",
+                    "description": "Responsável pela comunicação em redes sociais para a mostra científica-técnica."
+                }
+            }
+        }
+    }
+}

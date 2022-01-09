@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import Image from 'next/image';
 import GridMedia from './grid-media';
+import useTranslation from '../hooks/useTranslation';
 
 export const TEXT_COLUMN = 1;
 export const IMAGE_COLUMN = 2;
@@ -10,11 +11,11 @@ const intersectionOptions = {
   threshold: 0,
 };
 
-function GridTitle({ title }) {
-  const { formatMessage: f } = useIntl();
+function GridTitle({ title, prefix }) {
+  const { f } = useTranslation(prefix);
 
   return (
-    <h1 className="special title is-size-1 block fade-in">{ f({ id: title }) }</h1>
+    <h1 className="special title is-size-1 block fade-in">{ f(title) }</h1>
   );
 }
 
@@ -51,12 +52,12 @@ export default function Grid({initialGrid, messagesPrefix}) {
       {
         grid.map(({ show, title, columns }, sectionIndex) => (
           <div key={sectionIndex} className="section">
-            { title && <GridTitle title={title} /> }
+            { title && <GridTitle prefix={messagesPrefix} title={title} /> }
             <div className={`columns grid ${ show ? 'show' : '' } ${ hasImage(columns) ? 'has-image' : '' }`} data-index={sectionIndex}>
               { columns.map((column, columnIndex) =>
                   column.type === TEXT_COLUMN
                   ? (<div className="column text-column" key={columnIndex}>
-                      { column.title && <GridTitle title={column.title} /> }
+                      { column.title && <GridTitle prefix={messagesPrefix} title={column.title} /> }
                       { column.experiences.map((experienceItem, experienceIndex) => (
                           <GridMedia {...experienceItem} key={experienceIndex} prefix={messagesPrefix} />
                       )) }

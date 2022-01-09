@@ -1,8 +1,5 @@
-import { IntlProvider } from "react-intl";
-import { useRouter } from "next/router";
 import Head from 'next/head';
 
-import * as locales from "../content/locale";
 import Navbar from '../components/navbar';
 
 import 'bulma/css/bulma.min.css';
@@ -14,20 +11,8 @@ import '../styles/home.css';
 import '../styles/researcher.css';
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-  const { locale, defaultLocale, pathname } = router;
-  const localeCopy = locales[locale];
-  const messages = {
-    ...localeCopy['shared'],
-    ...localeCopy[pathname],
-  };
-
   return (
-    <IntlProvider
-      locale={locale}
-      defaultLocale={defaultLocale}
-      messages={messages}
-    >
+    <>
       <Head>
         <title>Rafael Eiki</title>
         <link rel="icon" href="/favicon.ico" />
@@ -36,7 +21,7 @@ function MyApp({ Component, pageProps }) {
       <Navbar />
 
       <Component {...pageProps} />
-    </IntlProvider>
+    </>
   );
 }
 

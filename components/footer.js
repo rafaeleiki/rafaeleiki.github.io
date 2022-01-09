@@ -1,16 +1,17 @@
 import Image from 'next/image';
 
 import { useIntl } from "react-intl";
+import useTranslation from './hooks/useTranslation';
 
 export default function Footer() {
 
-  const { formatMessage: f } = useIntl();
+  const { fShared } = useTranslation();
 
   return (
     <footer className="footer">
 
       <div className="content has-text-centered">
-        <span>{ f({ id: 'footer.title' }) }</span>
+        <span>{ fShared('footer.title') }</span>
 
         <a href="https://github.com/rafaeleiki" target="_blank">
           <Image
@@ -19,7 +20,7 @@ export default function Footer() {
             height={28}
             className="p-1 testeste"
           />
-          { f({ id: 'footer.github' }) }
+          { fShared('footer.github') }
         </a>
         <a href="https://www.linkedin.com/in/rafaelimamura/" target="_blank">
           <Image
@@ -28,7 +29,7 @@ export default function Footer() {
             height={28}
             className="p-1 testeste"
           />
-          { f({ id: 'footer.linkedin' }) }
+          { fShared('footer.linkedin') }
         </a>
       </div>
 

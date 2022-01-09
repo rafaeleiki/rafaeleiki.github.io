@@ -13,16 +13,16 @@ export default function DeveloperPage() {
     <>
       <main className="navbar-padded-container container">
 
-      <Breadcrumb />
+      <Breadcrumb messagePrefix="/developer" />
 
       { <Grid
-          messagesPrefix="experiences"
+          messagesPrefix="/developer"
           initialGrid={EXPERIENCE_GRID}
           key="experiences-section"
         /> }
 
       { <Grid
-          messagesPrefix="education"
+          messagesPrefix="/developer"
           initialGrid={EDUCATION_GRID}
           key="education-section"
         /> }
