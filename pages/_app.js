@@ -12,6 +12,8 @@ import '../styles/bulma.customization.css';
 import '../styles/home.css';
 import '../styles/researcher.css';
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 

@@ -1,6 +1,7 @@
 import Breadcrumb from '../../components/breadcrumb';
 import Footer from '../../components/footer';
 import Grid from '../../components/grid';
+import Layout from '../../components/layout';
 
 import {
   EXPERIENCE_GRID,
@@ -10,11 +11,7 @@ import {
 export default function DeveloperPage() {
 
   return (
-    <>
-      <main className="navbar-padded-container container">
-
-      <Breadcrumb messagePrefix="/developer" />
-
+    <Layout page="developer">
       { <Grid
           messagesPrefix="/developer"
           initialGrid={EXPERIENCE_GRID}
@@ -26,9 +23,6 @@ export default function DeveloperPage() {
           initialGrid={EDUCATION_GRID}
           key="education-section"
         /> }
-
-      </main>
-      <Footer />
-    </>
+    </Layout>
   );
 }
