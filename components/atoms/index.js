@@ -1,0 +1,1 @@
+export { default as RectImage } from './rect-image';

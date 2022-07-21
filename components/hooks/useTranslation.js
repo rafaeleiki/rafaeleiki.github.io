@@ -1,11 +1,13 @@
-import { useTranslation } from "next-export-i18n";
+import { useTranslation as nextTranslation } from "next-export-i18n";
 
-export default (page) => {
-  const { t } = useTranslation();
+const useTranslation = (page) => {
+  const { t } = nextTranslation();
   const pageString = page ? `${page}.` : '';
 
   return {
     f: (key) => t(`${pageString}${key}`),
     fShared: (key) => t(`shared.${key}`),
-  };
-};
+  }
+}
+
+export default useTranslation

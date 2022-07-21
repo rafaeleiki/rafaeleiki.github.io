@@ -12,6 +12,7 @@ export default function Home(props) {
     <main className="columns is-mobile home-hero">
       <div className="column cover-column">
         <Image
+          alt={f('main-image-alt')}
           src="/images/rafael-full.webp"
           layout="fill"
           objectFit="cover"

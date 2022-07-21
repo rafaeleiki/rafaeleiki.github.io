@@ -13,8 +13,9 @@ export default function Footer() {
       <div className="content has-text-centered">
         <span>{ fShared('footer.title') }</span>
 
-        <a href="https://github.com/rafaeleiki" target="_blank">
+        <a href="https://github.com/rafaeleiki" target="_blank" rel="noreferrer">
           <Image
+            alt="GitHub"
             src="/images/icons/github.svg"
             width={28}
             height={28}
@@ -22,8 +23,9 @@ export default function Footer() {
           />
           { fShared('footer.github') }
         </a>
-        <a href="https://www.linkedin.com/in/rafaelimamura/" target="_blank">
+        <a href="https://www.linkedin.com/in/rafaelimamura/" target="_blank" rel="noreferrer">
           <Image
+            alt="LinkedIn"
             src="/images/icons/linkedin.svg"
             width={28}
             height={28}

@@ -25,7 +25,8 @@
             "developer": "Desenvolvedor Full-Stack",
             "researcher": "Pesquisador de EdTech",
             "entrepreneur": "Empreendedor",
-            "footer": "R. Eiki - 2022"
+            "footer": "R. Eiki - 2022",
+            "main-image-alt": "Foto de Rafael Eiki"
         },
 
         "/developer": {

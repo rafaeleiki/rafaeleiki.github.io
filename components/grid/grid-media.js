@@ -12,6 +12,7 @@ export default function GridMedia ({ prefix, title, subtitle, time, description,
           <figure className="media-left">
             <p className="image is-64x64">
               <Image
+                alt=""
                 src={imageSrc}
                 width={64}
                 height={64}

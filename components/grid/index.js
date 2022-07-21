@@ -65,6 +65,7 @@ export default function Grid({initialGrid, messagesPrefix}) {
                   : (
                       <div className="column image-column" key={columnIndex}>
                         <Image
+                          alt={column.alt}
                           src={column.imageSrc}
                           layout="fill"
                           objectFit="cover"

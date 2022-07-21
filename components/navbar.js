@@ -17,8 +17,8 @@ export default function Navbar() {
   const isActiveClass = isOpen ? 'is-active' : '';
 
   useEffect(() => {
-    const closeMenu = () => {
-      if (isOpen) {
+    const closeMenu = (e) => {
+      if (isOpen && !e.target.classList.contains('navbar-burger')) {
         setOpen(false);
       }
     }
@@ -28,7 +28,7 @@ export default function Navbar() {
     return () => {
       document.body.removeEventListener('click', closeMenu, true);
     }
-  }, []);
+  }, [isOpen]);
 
   return (
     <nav className="navbar is-fixed-top pl-4">
@@ -36,6 +36,7 @@ export default function Navbar() {
         <Link href="/">
           <a className="navbar-item">
             <Image
+              alt="Rafael Eiki"
               src="/images/logo-new.webp"
               width={73}
               height={44}
@@ -44,7 +45,7 @@ export default function Navbar() {
         </Link>
         <div
           className={`navbar-burger ${ isActiveClass }`}
-          onClick={() => setOpen(!isOpen)}>
+          onClick={() => { setOpen(!isOpen) }}>
           <span></span>
           <span></span>
           <span></span>
@@ -56,6 +57,7 @@ export default function Navbar() {
           <Link href="/"><a className="navbar-item">{ fShared('navbar.home')}</a></Link>
           <Link href="/developer"><a className="navbar-item">{ fShared('navbar.developer')}</a></Link>
           <Link href="/researcher"><a className="navbar-item">{ fShared('navbar.researcher')}</a></Link>
+          <Link href="/activities"><a className="navbar-item">{ fShared('navbar.activities')}</a></Link>
 
           <LanguageSwitcher lang={otherLocale}>
             <a className="navbar-item">{ fShared('navbar.showOtherLanguage')}</a>

@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@formatjs/cli": "^4.5.0",
-    "babel-plugin-formatjs": "^10.3.12"
+    "babel-plugin-formatjs": "^10.3.12",
+    "eslint": "8.20.0",
+    "eslint-config-next": "12.2.2"
   }
 }
