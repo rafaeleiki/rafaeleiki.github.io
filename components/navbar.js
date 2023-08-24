@@ -57,7 +57,6 @@ export default function Navbar() {
           <Link href="/"><a className="navbar-item">{ fShared('navbar.home')}</a></Link>
           <Link href="/developer"><a className="navbar-item">{ fShared('navbar.developer')}</a></Link>
           <Link href="/researcher"><a className="navbar-item">{ fShared('navbar.researcher')}</a></Link>
-          <Link href="/activities"><a className="navbar-item">{ fShared('navbar.activities')}</a></Link>
 
           <LanguageSwitcher lang={otherLocale}>
             <a className="navbar-item">{ fShared('navbar.showOtherLanguage')}</a>
