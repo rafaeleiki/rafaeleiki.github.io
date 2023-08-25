@@ -61,17 +61,17 @@
                 },
 
                 "cientistabeta": {
-                    "cientistabeta.title": "Tech Lead - Full-stack",
-                    "cientistabeta.company": "Instituto Cientista Beta",
-                    "cientistabeta.time": "Feb/2018-Dec/2018",
-                    "cientistabeta.description": "Development of virtual platforms \"Decola Beta\" and \"Mapa das Feiras\", impacting the NGOs programs with over 100 children and teenagers, mentors and partners. Leadership of a team with 3 engineers. The projects were developed using Ruby on Rails and JavaScript."
+                    "title": "Tech Lead - Full-stack",
+                    "company": "Instituto Cientista Beta",
+                    "time": "Feb/2018-Dec/2018",
+                    "description": "Development of virtual platforms \"Decola Beta\" and \"Mapa das Feiras\", impacting the NGOs programs with over 100 children and teenagers, mentors and partners. Leadership of a team with 3 engineers. The projects were developed using Ruby on Rails and JavaScript."
                 },
 
                 "unicamp": {
-                    "unicamp.title": "R&D - Undergraduate Researcher",
-                    "unicamp.company": "Unicamp",
-                    "unicamp.time": "Nov/2016-Jun/2019",
-                    "unicamp.description": "Besides the research responsibilities, I was a developer (mostly web, JavaScript, AR.js) of technologies to support my research and others of the LInterHAD Research Lab."
+                    "title": "R&D - Undergraduate Researcher",
+                    "company": "Unicamp",
+                    "time": "Nov/2016-Jun/2019",
+                    "description": "Besides the research responsibilities, I was a developer (mostly web, JavaScript, AR.js) of technologies to support my research and others of the LInterHAD Research Lab."
                 },
 
                 "playkids-ft": {
