@@ -167,6 +167,13 @@
             "initiatives": {
                 "title": "Iniciativas",
 
+                "fbjc": {
+                    "title": "Membro do CRC e Comissão Especial",
+                    "subtitle": "FBJC - Feira Brasileira de Jovens Cientistas",
+                    "time": "2020-2022",
+                    "description": "Membro do Comitê de Revisão Científica (CRC) e da Comissão Especial de Avaliação de uma das maiores feiras de ciência virtuais do Brasil."
+                },
+
                 "febrace": {
                     "title": "Moderador da Categoria Ciências Exatas e da Terra",
                     "subtitle": "FEBRACE",

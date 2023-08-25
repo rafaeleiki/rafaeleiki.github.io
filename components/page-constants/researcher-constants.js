@@ -1,4 +1,5 @@
 import { TEXT_COLUMN, IMAGE_COLUMN } from "../grid";
+import createExperience from "./create-experience";
 
 export const PAPERS_GRID = [
   {
@@ -51,13 +52,17 @@ export const PAPERS_GRID = [
       {
         type: IMAGE_COLUMN,
         imageSrc: '/images/research/isef.webp',
-        objectPosition: '70%',
+        objectPosition: '50%',
         priority: true,
       },
       {
         type: TEXT_COLUMN,
         title: 'initiatives.title',
         experiences: [
+          {
+            ...createExperience('initiatives.fbjc'),
+            imageSrc: '/images/icons/fbjc.webp',
+          },
           {
             title: 'initiatives.febrace.title',
             subtitle: 'initiatives.febrace.subtitle',

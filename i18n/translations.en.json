@@ -163,6 +163,13 @@
             "initiatives": {
                 "title": "Initiatives",
 
+                "fbjc": {
+                    "title": "Member of the SRC and Special Committee",
+                    "subtitle": "FBJC - Brazilian Fair of Young Scientists",
+                    "time": "2020-2022",
+                    "description": "Member of the Scientific Research Commitee (SRC) and the Special Committee of the one of the largest virtual science fairs in Brazil."
+                },
+
                 "febrace": {
                     "title": "Moderator for the STEM category",
                     "subtitle": "FEBRACE",
