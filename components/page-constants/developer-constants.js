@@ -14,12 +14,12 @@ export const EXPERIENCE_GRID = [
             imageSrc: '/images/icons/lift-ventures.webp',
           },
           {
-            ...createWorkExperience('experiences.quintoandar'),
-            imageSrc: '/images/icons/quintoandar.webp',
+            ...createWorkExperience('experiences.campusmobile'),
+            imageSrc: '/images/icons/instituto-claro.webp',
           },
           {
-            ...createWorkExperience('experiences.vivros'),
-            imageSrc: '/images/icons/vivros.gif',
+            ...createWorkExperience('experiences.quintoandar'),
+            imageSrc: '/images/icons/quintoandar.webp',
           },
         ],
       },
@@ -37,12 +37,16 @@ export const EXPERIENCE_GRID = [
       {
         type: IMAGE_COLUMN,
         imageSrc: '/images/experiences/microsoft-internship.webp',
-        objectPosition: '70% center',
+        objectPosition: '50% center',
         priority: true,
       },
       {
         type: TEXT_COLUMN,
         experiences: [
+          {
+            ...createWorkExperience('experiences.vivros'),
+            imageSrc: '/images/icons/vivros.gif',
+          },
           {
             ...createWorkExperience('experiences.microsoft'),
             imageSrc: '/images/icons/microsoft.webp',
