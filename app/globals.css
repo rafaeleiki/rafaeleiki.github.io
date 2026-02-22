@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3C4C1E;
+  --color-primary-light: #C3D49E;
+  --color-accent: #00C8E8;
+  --color-warm: #FFFBCE;
+  --color-dark: #081600;
+  --color-dark-light: #4C4637;
+  --color-visited: #5d6945;
+  --font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: url('/images/background.svg') no-repeat;
+  background-position: 100% 100%;
+  background-size: 3000px;
+  background-attachment: fixed;
+  color: var(--color-dark-light);
+  font-family: var(--font-family-sans);
+}
+
+a { color: var(--color-primary); }
+a:hover { color: var(--color-accent); }
+a:visited { color: var(--color-visited); }
+
+/* Nav links: override visited/default link colors */
+.nav-link,
+.nav-link:visited,
+.nav-link:link {
+  color: #C3D49E !important;
+}
+.nav-link:hover {
+  color: var(--color-warm) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInTop {
+  0%   { opacity: 0; transform: translateY(-100%); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+  0%   { opacity: 0; transform: translateX(20%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInLeft {
+  0%   { opacity: 0; transform: translateX(-100%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@media print {
+  .text-column, .image-column {
+    opacity: 1 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

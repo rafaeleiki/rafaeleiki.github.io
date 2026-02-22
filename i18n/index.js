@@ -7,6 +7,7 @@ const i18n = {
     pt: pt.i18n,
   },
   defaultLang: 'en',
+  languageDataStore: 'query',
 };
 
 module.exports = i18n;

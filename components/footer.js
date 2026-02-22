@@ -1,40 +1,46 @@
-import Image from 'next/image';
+"use client";
 
-import { useIntl } from "react-intl";
+import Image from 'next/image';
 import useTranslation from './hooks/useTranslation';
 
 export default function Footer() {
-
   const { fShared } = useTranslation();
 
   return (
-    <footer className="footer">
-
-      <div className="content has-text-centered">
-        <span>{ fShared('footer.title') } - { new Date().getFullYear() }</span>
-
-        <a href="https://github.com/rafaeleiki" target="_blank" rel="noreferrer">
+    <footer className="py-8 text-center text-sm text-dark-light">
+      <div className="flex items-center justify-center gap-4 mb-2">
+        <a
+          href="https://github.com/rafaeleiki"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 text-dark-light hover:text-accent transition-colors p-2 min-w-[44px] min-h-[44px]"
+        >
           <Image
             alt="GitHub"
             src="/images/icons/github.svg"
-            width={28}
-            height={28}
-            className="footer-icon"
+            width={20}
+            height={20}
           />
-          { fShared('footer.github') }
+          {fShared('footer.github')}
         </a>
-        <a href="https://www.linkedin.com/in/rafaelimamura/" target="_blank" rel="noreferrer">
+        <a
+          href="https://www.linkedin.com/in/rafaelimamura/"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 text-dark-light hover:text-accent transition-colors p-2 min-w-[44px] min-h-[44px]"
+        >
           <Image
             alt="LinkedIn"
             src="/images/icons/linkedin.svg"
-            width={28}
-            height={28}
-            className="footer-icon"
+            width={20}
+            height={20}
           />
-          { fShared('footer.linkedin') }
+          {fShared('footer.linkedin')}
         </a>
       </div>
-
+      <span className="text-dark-light/60">
+        &copy; {fShared('footer.title')}
+      </span>
     </footer>
   );
-};
+}
