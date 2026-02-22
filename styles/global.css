@@ -84,7 +84,7 @@ a:visited { color: var(--visited-color); }
 }
 
 .image-column {
-  min-height: 200px;
+  min-height: 350px;
   position: relative;
   opacity: 0;
 }
