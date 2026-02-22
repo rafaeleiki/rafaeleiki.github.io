@@ -145,6 +145,11 @@ a:visited { color: var(--visited-color); }
   display: none;
 }
 
+.grid-media details > summary::after {
+  content: ' ▼';
+  font-size: 0.8em;
+}
+
 /*
   =====================================
   Footer
