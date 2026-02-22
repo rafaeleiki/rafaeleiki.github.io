@@ -41,8 +41,8 @@ body {
   General text
   =====================================
 */
-a { color: red; }
-a:hover { color: var(--primary-color); }
+a { color: var(--primary-color); }
+a:hover { color: var(--accent-color); }
 a:visited { color: var(--visited-color); }
 
 .special.title {
