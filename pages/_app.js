@@ -11,6 +11,7 @@ import '../styles/bulma.customization.css';
 // Specific pages CSS
 import '../styles/home.css';
 import '../styles/researcher.css';
+import '../styles/developer.css';
 
 const isProduction = process.env.NODE_ENV === 'production'
 
