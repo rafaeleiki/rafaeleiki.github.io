@@ -226,6 +226,20 @@ a:visited { color: var(--visited-color); }
     flex-direction: row;
   }
 
+  .footer .content a {
+    padding: 0.5em;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+  }
+
+  .footer-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
   .columns.grid {
     grid-template-areas:
       "first"

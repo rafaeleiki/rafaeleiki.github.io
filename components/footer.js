@@ -19,7 +19,7 @@ export default function Footer() {
             src="/images/icons/github.svg"
             width={28}
             height={28}
-            className="p-1 testeste"
+            className="footer-icon"
           />
           { fShared('footer.github') }
         </a>
@@ -29,7 +29,7 @@ export default function Footer() {
             src="/images/icons/linkedin.svg"
             width={28}
             height={28}
-            className="p-1 testeste"
+            className="footer-icon"
           />
           { fShared('footer.linkedin') }
         </a>
