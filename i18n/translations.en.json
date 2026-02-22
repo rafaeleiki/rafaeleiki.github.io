@@ -7,11 +7,13 @@
                 "researcher": "Researcher",
                 "showOtherLanguage" : "Em português"
             },
+
             "footer": {
-                "title": "R. Eiki - 2022",
+                "title": "R. Eiki",
                 "github": "GitHub",
                 "linkedin": "LinkedIn"
             },
+
             "grid-media": {
                 "more": "See more"
             }

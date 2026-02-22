@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="footer">
 
       <div className="content has-text-centered">
-        <span>{ fShared('footer.title') }</span>
+        <span>{ fShared('footer.title') } - { new Date().getFullYear() }</span>
 
         <a href="https://github.com/rafaeleiki" target="_blank" rel="noreferrer">
           <Image
