@@ -77,10 +77,14 @@
     top: 0;
     left: 0;
 
-    background-color: #111111d6;
+    background: linear-gradient(to top, rgba(17, 17, 17, 0.85) 40%, rgba(17, 17, 17, 0.35) 100%);
   }
 
   .title-column a {
     color: var(--light-color);
+  }
+
+  .tagline {
+    color: rgba(255, 255, 255, 0.8);
   }
 }
