@@ -185,6 +185,19 @@ a:visited { color: var(--visited-color); }
   100% { opacity: 1; transform: translateX(0); }
 }
 
+@media print {
+  .text-column, .image-column {
+    opacity: 1 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-column, .image-column {
+    opacity: 1;
+    animation: none;
+  }
+}
+
 @media (max-width: 768px) {
 
   .navbar-padded-container {
