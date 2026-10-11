@@ -48,3 +48,8 @@ Thumbs.db
 # Nextjs
 .next/*
 /out
+
+# Local design-analysis artefacts: the audit report, its before/after
+# screenshots, and the Playwright measurement harness. Kept on disk for
+# reference but deliberately not tracked.
+design-analysis/

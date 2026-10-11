@@ -37,6 +37,7 @@ export default function GeneratedPortrait({
   maxR = 1.0,
   className = '',
   style,
+  alt = 'Portrait of Rafael Eiki',
 }) {
   const ref = useRef(null);
 
@@ -105,5 +106,15 @@ export default function GeneratedPortrait({
     };
   }, [src, seed, color, color2, background, cell, maxR]);
 
-  return <canvas ref={ref} className={className} style={style} role="img" aria-label="Generated portrait" />;
+  // `alt` names the subject, not the technique. Pass alt={null} when the
+  // surrounding copy already identifies the person, to avoid a duplicate
+  // announcement.
+  return (
+    <canvas
+      ref={ref}
+      className={className}
+      style={style}
+      {...(alt ? { role: 'img', 'aria-label': alt } : { 'aria-hidden': 'true' })}
+    />
+  );
 }

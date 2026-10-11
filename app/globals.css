@@ -1,14 +1,32 @@
 @import "tailwindcss";
 
-:root {
-  --font-signal: 'Sora', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+/* ------------------------------------------------------------------ design tokens
+   Single source of truth for the palette. Every text/background pairing was
+   contrast-verified against the *rendered* backdrop (see design-analysis/).
+   If you change a colour here, re-run the pixel-sampling contrast harness. */
+@theme {
+  /* Typography — next/font injects --font-sora / --font-plex-mono on <html> */
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* Surfaces */
+  --color-ink: #050509;        /* page base */
+  --color-panel: #0a0a14;      /* opaque card surface (research panel) */
+
+  /* Text — the floor is 4.5:1 over the darkest realistic backdrop */
+  --color-paper: #e8eaf4;      /* primary */
+  --color-muted: #a6adc4;      /* secondary body copy */
+  --color-muted-dim: #949bb2;  /* smallest meta labels only */
+
+  /* Accents */
+  --color-accent: #7c6cff;
+  --color-accent-2: #2ee6c6;
 }
 
 html,
 body {
-  background: #050509;
-  color: #e8eaf4;
+  background: var(--color-ink);
+  color: var(--color-paper);
 }
 
 [data-site] {
@@ -16,7 +34,83 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* ---- motion ---- */
+/* Anchor targets: keep headings clear of the top edge when jumped to. */
+:where(section, footer)[id] {
+  scroll-margin-top: 1.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ------------------------------------------------------------------ focus
+   WCAG 1.4.11: the default UA ring resolved to currentColor (muted grey) and
+   measured only ~2.5:1 against the header backdrop. Use a token that clears
+   3:1 on both the dark surfaces and the bright hero. */
+:focus-visible {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+  border-radius: 2px;
+  /* Focus feedback must be immediate — `transition-colors` also animates
+     outline-color, which delayed the ring reaching full contrast. */
+  transition-property: none;
+}
+
+/* ------------------------------------------------------------------ skip link */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  background: var(--color-accent-2);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.6rem 0.9rem;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------------ metrics dividers
+   Divider sits on each cell's left edge, disabled for the first cell of every
+   *row* — 2 columns on mobile, 4 from lg. Applying it per-index (as before) put
+   a spurious 1px border on the third cell, knocking it 1px off its column.
+   Padding is applied here too, so the first cell of each row stays exactly on
+   the content rail (the old fixed px-2 inset it 8px). */
+.metrics-grid > * {
+  border-left: 1px solid rgba(255, 255, 255, 0.11);
+  padding-left: 1.5rem;
+}
+.metrics-grid > *:nth-child(2n + 1) {
+  border-left: 0;
+  padding-left: 0;
+}
+@media (min-width: 1024px) {
+  .metrics-grid > *:nth-child(2n + 1) {
+    border-left: 1px solid rgba(255, 255, 255, 0.11);
+    padding-left: 1.5rem;
+  }
+  .metrics-grid > *:nth-child(4n + 1) {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+/* ------------------------------------------------------------------ text setting */
+.pretty {
+  text-wrap: pretty;
+}
+.balance {
+  text-wrap: balance;
+}
+
+/* ------------------------------------------------------------------ motion */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

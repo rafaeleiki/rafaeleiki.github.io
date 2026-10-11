@@ -1,12 +1,30 @@
-// Curated bilingual content for the three prototypes. Body copy is trimmed for
-// the redesign; the full paper abstracts and every role live in i18n/translations.*.
+// Curated bilingual content. Paper list is complete (4 entries, matching the
+// "4 peer-reviewed papers" metric); the fourth was recovered from the previous
+// site's i18n/translations.en.json.
+//
+// Every user-visible string lives here — nothing in the components should
+// hardcode English, or it will leak onto the Portuguese page.
 
 export const DATA = {
   en: {
+    meta: {
+      htmlLang: 'en',
+      ogLocale: 'en_US',
+      title: 'Rafael Eiki — Engineer · Inventor',
+      description:
+        'Full-stack software engineer and founder building technology for education. Rails, React and Java, with published HCI research and a co-founded startup.',
+    },
+    ui: {
+      status: '// live',
+      eyebrow: 'system: portfolio // online',
+      entries: 'entries',
+      coord: 'coord',
+      skip: 'Skip to content',
+      switchTo: 'Switch language to',
+    },
     monogram: 'RE',
     name: ['Rafael', 'Eiki'],
     roles: ['Full-Stack Software Engineer', 'Entrepreneur', 'EdTech Researcher'],
-    tagline: 'Building technology for education.',
     statement:
       "I'm an engineer and founder. I take ideas from first sketch to shipped product — with the technical depth to build them and the ownership to see them through.",
     nav: { work: 'Work', research: 'Research', contact: 'Contact' },
@@ -31,6 +49,7 @@ export const DATA = {
         summary: 'Full-stack, shipping Ruby on Rails and React.',
         stack: ['Ruby on Rails', 'React'],
         kind: 'Engineering',
+        founding: false,
       },
       {
         role: 'Software Engineer III',
@@ -39,6 +58,7 @@ export const DATA = {
         summary: 'Java (Spring, Hibernate) and React on a scaled marketplace.',
         stack: ['Java', 'Spring', 'React'],
         kind: 'Engineering',
+        founding: false,
       },
       {
         role: 'Co-founder',
@@ -48,6 +68,7 @@ export const DATA = {
           'Co-founded an interactive-books startup; led the business and built the site (Rails, React) and the Android app (Java, Kotlin).',
         stack: ['Ruby on Rails', 'React', 'Android'],
         kind: 'Founding',
+        founding: true,
       },
       {
         role: 'Software Engineer Intern',
@@ -56,6 +77,7 @@ export const DATA = {
         summary: 'Built a partner-facing feature for Dynamics 365 in C#.',
         stack: ['C#', '.NET'],
         kind: 'Engineering',
+        founding: false,
       },
       {
         role: 'EdTech Business Mentor',
@@ -64,6 +86,7 @@ export const DATA = {
         summary: 'Mentor EdTech startups in the Campus Mobile entrepreneurship program.',
         stack: ['Mentorship', 'EdTech'],
         kind: 'Founding',
+        founding: true,
       },
       {
         role: 'Jr. Full-Stack Developer',
@@ -72,6 +95,7 @@ export const DATA = {
         summary: 'Built the CMS for an app with 6M monthly users; Rails, jQuery, Spring.',
         stack: ['Ruby on Rails', 'jQuery', 'Spring'],
         kind: 'Engineering',
+        founding: false,
       },
     ],
     research: {
@@ -83,6 +107,10 @@ export const DATA = {
         { title: 'A framework for socio-enactive educational systems', venue: 'IHC ’19' },
         { title: 'Reading as a Collaborative Construction', venue: 'Educational Informatics ’18' },
         { title: 'Collaborative reading with augmented reality', venue: 'SBIE ’18' },
+        {
+          title: 'Sistemas socioenativos para leitura colaborativa: construção técnica, pedagógica e de design',
+          venue: 'WTD IC Unicamp ’18',
+        },
       ],
     },
     own: [
@@ -99,10 +127,24 @@ export const DATA = {
   },
 
   pt: {
+    meta: {
+      htmlLang: 'pt-BR',
+      ogLocale: 'pt_BR',
+      title: 'Rafael Eiki — Engenheiro · Inventor',
+      description:
+        'Engenheiro de software full-stack e fundador construindo tecnologia para a educação. Rails, React e Java, com pesquisa publicada em IHC e uma startup cofundada.',
+    },
+    ui: {
+      status: '// ativo',
+      eyebrow: 'sistema: portfólio // online',
+      entries: 'registros',
+      coord: 'coord',
+      skip: 'Pular para o conteúdo',
+      switchTo: 'Mudar idioma para',
+    },
     monogram: 'RE',
     name: ['Rafael', 'Eiki'],
     roles: ['Desenvolvedor Full-Stack', 'Empreendedor', 'Pesquisador em EdTech'],
-    tagline: 'Construindo tecnologia para educação.',
     statement:
       'Sou engenheiro e fundador. Levo ideias do primeiro esboço ao produto — com profundidade técnica para construir e autonomia para levar até o fim.',
     nav: { work: 'Trabalho', research: 'Pesquisa', contact: 'Contato' },
@@ -127,6 +169,7 @@ export const DATA = {
         summary: 'Full-stack, com Ruby on Rails e React.',
         stack: ['Ruby on Rails', 'React'],
         kind: 'Engenharia',
+        founding: false,
       },
       {
         role: 'Engenheiro de Software III',
@@ -135,6 +178,7 @@ export const DATA = {
         summary: 'Java (Spring, Hibernate) e React em um marketplace de escala.',
         stack: ['Java', 'Spring', 'React'],
         kind: 'Engenharia',
+        founding: false,
       },
       {
         role: 'Cofundador',
@@ -144,6 +188,7 @@ export const DATA = {
           'Cofundei uma startup de livros interativos; liderei o negócio e construí o site (Rails, React) e o app Android (Java, Kotlin).',
         stack: ['Ruby on Rails', 'React', 'Android'],
         kind: 'Fundação',
+        founding: true,
       },
       {
         role: 'Estágio em Engenharia de Software',
@@ -152,6 +197,7 @@ export const DATA = {
         summary: 'Feature para parceiros do Dynamics 365 em C#.',
         stack: ['C#', '.NET'],
         kind: 'Engenharia',
+        founding: false,
       },
       {
         role: 'Mentor de Startups de EdTech',
@@ -160,6 +206,7 @@ export const DATA = {
         summary: 'Mentoria de startups EdTech no programa Campus Mobile.',
         stack: ['Mentoria', 'EdTech'],
         kind: 'Fundação',
+        founding: true,
       },
       {
         role: 'Desenvolvedor Full-Stack Jr.',
@@ -168,6 +215,7 @@ export const DATA = {
         summary: 'CMS para um app com 6M de usuários/mês; Rails, jQuery, Spring.',
         stack: ['Ruby on Rails', 'jQuery', 'Spring'],
         kind: 'Engenharia',
+        founding: false,
       },
     ],
     research: {
@@ -179,6 +227,10 @@ export const DATA = {
         { title: 'A framework for socio-enactive educational systems', venue: 'IHC ’19' },
         { title: 'Reading as a Collaborative Construction', venue: 'Educational Informatics ’18' },
         { title: 'Leitura colaborativa com realidade aumentada', venue: 'SBIE ’18' },
+        {
+          title: 'Sistemas socioenativos para leitura colaborativa: construção técnica, pedagógica e de design',
+          venue: 'WTD IC Unicamp ’18',
+        },
       ],
     },
     own: [

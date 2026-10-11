@@ -7,15 +7,13 @@ import GeneratedPortrait from './GeneratedPortrait';
 import { DATA } from './site-data';
 
 const SEED = 1996;
-const BG = '#050509';
-const PANEL = 'rgba(124,108,255,0.05)';
-const TEXT = '#e8eaf4';
-const MUTED = '#8a90a6';
+
+// Canvas fills need literal colours — ctx.fillStyle cannot resolve a CSS var().
+// Keep these in sync with --color-accent / --color-accent-2 in app/globals.css.
 const ACCENT = '#7c6cff';
 const ACCENT2 = '#2ee6c6';
-const DISPLAY = 'var(--font-signal)';
-const MONO = 'var(--font-mono)';
-const GRAD = `linear-gradient(90deg, ${ACCENT}, ${ACCENT2})`;
+// DOM gradients can reference the tokens directly.
+const GRAD = 'linear-gradient(90deg, var(--color-accent), var(--color-accent-2))';
 
 function mulberry32(seed) {
   let a = seed >>> 0;
@@ -28,19 +26,54 @@ function mulberry32(seed) {
   };
 }
 
-function useParticleField(count = 56) {
+const reduceQuery = () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)');
+
+// ---------------------------------------------------------------- motion prefs
+
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = reduceQuery();
+    if (!mq) return;
+    const on = () => setReduced(mq.matches);
+    on();
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  return reduced;
+}
+
+function useCanHover() {
+  const [canHover, setCanHover] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const on = () => setCanHover(mq.matches);
+    on();
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  return canHover;
+}
+
+// ---------------------------------------------------------------- canvas hooks
+
+// Particle field. Starts only when motion is allowed, and the loop is torn down
+// entirely (rather than scheduled-then-early-returned) while off-screen or when
+// the tab is hidden.
+function useParticleField(count = 34, enabled = true) {
   const ref = useRef(null);
   useEffect(() => {
     const canvas = ref.current;
-    if (!canvas) return;
+    if (!canvas || !enabled) return;
     const ctx = canvas.getContext('2d');
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const rand = mulberry32(SEED);
-    let w = 0, h = 0, dpr = 1, raf = 0, running = true;
+    let w = 0;
+    let h = 0;
+    let raf = 0;
     let parts = [];
 
     const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       w = canvas.clientWidth;
       h = canvas.clientHeight;
       canvas.width = Math.floor(w * dpr);
@@ -54,16 +87,12 @@ function useParticleField(count = 56) {
         vx: (rand() - 0.5) * 0.12,
         vy: (rand() - 0.5) * 0.12,
         r: 0.6 + rand() * 1.6,
-        a: 0.12 + rand() * 0.45,
+        // Kept dim so a particle can never wash out text sitting above it.
+        a: 0.05 + rand() * 0.14,
         c: rand() > 0.5 ? ACCENT : ACCENT2,
       }));
     };
-    resize();
-    init();
-
-    const step = () => {
-      raf = requestAnimationFrame(step);
-      if (!running || reduced || document.hidden) return;
+    const draw = () => {
       ctx.clearRect(0, 0, w, h);
       for (const p of parts) {
         p.x += p.vx;
@@ -80,27 +109,56 @@ function useParticleField(count = 56) {
       }
       ctx.globalAlpha = 1;
     };
-    raf = requestAnimationFrame(step);
-
-    const io = new IntersectionObserver(([e]) => (running = e.isIntersecting), { threshold: 0 });
-    io.observe(canvas);
-    window.addEventListener('resize', resize);
-    return () => {
-      cancelAnimationFrame(raf);
-      io.disconnect();
-      window.removeEventListener('resize', resize);
+    const loop = () => {
+      raf = requestAnimationFrame(loop);
+      draw();
     };
-  }, [count]);
+    const start = () => {
+      if (!raf) raf = requestAnimationFrame(loop);
+    };
+    const stop = () => {
+      if (raf) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      }
+    };
+
+    resize();
+    init();
+    start();
+
+    const io = new IntersectionObserver(([e]) => (e.isIntersecting && !document.hidden ? start() : stop()), { threshold: 0 });
+    io.observe(canvas);
+    const onVis = () => (document.hidden ? stop() : start());
+    document.addEventListener('visibilitychange', onVis);
+    const onResize = () => {
+      resize();
+      init();
+    };
+    window.addEventListener('resize', onResize);
+    return () => {
+      stop();
+      io.disconnect();
+      document.removeEventListener('visibilitychange', onVis);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [count, enabled]);
   return ref;
 }
 
-function useCursorGlow() {
+// Cursor glow. Only runs on genuine hover devices with motion allowed — on touch
+// the element used to stay mounted with no transform, parking a 480px light
+// bloom in the top-left corner over the hero copy.
+function useCursorGlow(enabled = true) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    if (window.matchMedia('(hover: none)').matches) return;
-    let tx = innerWidth / 2, ty = innerHeight / 2, x = tx, y = ty, raf;
+    if (!el || !enabled) return;
+    let tx = window.innerWidth / 2;
+    let ty = window.innerHeight / 2;
+    let x = tx;
+    let y = ty;
+    let raf = 0;
     const move = (e) => {
       tx = e.clientX;
       ty = e.clientY;
@@ -111,26 +169,30 @@ function useCursorGlow() {
       el.style.transform = `translate(${x - 240}px, ${y - 240}px)`;
       raf = requestAnimationFrame(step);
     };
-    window.addEventListener('mousemove', move);
+    window.addEventListener('mousemove', move, { passive: true });
     raf = requestAnimationFrame(step);
     return () => {
       window.removeEventListener('mousemove', move);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [enabled]);
   return ref;
 }
 
-function useParallax(speed = 0.15) {
+// Scroll parallax. CSS media queries cannot reach an inline transform, so the
+// preference has to be checked here — this was the one element still moving
+// under prefers-reduced-motion.
+function useParallax(speed = 0.12, enabled = true) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    let raf = 0, ticking = false;
+    if (!el || !enabled) return;
+    let raf = 0;
+    let ticking = false;
     const update = () => {
       ticking = false;
       const r = el.getBoundingClientRect();
-      el.style.transform = `translate3d(0, ${(r.top + r.height / 2 - innerHeight / 2) * speed}px, 0)`;
+      el.style.transform = `translate3d(0, ${(r.top + r.height / 2 - window.innerHeight / 2) * speed}px, 0)`;
     };
     const onScroll = () => {
       if (!ticking) {
@@ -146,225 +208,421 @@ function useParallax(speed = 0.15) {
       window.removeEventListener('resize', onScroll);
       cancelAnimationFrame(raf);
     };
-  }, [speed]);
+  }, [speed, enabled]);
   return ref;
+}
+
+// ---------------------------------------------------------------- pieces
+
+function SectionLabel({ id, children, className = '' }) {
+  return (
+    <h2 id={id} className={`font-mono text-[11px] uppercase tracking-[0.24em] text-accent-2 ${className}`}>
+      <span aria-hidden="true">◉ </span>
+      {children}
+    </h2>
+  );
 }
 
 export default function SignalSite() {
   const [lang, setLang] = useState('en');
 
+  const reduced = usePrefersReducedMotion();
+  const canHover = useCanHover();
+
+  // Language comes from ?lang= — applied after mount so the SSR markup (always
+  // English) hydrates without a mismatch.
   useEffect(() => {
     const p = new URLSearchParams(window.location.search).get('lang');
     if (p === 'pt' || p === 'en') setLang(p);
   }, []);
 
+  const t = DATA[lang];
+
+  // Keep the document in sync with what is actually rendered: html lang, title,
+  // description and og:locale. Without this the Portuguese page announced itself
+  // as English (WCAG 3.1.1) and kept an English title/description.
+  useEffect(() => {
+    const { meta } = t;
+    document.documentElement.lang = meta.htmlLang;
+    document.title = meta.title;
+    const set = (sel, val) => {
+      const el = document.querySelector(sel);
+      if (el) el.setAttribute('content', val);
+    };
+    set('meta[name="description"]', meta.description);
+    set('meta[property="og:locale"]', meta.ogLocale);
+    set('meta[property="og:title"]', meta.title);
+    set('meta[property="og:description"]', meta.description);
+    set('meta[name="twitter:title"]', meta.title);
+    set('meta[name="twitter:description"]', meta.description);
+  }, [t]);
+
   const toggleLang = () => {
     const next = lang === 'en' ? 'pt' : 'en';
     setLang(next);
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      url.searchParams.set('lang', next);
-      window.history.replaceState(null, '', url);
-    }
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', next);
+    window.history.replaceState(null, '', url);
   };
 
-  const t = DATA[lang];
-  const canvasRef = useParticleField(56);
-  const glowRef = useCursorGlow();
-  const paraRef = useParallax(0.12);
+  // Gate at render time, not just inside the effect: an inert-but-mounted glow
+  // parks a 480px light bloom in the top-left corner over the hero copy.
+  const showGlow = canHover && !reduced;
+  const canvasRef = useParticleField(34, !reduced);
+  const glowRef = useCursorGlow(showGlow);
+  const paraRef = useParallax(0.12, !reduced);
+
+  const targetLang = lang === 'en' ? 'pt' : 'en';
+  const langButton = (extra) => (
+    <button
+      type="button"
+      onClick={toggleLang}
+      aria-label={`${t.ui.switchTo} ${t.contact.label.lang}`}
+      className={`border border-white/20 transition-colors hover:border-accent-2 hover:text-paper ${extra}`}
+    >
+      <span lang={targetLang}>{t.contact.label.lang}</span>
+    </button>
+  );
 
   return (
-    <main data-site style={{ background: BG, color: TEXT, fontFamily: DISPLAY, minHeight: '100vh' }} className="relative overflow-hidden">
-      <GeneratedBackdrop seed={SEED} base={BG} colors={['#7c6cff', '#2ee6c6', '#4c3fce']} className="absolute inset-0 w-full h-full" />
-      <canvas ref={canvasRef} className="fixed inset-0 -z-0 w-full h-full pointer-events-none" />
-      <div
-        ref={glowRef}
-        className="fixed top-0 left-0 -z-0 w-[480px] h-[480px] rounded-full pointer-events-none"
-        style={{ background: `radial-gradient(circle, rgba(124,108,255,0.16), transparent 60%)`, mixBlendMode: 'screen' }}
+    <div data-site className="relative min-h-screen overflow-hidden bg-ink text-paper">
+      <GeneratedBackdrop
+        seed={SEED}
+        base="#050509"
+        colors={['#7c6cff', '#2ee6c6', '#4c3fce']}
+        className="absolute inset-0 z-0 h-full w-full"
       />
+      {!reduced ? (
+        <canvas
+          ref={canvasRef}
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 z-0 h-full w-full"
+        />
+      ) : null}
+      {showGlow ? (
+        <div
+          ref={glowRef}
+          aria-hidden="true"
+          className="pointer-events-none fixed left-0 top-0 z-0 h-[480px] w-[480px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(124,108,255,0.14), transparent 60%)',
+            mixBlendMode: 'screen',
+          }}
+        />
+      ) : null}
+
+      <a href="#main-content" className="skip-link">
+        {t.ui.skip}
+      </a>
 
       <div className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
-
         {/* header */}
-        <header className="flex items-center justify-between py-5 text-[11px] uppercase tracking-[0.2em]" style={{ fontFamily: MONO, color: MUTED }}>
+        <header className="flex items-center justify-between py-5 font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
           <div className="flex items-center gap-2.5">
-            <span className="proto-node w-2 h-2 rounded-full" style={{ background: ACCENT2, boxShadow: `0 0 10px ${ACCENT2}` }} />
-            R. Eiki <span className="opacity-50">{'// live'}</span>
+            <span
+              aria-hidden="true"
+              className="proto-node h-2 w-2 rounded-full bg-accent-2"
+              style={{ boxShadow: `0 0 10px ${ACCENT2}` }}
+            />
+            R. Eiki <span className="text-muted-dim">{t.ui.status}</span>
           </div>
-          <nav className="hidden md:flex items-center gap-7">
+
+          <nav className="hidden items-center gap-7 sm:flex">
             {['work', 'research', 'contact'].map((k) => (
-              <a key={k} href={`#${k}`} className="hover:text-[#fff] transition-colors">{t.nav[k]}</a>
+              <a
+                key={k}
+                href={`#${k}`}
+                className="inline-flex min-h-6 items-center transition-colors hover:text-paper"
+              >
+                {t.nav[k]}
+              </a>
             ))}
-            <button onClick={toggleLang} className="border border-white/15 px-2.5 py-1 hover:border-white/50 transition-colors">
-              {t.contact.label.lang}
-            </button>
+            {langButton('px-2.5 py-1')}
           </nav>
+
+          {/* Below sm the nav collapses; the language toggle must stay reachable
+              instead of living only at the very bottom of a 4,500px page. */}
+          <div className="sm:hidden">{langButton('px-2.5 py-2')}</div>
         </header>
 
-        {/* hero */}
-        <section className="relative min-h-[92vh] flex flex-col justify-center py-16 overflow-hidden">
-          <div ref={paraRef} className="absolute -right-6 top-10 select-none pointer-events-none text-[40vw] md:text-[26rem] font-bold leading-none" style={{ color: 'transparent', WebkitTextStroke: '1px rgba(124,108,255,0.18)' }}>
-            RE
-          </div>
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-40" style={{ overflow: 'hidden' }}>
-            <div className="absolute inset-x-0 h-16" style={{ background: 'linear-gradient(180deg, transparent, rgba(124,108,255,0.08), transparent)', animation: 'proto-scan 7s linear infinite' }} />
-          </div>
+        <main id="main-content">
+          {/* hero */}
+          <section
+            aria-labelledby="hero-title"
+            className="relative flex min-h-[88svh] flex-col justify-center overflow-hidden py-16"
+          >
+            <div
+              ref={paraRef}
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-6 top-10 select-none text-[40vw] font-bold leading-none md:text-[26rem]"
+              style={{ color: 'transparent', WebkitTextStroke: '1px rgba(124,108,255,0.18)' }}
+            >
+              RE
+            </div>
+            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-40 overflow-hidden">
+              <div
+                className="absolute inset-x-0 h-16"
+                style={{
+                  background: 'linear-gradient(180deg, transparent, rgba(124,108,255,0.08), transparent)',
+                  animation: 'proto-scan 7s linear infinite',
+                }}
+              />
+            </div>
 
-          <div className="text-[11px] uppercase tracking-[0.22em] mb-6" style={{ fontFamily: MONO, color: MUTED }}>
-            system: portfolio <span style={{ color: ACCENT2 }}>{'//'}</span> online
-            <span className="inline-block w-2 h-4 align-middle ml-2" style={{ background: ACCENT2, animation: 'proto-blink 1s step-end infinite' }} />
-          </div>
-
-          <h1 className="leading-[0.9] font-bold tracking-[-0.03em] text-[17vw] md:text-[10rem]">
-            <span className="block" style={{ animation: 'fadeIn 0.9s ease both' }}>{t.name[0]}</span>
-            <span className="block" style={{ background: GRAD, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', animation: 'fadeIn 0.9s ease 0.12s both' }}>
-              {t.name[1]}
-            </span>
-          </h1>
-
-          <div className="mt-8 grid md:grid-cols-12 gap-8 items-end">
-            <p className="md:col-span-6 text-lg md:text-xl leading-snug max-w-xl" style={{ color: MUTED, animation: 'fadeIn 0.9s ease 0.3s both' }}>
-              {t.statement}
+            <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+              {t.ui.eyebrow} <span className="text-accent-2" aria-hidden="true">{'//'}</span>
+              <span
+                aria-hidden="true"
+                className="ml-2 inline-block h-4 w-2 align-middle bg-accent-2"
+                style={{ animation: 'proto-blink 1s step-end infinite' }}
+              />
             </p>
-            <div className="md:col-span-6 flex md:justify-end">
-              <div className="hidden md:block mr-8 w-28 rounded-xl overflow-hidden border border-white/10">
-                <GeneratedPortrait src="/images/rafael.webp" seed={SEED} color="#4c3fce" background="#e9e7f2" cell={4} className="w-full block" />
-              </div>
-              <ul className="space-y-2.5 text-[12px] uppercase tracking-[0.18em]" style={{ fontFamily: MONO, color: MUTED }}>
-                {t.roles.map((r, i) => (
-                  <li key={i} className="flex items-center gap-3" style={{ animation: `fadeIn 0.7s ease ${0.4 + i * 0.1}s both` }}>
-                    <span className="proto-node w-1.5 h-1.5 rounded-full" style={{ background: i === 0 ? ACCENT2 : ACCENT, animationDelay: `${i * 0.3}s` }} />
-                    {r}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
 
-        {/* metrics — readouts */}
-        <Reveal>
-          <section className="py-14 grid grid-cols-2 lg:grid-cols-4 border-y border-white/10">
-            {t.metrics.map((m, i) => (
-              <div key={i} className="px-2 py-8" style={{ borderLeft: i ? '1px solid rgba(255,255,255,0.08)' : 'none' }}>
-                <div className="flex items-center gap-2 text-4xl md:text-5xl font-semibold" style={{ color: i % 2 ? ACCENT2 : '#fff' }}>
-                  {m.value}
-                  <span className="proto-node w-1.5 h-1.5 rounded-full" style={{ background: ACCENT, animationDelay: `${i * 0.25}s` }} />
+            <h1
+              id="hero-title"
+              className="text-[17vw] font-bold leading-[0.9] tracking-[-0.03em] md:text-[10rem]"
+            >
+              <span className="block" style={{ animation: 'fadeIn 0.9s ease both' }}>
+                {t.name[0]}
+              </span>
+              <span
+                className="block"
+                style={{
+                  background: GRAD,
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  color: 'transparent',
+                  animation: 'fadeIn 0.9s ease 0.12s both',
+                }}
+              >
+                {t.name[1]}
+              </span>
+            </h1>
+
+            <div className="mt-8 grid items-end gap-8 md:grid-cols-12">
+              <p
+                className="pretty text-lg leading-snug text-muted md:col-span-6 md:text-xl"
+                style={{ animation: 'fadeIn 0.9s ease 0.3s both' }}
+              >
+                {t.statement}
+              </p>
+              <div className="flex md:col-span-6 md:justify-end">
+                <div className="mr-8 hidden w-28 overflow-hidden rounded-xl border border-white/15 md:block">
+                  <GeneratedPortrait
+                    src="/images/rafael.webp"
+                    seed={SEED}
+                    color="#4c3fce"
+                    background="#e9e7f2"
+                    cell={4}
+                    alt={`${t.name[0]} ${t.name[1]}`}
+                    className="block w-full"
+                  />
                 </div>
-                <div className="mt-3 text-[11px] uppercase tracking-[0.16em]" style={{ fontFamily: MONO, color: MUTED }}>{m.label}</div>
+                <ul className="space-y-2.5 font-mono text-[12px] uppercase tracking-[0.18em] text-muted">
+                  {t.roles.map((r, i) => (
+                    <li
+                      key={i}
+                      className="flex items-center gap-3"
+                      style={{ animation: `fadeIn 0.7s ease ${0.4 + i * 0.1}s both` }}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="proto-node h-1.5 w-1.5 rounded-full"
+                        style={{ background: i === 0 ? ACCENT2 : ACCENT, animationDelay: `${i * 0.3}s` }}
+                      />
+                      {r}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
+            </div>
           </section>
-        </Reveal>
 
-        {/* work — signal log */}
-        <section id="work" className="py-20">
-          <div className="flex items-baseline justify-between mb-10">
-            <h2 className="text-[11px] uppercase tracking-[0.24em]" style={{ fontFamily: MONO, color: ACCENT2 }}>
-              ◉ {t.sections.work}
-            </h2>
-            <span className="text-[11px] uppercase tracking-[0.2em] opacity-50" style={{ fontFamily: MONO }}>{String(t.work.length).padStart(2, '0')} entries</span>
-          </div>
-
-          <div>
-            {t.work.map((w, i) => (
-              <Reveal key={i} delay={(i % 3) * 60}>
-                <div className="group relative grid grid-cols-12 gap-4 py-7 border-t border-white/10 hover:bg-white/[0.02] transition-colors">
-                  <span className="absolute left-0 top-0 h-full w-px origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300" style={{ background: GRAD }} />
-                  <div className="col-span-2 md:col-span-1 flex items-start pt-1">
-                    <span className="proto-node w-2.5 h-2.5 rounded-full group-hover:scale-125 transition-transform" style={{ background: w.kind === 'Founding' ? ACCENT2 : ACCENT, boxShadow: `0 0 12px ${w.kind === 'Founding' ? ACCENT2 : ACCENT}` }} />
-                  </div>
-                  <div className="col-span-10 md:col-span-4">
-                    <h3 className="text-xl md:text-2xl font-semibold leading-tight">{w.role}</h3>
-                    <p className="text-[12px] uppercase tracking-[0.14em] mt-1" style={{ fontFamily: MONO, color: MUTED }}>
-                      {w.company} <span style={{ color: ACCENT }}>·</span> {w.period}
-                    </p>
-                  </div>
-                  <div className="col-span-12 md:col-span-4 text-[15px] leading-relaxed" style={{ color: MUTED }}>{w.summary}</div>
-                  <div className="col-span-12 md:col-span-3 flex flex-wrap gap-1.5 md:justify-end content-start">
-                    {w.stack.map((s) => (
-                      <span key={s} className="border border-white/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.12em]" style={{ fontFamily: MONO, color: MUTED }}>
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        {/* research */}
-        <section id="research" className="py-20">
-          <div className="grid md:grid-cols-12 gap-8">
-            <div className="md:col-span-6">
-              <Reveal>
-                <p className="text-2xl md:text-3xl leading-snug font-medium">{t.research.intro}</p>
-                <p className="mt-4 text-[14px]" style={{ color: MUTED }}>{t.research.advisor}</p>
-              </Reveal>
-            </div>
-            <div className="md:col-span-6">
-              <Reveal delay={100}>
-                <div className="p-[1px]" style={{ background: `linear-gradient(160deg, ${ACCENT}, transparent 40%, transparent 60%, ${ACCENT2})` }}>
-                  <div className="p-6" style={{ background: '#0a0a12' }}>
-                    <div className="text-[11px] uppercase tracking-[0.16em] mb-5" style={{ fontFamily: MONO, color: ACCENT2 }}>
-                      ▲ {t.research.award}
+          {/* metrics — spec sheet */}
+          <Reveal>
+            <section
+              id="metrics"
+              aria-labelledby="metrics-title"
+              className="border-y border-white/12 py-12"
+            >
+              <SectionLabel id="metrics-title" className="mb-8">
+                {t.sections.metrics}
+              </SectionLabel>
+              <div className="metrics-grid grid grid-cols-2 lg:grid-cols-4">
+                {t.metrics.map((m, i) => (
+                  <div key={i} className="py-6">
+                    <div
+                      className={`flex items-center gap-2 text-4xl font-semibold tabular-nums md:text-5xl ${
+                        i % 2 ? 'text-accent-2' : 'text-paper'
+                      }`}
+                    >
+                      {m.value}
+                      <span
+                        aria-hidden="true"
+                        className="proto-node h-1.5 w-1.5 rounded-full bg-accent"
+                        style={{ animationDelay: `${i * 0.25}s` }}
+                      />
                     </div>
-                    <ul className="space-y-4" style={{ fontFamily: MONO }}>
-                      {t.research.papers.map((p, i) => (
-                        <li key={i} className="flex gap-3 text-[13px] leading-snug">
-                          <span style={{ color: ACCENT }}>[{i + 1}]</span>
-                          <span>
-                            {p.title}
-                            <span className="block mt-0.5 opacity-60">{p.venue}</span>
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="mt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-dim">
+                      {m.label}
+                    </div>
                   </div>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
+                ))}
+              </div>
+            </section>
+          </Reveal>
 
-        {/* ownership — coordinates */}
-        <section className="py-20">
-          <div className="grid md:grid-cols-3 gap-4">
-            {t.own.map((o, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <div className="relative p-6 border border-white/10 hover:border-white/25 transition-colors" style={{ background: PANEL }}>
-                  <div className="text-[11px] uppercase tracking-[0.18em] mb-3" style={{ fontFamily: MONO, color: ACCENT2 }}>
-                    coord 0{i + 1}
+          {/* work — signal log */}
+          <section id="work" aria-labelledby="work-title" className="py-20">
+            <div className="mb-10 flex items-baseline justify-between">
+              <SectionLabel id="work-title">{t.sections.work}</SectionLabel>
+              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-dim">
+                {String(t.work.length).padStart(2, '0')} {t.ui.entries}
+              </span>
+            </div>
+
+            <div>
+              {t.work.map((w, i) => (
+                <Reveal key={i} delay={(i % 3) * 60}>
+                  {/* One left edge at every breakpoint: below lg the whole entry
+                      is indented past the gutter dot; from lg the dot takes its
+                      own grid column. */}
+                  <article className="relative grid grid-cols-1 gap-3 border-t border-white/12 py-7 pl-7 lg:grid-cols-12 lg:gap-6 lg:pl-0">
+                    <span
+                      aria-hidden="true"
+                      className="proto-node absolute left-0 top-[38px] h-2.5 w-2.5 rounded-full lg:static lg:col-span-1 lg:mt-2 lg:justify-self-start"
+                      style={{
+                        background: w.founding ? ACCENT2 : ACCENT,
+                        boxShadow: `0 0 12px ${w.founding ? ACCENT2 : ACCENT}`,
+                      }}
+                    />
+                    <div className="lg:col-span-4">
+                      <h3 className="text-xl font-semibold leading-tight md:text-2xl">{w.role}</h3>
+                      <p className="pretty mt-1 font-mono text-[12px] uppercase tracking-[0.14em] text-muted-dim">
+                        {w.company} <span aria-hidden="true" className="text-accent">·</span> {w.period}
+                      </p>
+                      {/* Kind was previously encoded in the dot colour alone (WCAG 1.4.1). */}
+                      <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-accent-2">
+                        {w.kind}
+                      </p>
+                    </div>
+                    <div className="pretty text-[15px] leading-relaxed text-muted lg:col-span-4">
+                      {w.summary}
+                    </div>
+                    <div className="flex flex-wrap content-start gap-1.5 lg:col-span-3 lg:justify-end">
+                      {w.stack.map((s) => (
+                        <span
+                          key={s}
+                          className="border border-white/12 px-2 py-0.5 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-dim"
+                        >
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+
+          {/* research */}
+          <section id="research" aria-labelledby="research-title" className="py-20">
+            <SectionLabel id="research-title" className="mb-10">
+              {t.sections.research}
+            </SectionLabel>
+            <div className="grid gap-6 md:grid-cols-12">
+              <div className="md:col-span-6">
+                <Reveal>
+                  <p className="pretty text-2xl font-medium leading-snug md:text-3xl">{t.research.intro}</p>
+                  <p className="pretty mt-4 text-[14px] text-muted">{t.research.advisor}</p>
+                </Reveal>
+              </div>
+              <div className="md:col-span-6">
+                <Reveal delay={100}>
+                  <div className="p-px" style={{ background: GRAD }}>
+                    <div className="bg-panel p-6">
+                      <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-accent-2">
+                        <span aria-hidden="true">▲ </span>
+                        {t.research.award}
+                      </p>
+                      <ul className="space-y-4 font-mono">
+                        {t.research.papers.map((p, i) => (
+                          <li key={i} className="pretty flex gap-3 text-[13px] leading-snug">
+                            <span className="text-accent" aria-hidden="true">[{i + 1}]</span>
+                            <span>
+                              {p.title}
+                              <span className="mt-0.5 block text-muted-dim">{p.venue}</span>
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className="text-xl font-semibold">{o.title}</div>
-                  <div className="mt-2 text-[13px] leading-snug" style={{ color: MUTED }}>{o.note}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </section>
+                </Reveal>
+              </div>
+            </div>
+          </section>
+
+          {/* ownership */}
+          <section id="ownership" aria-labelledby="ownership-title" className="py-20">
+            <SectionLabel id="ownership-title" className="mb-10">
+              {t.sections.own}
+            </SectionLabel>
+            <div className="grid gap-6 md:grid-cols-3">
+              {t.own.map((o, i) => (
+                <Reveal key={i} delay={i * 80}>
+                  <div className="relative h-full border border-white/12 p-6 transition-colors hover:border-white/30" style={{ background: 'rgba(124,108,255,0.05)' }}>
+                    <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-accent-2">
+                      {t.ui.coord} 0{i + 1}
+                    </div>
+                    <h3 className="text-xl font-semibold">{o.title}</h3>
+                    <p className="pretty mt-2 text-[13px] leading-snug text-muted">{o.note}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        </main>
 
         {/* contact */}
-        <footer id="contact" className="py-28 border-t border-white/10">
+        <footer id="contact" aria-labelledby="contact-title" className="border-t border-white/12 py-28">
           <Reveal>
-            <h2 className="text-[14vw] md:text-[9rem] leading-[0.9] font-bold tracking-[-0.03em]" style={{ background: GRAD, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
+            <SectionLabel id="contact-title">{t.sections.contact}</SectionLabel>
+            <p
+              className="pretty mt-8 font-bold leading-[0.9] tracking-[-0.03em] text-[clamp(2.5rem,13vw,9rem)]"
+              style={{
+                background: GRAD,
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                color: 'transparent',
+              }}
+            >
               {t.contact.cta}
-            </h2>
-            <div className="mt-10 flex flex-wrap items-center gap-8 text-[12px] uppercase tracking-[0.16em]" style={{ fontFamily: MONO, color: MUTED }}>
-              <a href={t.contact.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-[#fff] transition-colors">
-                <span className="w-2 h-2 rounded-full" style={{ background: ACCENT }} /> {t.contact.label.github}
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 font-mono text-[12px] uppercase tracking-[0.16em] text-muted">
+              <a
+                href={t.contact.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-paper"
+              >
+                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent" />
+                {t.contact.label.github}
               </a>
-              <a href={t.contact.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-[#fff] transition-colors">
-                <span className="w-2 h-2 rounded-full" style={{ background: ACCENT2 }} /> {t.contact.label.linkedin}
+              <a
+                href={t.contact.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-paper"
+              >
+                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-2" />
+                {t.contact.label.linkedin}
               </a>
-              <button onClick={toggleLang} className="ml-auto border border-white/15 px-3 py-1.5 hover:border-white/50 transition-colors">
-                {t.contact.label.lang}
-              </button>
+              {langButton('ml-auto px-3 py-2')}
             </div>
           </Reveal>
         </footer>
       </div>
-    </main>
+    </div>
   );
 }
