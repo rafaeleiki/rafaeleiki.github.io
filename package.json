@@ -3,12 +3,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "deploy": "rm -rf node_modules/.cache && next build && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git push origin `git subtree split --prefix out layout-2026`:master --force"
+    "deploy": "next build && touch out/.nojekyll && gh-pages -d out -b master -m \"Deploy site\""
   },
   "dependencies": {
     "next": "^15",
-    "next-export-i18n": "^3",
     "react": "^19",
     "react-dom": "^19"
   },
@@ -16,6 +14,7 @@
     "@tailwindcss/postcss": "^4",
     "eslint": "^8",
     "eslint-config-next": "^15",
+    "gh-pages": "^6",
     "postcss": "^8",
     "tailwindcss": "^4"
   }
