@@ -4,7 +4,7 @@
 
 - `npm run dev` — start dev server
 - `npm run build` — production build (outputs to `out/`)
-- `npm run deploy` — build + publish `out/` to the `master` branch (GitHub Pages)
+- `npm run deploy` — build + publish `out/` to the `production` branch (GitHub Pages)
 - `npx eslint --fix <file>` — lint a single file
 
 ## Node version
@@ -14,13 +14,13 @@
 ## Branches
 
 - **`main`** — source code (this is the default branch). Reflects the website.
-- **`master`** — build output only, served by GitHub Pages (custom domain `rafaeleiki.com`). Never edit by hand; it is rewritten by `npm run deploy`.
+- **`production`** — build output only, served by GitHub Pages (custom domain `rafaeleiki.com`). Never edit by hand; it is rewritten by `npm run deploy`.
 
 ## Architecture
 
-Next.js 15 static site (`output: 'export'`) styled with Tailwind CSS v4. A single-page portfolio in a "signal" aesthetic.
+Next.js 16 static site (`output: 'export'`) styled with Tailwind CSS v4. A single-page portfolio in a "signal" aesthetic.
 
-The `out/` directory is generated and git-ignored; the `gh-pages` package pushes it to `master`.
+The `out/` directory is generated and git-ignored; the `gh-pages` package pushes it to `production`.
 
 ## Key files
 
@@ -33,6 +33,9 @@ The `out/` directory is generated and git-ignored; the `gh-pages` package pushes
 - `components/GeneratedPortrait.jsx` — seeded halftone self-portrait (canvas)
 - `components/Reveal.jsx` — scroll-reveal wrapper
 - `components/hooks/useInView.js` — IntersectionObserver hook
+- `components/hooks/useHydrated.js` — hydration flag (useSyncExternalStore)
+- `components/hooks/useMediaQuery.js` — media-query subscription
+- `eslint.config.mjs` — ESLint 9+ flat config
 
 Language toggles via `?lang=pt` / `?lang=en` (or the in-page button).
 

@@ -121,4 +121,4 @@ After editing, confirm both translation files have identical key structures by c
 
 - Images live in `public/images/icons/` (logos) and `public/images/experiences/` (photos).
 - The `show` flag on grid rows controls visibility; entries in rows with `show: false` are hidden on the live site.
-- The deploy script is `npm run deploy` — it builds, exports, and force-pushes the `out/` folder to the `master` branch via git subtree.
+- The deploy script is `npm run deploy` — it builds, exports, and force-pushes the `out/` folder to the `production` branch via the `gh-pages` package.
