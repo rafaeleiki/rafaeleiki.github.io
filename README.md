@@ -1,2 +1,2 @@
 # Development
-Start the project with `yarn dev`.
+Start the project with `npm run dev`.

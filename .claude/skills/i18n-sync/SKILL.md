@@ -10,7 +10,7 @@ Diff the key structure of both translation files and report any missing or extra
 
 ## When to use
 
-- Before deploying (`yarn deploy`)
+- Before deploying (`npm run deploy`)
 - After adding a new experience entry via `add-experience`
 - Any time you edit a translation file manually
 

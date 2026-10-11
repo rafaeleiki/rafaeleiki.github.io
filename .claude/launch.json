@@ -3,14 +3,20 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "yarn",
-      "runtimeArgs": ["dev"],
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 3000
     },
     {
-      "name": "start",
-      "runtimeExecutable": "yarn",
-      "runtimeArgs": ["start"],
+      "name": "build",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "build"
+      ],
       "port": 3000
     }
   ]

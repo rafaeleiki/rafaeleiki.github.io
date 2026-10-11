@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useSyncExternalStore } from 'react';
 import Reveal from './Reveal';
 import GeneratedBackdrop from './GeneratedBackdrop';
 import GeneratedPortrait from './GeneratedPortrait';
+import useMediaQuery from './hooks/useMediaQuery';
 import { DATA } from './site-data';
 
 const SEED = 1996;
@@ -26,34 +27,39 @@ function mulberry32(seed) {
   };
 }
 
-const reduceQuery = () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)');
+// ---------------------------------------------------------------- language
+//
+// The active language lives in the URL (?lang=), treated as an external store.
+// Deriving it with useSyncExternalStore (rather than useState + a setState
+// effect) avoids a cascading render, keeps the server/client snapshots explicit
+// so hydration can't mismatch, and makes back/forward navigation work.
+const LANG_EVENT = 'langchange';
 
-// ---------------------------------------------------------------- motion prefs
+const normalizeLang = (value) => (value === 'pt' || value === 'en' ? value : 'en');
 
-function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = reduceQuery();
-    if (!mq) return;
-    const on = () => setReduced(mq.matches);
-    on();
-    mq.addEventListener('change', on);
-    return () => mq.removeEventListener('change', on);
-  }, []);
-  return reduced;
+function subscribeLang(onChange) {
+  window.addEventListener('popstate', onChange);
+  window.addEventListener(LANG_EVENT, onChange);
+  return () => {
+    window.removeEventListener('popstate', onChange);
+    window.removeEventListener(LANG_EVENT, onChange);
+  };
 }
 
-function useCanHover() {
-  const [canHover, setCanHover] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
-    const on = () => setCanHover(mq.matches);
-    on();
-    mq.addEventListener('change', on);
-    return () => mq.removeEventListener('change', on);
-  }, []);
-  return canHover;
+const getLangSnapshot = () => normalizeLang(new URLSearchParams(window.location.search).get('lang'));
+
+// The static export is always English, so that is the server snapshot too.
+const getLangServerSnapshot = () => 'en';
+
+function writeLangToUrl(next) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('lang', next);
+  window.history.replaceState(null, '', url);
+  window.dispatchEvent(new Event(LANG_EVENT));
 }
+
+// Motion preferences are read via useMediaQuery() directly in the component
+// (see components/hooks/useMediaQuery.js).
 
 // ---------------------------------------------------------------- canvas hooks
 
@@ -224,17 +230,12 @@ function SectionLabel({ id, children, className = '' }) {
 }
 
 export default function SignalSite() {
-  const [lang, setLang] = useState('en');
+  // The static export is always English, so the server snapshot is 'en'; React
+  // re-reads the URL immediately after hydration.
+  const lang = useSyncExternalStore(subscribeLang, getLangSnapshot, getLangServerSnapshot);
 
-  const reduced = usePrefersReducedMotion();
-  const canHover = useCanHover();
-
-  // Language comes from ?lang= — applied after mount so the SSR markup (always
-  // English) hydrates without a mismatch.
-  useEffect(() => {
-    const p = new URLSearchParams(window.location.search).get('lang');
-    if (p === 'pt' || p === 'en') setLang(p);
-  }, []);
+  const reduced = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const canHover = useMediaQuery('(hover: hover) and (pointer: fine)');
 
   const t = DATA[lang];
 
@@ -244,7 +245,6 @@ export default function SignalSite() {
   useEffect(() => {
     const { meta } = t;
     document.documentElement.lang = meta.htmlLang;
-    document.title = meta.title;
     const set = (sel, val) => {
       const el = document.querySelector(sel);
       if (el) el.setAttribute('content', val);
@@ -255,15 +255,23 @@ export default function SignalSite() {
     set('meta[property="og:description"]', meta.description);
     set('meta[name="twitter:title"]', meta.title);
     set('meta[name="twitter:description"]', meta.description);
+
+    document.title = meta.title;
+
+    // Next re-applies the static <title> from the metadata export once, during
+    // hydration of the initial load. That lands *after* this effect, so a deep
+    // link (?lang=pt) got reverted to the English title. Keep it pinned; the
+    // `!==` guard makes the observer terminate instead of looping.
+    const titleEl = document.querySelector('title');
+    if (!titleEl) return undefined;
+    const observer = new MutationObserver(() => {
+      if (document.title !== meta.title) document.title = meta.title;
+    });
+    observer.observe(titleEl, { childList: true, characterData: true, subtree: true });
+    return () => observer.disconnect();
   }, [t]);
 
-  const toggleLang = () => {
-    const next = lang === 'en' ? 'pt' : 'en';
-    setLang(next);
-    const url = new URL(window.location.href);
-    url.searchParams.set('lang', next);
-    window.history.replaceState(null, '', url);
-  };
+  const toggleLang = () => writeLangToUrl(lang === 'en' ? 'pt' : 'en');
 
   // Gate at render time, not just inside the effect: an inert-but-mounted glow
   // parks a 480px light bloom in the top-left corner over the hero copy.
