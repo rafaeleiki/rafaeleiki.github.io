@@ -5,6 +5,41 @@
 // Every user-visible string lives here — nothing in the components should
 // hardcode English, or it will leak onto the Portuguese page.
 
+// ---------------------------------------------------------------- company marks
+//
+// The logo wall under "Selected work". Deliberately *not* derived from DATA.work:
+// entries there are expected to be trimmed over time, and the wall has to keep
+// standing on its own when they are.
+//
+// Language-neutral (a logo is a logo in both languages), so it lives outside DATA.
+//
+// `width`/`height` are the artwork's intrinsic pixel size and `displayH` is the
+// rendered height in CSS px — a square mark needs more height than a wordmark to
+// carry the same visual weight, so the two are not the same number.
+//
+// The wall paints every mark as a single white silhouette (see .logo-mark in
+// app/globals.css). Artwork is stored in each brand's own colours, so flipping
+// that one rule brings the palettes back. `brand: true` opts an entry out, for
+// marks that stop reading once flattened.
+//
+// Sources, so any of these can be re-checked or replaced:
+//   lift-ventures    liftventures.com wordmark
+//   quintoandar      quintoandar.com.br/newsroom brand assets (white plate removed)
+//   vivros           this repo's earlier layout (assets/img/vivros.png)
+//   microsoft        simple-icons (CC0 icon set)
+//   instituto-claro  institutoclaro.org.br site logo (white plate removed)
+//   playkids         Movile-era PlayKids wordmark, archived from playkids.com
+export const COMPANY_LOGOS = [
+  { name: 'Lift Ventures', src: '/images/logos/lift-ventures.png', width: 640, height: 100, displayH: 25 },
+  { name: 'QuintoAndar', src: '/images/logos/quintoandar.png', width: 640, height: 93, displayH: 24 },
+  // Flattened to white the owl loses its eyes and reads as a blob, so it keeps
+  // its own colours — the one colour note in the row.
+  { name: 'Vivros', src: '/images/logos/vivros.png', width: 420, height: 299, displayH: 34, brand: true },
+  { name: 'Microsoft', src: '/images/logos/microsoft.svg', width: 24, height: 24, displayH: 30 },
+  { name: 'Instituto Claro', src: '/images/logos/instituto-claro.png', width: 420, height: 74, displayH: 24 },
+  { name: 'PlayKids', src: '/images/logos/playkids.png', width: 222, height: 52, displayH: 26 },
+];
+
 export const DATA = {
   en: {
     meta: {
@@ -18,6 +53,7 @@ export const DATA = {
       status: '// live',
       eyebrow: 'system: portfolio // online',
       entries: 'entries',
+      marks: 'marks',
       coord: 'coord',
       skip: 'Skip to content',
       switchTo: 'Switch language to',
@@ -30,6 +66,7 @@ export const DATA = {
     nav: { work: 'Work', research: 'Research', contact: 'Contact' },
     sections: {
       work: 'Selected work',
+      companies: 'Companies I worked with',
       metrics: 'Spec sheet',
       research: 'Research',
       own: 'Ownership',
@@ -138,6 +175,7 @@ export const DATA = {
       status: '// ativo',
       eyebrow: 'sistema: portfólio // online',
       entries: 'registros',
+      marks: 'marcas',
       coord: 'coord',
       skip: 'Pular para o conteúdo',
       switchTo: 'Mudar idioma para',
@@ -150,6 +188,7 @@ export const DATA = {
     nav: { work: 'Trabalho', research: 'Pesquisa', contact: 'Contato' },
     sections: {
       work: 'Trabalho selecionado',
+      companies: 'Empresas com que trabalhei',
       metrics: 'Ficha técnica',
       research: 'Pesquisa',
       own: 'Autoria',

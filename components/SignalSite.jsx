@@ -5,7 +5,7 @@ import Reveal from './Reveal';
 import GeneratedBackdrop from './GeneratedBackdrop';
 import GeneratedPortrait from './GeneratedPortrait';
 import useMediaQuery from './hooks/useMediaQuery';
-import { DATA } from './site-data';
+import { COMPANY_LOGOS, DATA } from './site-data';
 
 const SEED = 1996;
 
@@ -415,13 +415,13 @@ export default function SignalSite() {
                 {t.statement}
               </p>
               <div className="flex md:col-span-6 md:justify-end">
-                <div className="mr-8 hidden w-28 overflow-hidden rounded-xl border border-white/15 md:block">
+                <div className="mr-8 hidden w-36 shrink-0 overflow-hidden rounded-xl border border-white/15 md:block lg:w-40">
                   <GeneratedPortrait
                     src="/images/rafael.webp"
                     seed={SEED}
                     color="#4c3fce"
                     background="#e9e7f2"
-                    cell={4}
+                    cell={3}
                     alt={`${t.name[0]} ${t.name[1]}`}
                     className="block w-full"
                   />
@@ -531,6 +531,49 @@ export default function SignalSite() {
                 </Reveal>
               ))}
             </div>
+
+            {/* company marks — a subsection of the log above, but built from its
+                own list (COMPANY_LOGOS) so trimming that log never disturbs it. */}
+            <Reveal as="section" aria-labelledby="companies-title" className="mt-16 border-t border-white/12 pt-10">
+              <div className="mb-8 flex items-baseline justify-between">
+                <SectionLabel id="companies-title">{t.sections.companies}</SectionLabel>
+                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-dim">
+                  {String(COMPANY_LOGOS.length).padStart(2, '0')} {t.ui.marks}
+                </span>
+              </div>
+
+              <ul className="logo-grid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+                {COMPANY_LOGOS.map((c) => (
+                  <li
+                    key={c.name}
+                    className="logo-cell flex flex-col items-center justify-center gap-3 px-3 py-6"
+                  >
+                    {/* The mark is decorative: the name below is the accessible
+                        text, so the artwork carries no alt of its own. Plain
+                        <img> is deliberate — the export is unoptimized, so
+                        next/image would add markup without adding anything.
+                        The fixed-height box keeps every name on one baseline
+                        even though the marks differ in height. */}
+                    <span className="flex h-10 items-center justify-center">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={c.src}
+                        alt=""
+                        width={c.width}
+                        height={c.height}
+                        loading="lazy"
+                        decoding="async"
+                        style={{ height: c.displayH }}
+                        className={`logo-mark w-auto max-w-full object-contain${c.brand ? ' logo-mark--brand' : ''}`}
+                      />
+                    </span>
+                    <span className="text-center font-mono text-[11px] uppercase leading-tight tracking-[0.12em] text-muted-dim">
+                      {c.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
           </section>
 
           {/* research */}
@@ -595,9 +638,20 @@ export default function SignalSite() {
         {/* contact */}
         <footer id="contact" aria-labelledby="contact-title" className="border-t border-white/12 py-28">
           <Reveal>
-            <SectionLabel id="contact-title">{t.sections.contact}</SectionLabel>
+            {/* The gap between the label and the CTA lives on the label: the CTA
+                offsets its own padding with negative margins (see below), and
+                adjoining margins would otherwise swallow that offset. */}
+            <SectionLabel id="contact-title" className="mb-8">
+              {t.sections.contact}
+            </SectionLabel>
+            {/* `leading-[0.9]` makes the line box ~0.18em shorter than the font's
+                content area, but a text-clipped gradient only paints inside the
+                padding box — so descenders ("g" in "something"/"algo") fell
+                outside it and rendered transparent. The padding gives the
+                gradient room to reach them; the matching negative margins keep
+                the text and the surrounding spacing exactly where they were. */}
             <p
-              className="pretty mt-8 font-bold leading-[0.9] tracking-[-0.03em] text-[clamp(2.5rem,13vw,9rem)]"
+              className="pretty -my-[0.2em] py-[0.2em] font-bold leading-[0.9] tracking-[-0.03em] text-[clamp(2.5rem,13vw,9rem)]"
               style={{
                 background: GRAD,
                 WebkitBackgroundClip: 'text',

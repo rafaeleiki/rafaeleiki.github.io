@@ -102,6 +102,55 @@ body {
   }
 }
 
+/* ------------------------------------------------------------------ company marks
+   The logo wall under "Selected work". Artwork in public/images/logos/ keeps each
+   brand's own colours; `brightness(0) invert(1)` turns every mark into a single
+   white silhouette so six different palettes read as one set against this
+   backdrop. Opacity is the whole hover affordance — the mark never changes size,
+   so hovering cannot reflow the row. */
+.logo-mark {
+  filter: brightness(0) invert(1);
+  opacity: 0.82;
+  transition: opacity 0.25s ease;
+}
+/* Opt-out for marks that stop reading once flattened (the Vivros owl is an
+   illustration: as a silhouette it loses its eyes and becomes a blob). */
+.logo-mark--brand {
+  filter: none;
+  opacity: 0.9;
+}
+.logo-cell:hover .logo-mark,
+.logo-cell:focus-within .logo-mark {
+  opacity: 1;
+}
+
+/* Hairline dividers on each cell's left edge, cleared at the start of every row —
+   2 columns on mobile, 3 from sm, 6 from lg. Same shape as .metrics-grid: the
+   border is always present (so the box model never shifts) and only its colour
+   changes. Each breakpoint restores the previous rule before clearing its own. */
+.logo-grid > * {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.logo-grid > *:nth-child(2n + 1) {
+  border-left-color: transparent;
+}
+@media (min-width: 640px) {
+  .logo-grid > *:nth-child(2n + 1) {
+    border-left-color: rgba(255, 255, 255, 0.1);
+  }
+  .logo-grid > *:nth-child(3n + 1) {
+    border-left-color: transparent;
+  }
+}
+@media (min-width: 1024px) {
+  .logo-grid > *:nth-child(3n + 1) {
+    border-left-color: rgba(255, 255, 255, 0.1);
+  }
+  .logo-grid > *:nth-child(6n + 1) {
+    border-left-color: transparent;
+  }
+}
+
 /* ------------------------------------------------------------------ text setting */
 .pretty {
   text-wrap: pretty;
