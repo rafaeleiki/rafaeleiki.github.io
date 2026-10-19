@@ -1,16 +1,9 @@
 'use client';
 
 import useHydrated from './hooks/useHydrated';
-import useMediaQuery from './hooks/useMediaQuery';
 import useInView from './hooks/useInView';
+import useMediaQuery, { REDUCED_MOTION } from './hooks/useMediaQuery';
 
-// Scroll-reveal wrapper. Fires once when the element enters the viewport.
-//
-// Progressive enhancement: the element renders *visible* and only opts into the
-// hidden/offset state after mount. Without this, every wrapped block shipped
-// `style="opacity:0"` in the static HTML — so with JS disabled (or a failed
-// bundle) the work entries, projects, research, awards and the closing CTA
-// were invisible.
 export default function Reveal({
   as: Tag = 'div',
   delay = 0,
@@ -22,10 +15,8 @@ export default function Reveal({
 }) {
   const [ref, inView, ready] = useInView({ threshold: 0.15 });
   const hydrated = useHydrated();
-  const reduced = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const reduced = useMediaQuery(REDUCED_MOTION);
 
-  // Only hide once the observer has reported AND the element is out of view.
-  // Gating on `ready` avoids hiding something that is already on screen.
   const hidden = hydrated && ready && !inView && !reduced;
 
   return (

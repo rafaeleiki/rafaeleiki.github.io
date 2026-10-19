@@ -1,24 +1,16 @@
 @import "tailwindcss";
 
-/* ------------------------------------------------------------------ design tokens
-   Single source of truth for the palette. Every text/background pairing was
-   contrast-verified against the *rendered* backdrop (see design-analysis/).
-   If you change a colour here, re-run the pixel-sampling contrast harness. */
 @theme {
-  /* Typography — next/font injects --font-sora / --font-plex-mono on <html> */
   --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
 
-  /* Surfaces */
-  --color-ink: #050509;        /* page base */
-  --color-panel: #0a0a14;      /* opaque card surface (research panel) */
+  --color-ink: #050509;
+  --color-panel: #0a0a14;
 
-  /* Text — the floor is 4.5:1 over the darkest realistic backdrop */
-  --color-paper: #e8eaf4;      /* primary */
-  --color-muted: #a6adc4;      /* secondary body copy */
-  --color-muted-dim: #949bb2;  /* smallest meta labels only */
+  --color-paper: #e8eaf4;
+  --color-muted: #a6adc4;
+  --color-muted-dim: #949bb2;
 
-  /* Accents */
   --color-accent: #7c6cff;
   --color-accent-2: #2ee6c6;
 }
@@ -34,7 +26,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Anchor targets: keep headings clear of the top edge when jumped to. */
 :where(section, footer)[id] {
   scroll-margin-top: 1.5rem;
 }
@@ -45,20 +36,13 @@ body {
   }
 }
 
-/* ------------------------------------------------------------------ focus
-   WCAG 1.4.11: the default UA ring resolved to currentColor (muted grey) and
-   measured only ~2.5:1 against the header backdrop. Use a token that clears
-   3:1 on both the dark surfaces and the bright hero. */
 :focus-visible {
   outline: 2px solid var(--color-accent-2);
   outline-offset: 2px;
   border-radius: 2px;
-  /* Focus feedback must be immediate — `transition-colors` also animates
-     outline-color, which delayed the ring reaching full contrast. */
   transition-property: none;
 }
 
-/* ------------------------------------------------------------------ skip link */
 .skip-link {
   position: absolute;
   left: 0.75rem;
@@ -77,19 +61,11 @@ body {
   transform: translateY(0);
 }
 
-/* ------------------------------------------------------------------ company marks
-   The logo wall under "Selected work". Artwork in public/images/logos/ keeps each
-   brand's own colours; `brightness(0) invert(1)` turns every mark into a single
-   white silhouette so six different palettes read as one set against this
-   backdrop. Opacity is the whole hover affordance — the mark never changes size,
-   so hovering cannot reflow the row. */
 .logo-mark {
   filter: brightness(0) invert(1);
   opacity: 0.82;
   transition: opacity 0.25s ease;
 }
-/* Opt-out for marks that stop reading once flattened (the Vivros owl is an
-   illustration: as a silhouette it loses its eyes and becomes a blob). */
 .logo-mark--brand {
   filter: none;
   opacity: 0.9;
@@ -99,10 +75,6 @@ body {
   opacity: 1;
 }
 
-/* Hairline dividers on each cell's left edge, cleared at the start of every row —
-   2 columns on mobile, 3 from sm, 6 from lg. The border is always present (so the
-   box model never shifts) and only its colour changes. Each breakpoint restores
-   the previous rule before clearing its own. */
 .logo-grid > * {
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -126,9 +98,6 @@ body {
   }
 }
 
-/* ------------------------------------------------------------------ recognition wall
-   Same hairline logic as .logo-grid, but the row is 2 / 3 / 5 columns because
-   there are five marks. Border colour changes only, so no cell ever shifts. */
 .recognition-grid > * {
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -152,7 +121,6 @@ body {
   }
 }
 
-/* ------------------------------------------------------------------ text setting */
 .pretty {
   text-wrap: pretty;
 }
@@ -160,9 +128,6 @@ body {
   text-wrap: balance;
 }
 
-/* ------------------------------------------------------------------ demo dialog
-   Native <dialog> for project demos. The panel is the only opaque surface; the
-   backdrop dims and blurs the page behind it. */
 .demo-dialog {
   width: min(92vw, 60rem);
   max-width: none;
@@ -182,10 +147,6 @@ body:has(.demo-dialog[open]) {
   overflow: hidden;
 }
 
-/* ------------------------------------------------------------------ closing CTA
-   The headline drifts its accent gradient instead of sitting still. The button
-   beneath it is the only link, so the motion is decoration, not an affordance.
-   The global reduced-motion rule below freezes it in place. */
 .cta-gradient {
   background-image: linear-gradient(90deg, var(--color-accent), var(--color-accent-2), var(--color-accent));
   background-size: 200% 100%;
@@ -200,7 +161,6 @@ body:has(.demo-dialog[open]) {
   to { background-position: 100% 50%; }
 }
 
-/* ------------------------------------------------------------------ motion */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

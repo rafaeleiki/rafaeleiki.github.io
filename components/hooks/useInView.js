@@ -1,37 +1,27 @@
-"use client";
+'use client';
 
 import { useEffect, useRef, useState } from 'react';
 
-const DEFAULT_OPTIONS = { threshold: 0 };
-
-// Returns [ref, inView, ready].
-//
-// `ready` is false until the IntersectionObserver has delivered its first
-// callback. Consumers should not hide content before `ready` — otherwise an
-// element that is already on screen at mount gets hidden for one frame and then
-// faded back in (a visible flash).
-export default function useInView(options) {
+export default function useInView({ threshold = 0 } = {}) {
   const ref = useRef(null);
   const [state, setState] = useState({ inView: false, ready: false });
-  const opts = options || DEFAULT_OPTIONS;
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el || state.inView) return;
+    const element = ref.current;
+    if (!element) return undefined;
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setState({ inView: true, ready: true });
-        observer.unobserve(el);
+        observer.disconnect();
       } else {
-        setState((s) => (s.ready ? s : { ...s, ready: true }));
+        setState((current) => (current.ready ? current : { inView: false, ready: true }));
       }
-    }, opts);
+    }, { threshold });
 
-    observer.observe(el);
+    observer.observe(element);
     return () => observer.disconnect();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.inView]);
+  }, [threshold]);
 
   return [ref, state.inView, state.ready];
 }

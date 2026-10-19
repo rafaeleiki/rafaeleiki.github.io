@@ -1,6 +1,4 @@
 #!/bin/bash
-# Auto-lint hook: runs ESLint --fix after every Edit/Write tool use.
-# Receives tool-use JSON on stdin; extracts the file path and lints if it's a JS file.
 
 INPUT=$(cat)
 FILE=$(echo "$INPUT" | node -e "

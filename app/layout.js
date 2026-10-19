@@ -1,9 +1,8 @@
 import { Sora, IBM_Plex_Mono } from 'next/font/google';
 import Script from 'next/script';
+import { INK } from '../lib/tokens';
 import './globals.css';
 
-// Exposed as CSS variables so the palette/typography live in globals.css @theme
-// instead of being injected via a <style> element in <body>.
 const sora = Sora({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
@@ -40,6 +39,7 @@ export const metadata = {
     images: [
       {
         url: '/og.jpg',
+        type: 'image/jpeg',
         width: 1200,
         height: 630,
         alt: 'Rafael Eiki — engineering leader. Portfolio hero.',
@@ -58,7 +58,7 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#050509',
+  themeColor: INK,
   colorScheme: 'dark',
 };
 
@@ -82,9 +82,6 @@ const personSchema = {
 
 export default function RootLayout({ children }) {
   return (
-    // lang="en" matches the server-rendered content. When the client switches to
-    // Portuguese, SignalSite updates document lang/title/description, so the
-    // declared language always matches what is actually on screen (WCAG 3.1.1).
     <html lang="en" className={`${sora.variable} ${mono.variable}`}>
       <body className="antialiased">
         {children}
