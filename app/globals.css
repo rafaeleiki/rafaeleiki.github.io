@@ -77,31 +77,6 @@ body {
   transform: translateY(0);
 }
 
-/* ------------------------------------------------------------------ metrics dividers
-   Divider sits on each cell's left edge, disabled for the first cell of every
-   *row* — 2 columns on mobile, 4 from lg. Applying it per-index (as before) put
-   a spurious 1px border on the third cell, knocking it 1px off its column.
-   Padding is applied here too, so the first cell of each row stays exactly on
-   the content rail (the old fixed px-2 inset it 8px). */
-.metrics-grid > * {
-  border-left: 1px solid rgba(255, 255, 255, 0.11);
-  padding-left: 1.5rem;
-}
-.metrics-grid > *:nth-child(2n + 1) {
-  border-left: 0;
-  padding-left: 0;
-}
-@media (min-width: 1024px) {
-  .metrics-grid > *:nth-child(2n + 1) {
-    border-left: 1px solid rgba(255, 255, 255, 0.11);
-    padding-left: 1.5rem;
-  }
-  .metrics-grid > *:nth-child(4n + 1) {
-    border-left: 0;
-    padding-left: 0;
-  }
-}
-
 /* ------------------------------------------------------------------ company marks
    The logo wall under "Selected work". Artwork in public/images/logos/ keeps each
    brand's own colours; `brightness(0) invert(1)` turns every mark into a single
@@ -125,9 +100,9 @@ body {
 }
 
 /* Hairline dividers on each cell's left edge, cleared at the start of every row —
-   2 columns on mobile, 3 from sm, 6 from lg. Same shape as .metrics-grid: the
-   border is always present (so the box model never shifts) and only its colour
-   changes. Each breakpoint restores the previous rule before clearing its own. */
+   2 columns on mobile, 3 from sm, 6 from lg. The border is always present (so the
+   box model never shifts) and only its colour changes. Each breakpoint restores
+   the previous rule before clearing its own. */
 .logo-grid > * {
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -151,12 +126,78 @@ body {
   }
 }
 
+/* ------------------------------------------------------------------ recognition wall
+   Same hairline logic as .logo-grid, but the row is 2 / 3 / 5 columns because
+   there are five marks. Border colour changes only, so no cell ever shifts. */
+.recognition-grid > * {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.recognition-grid > *:nth-child(2n + 1) {
+  border-left-color: transparent;
+}
+@media (min-width: 640px) {
+  .recognition-grid > *:nth-child(2n + 1) {
+    border-left-color: rgba(255, 255, 255, 0.1);
+  }
+  .recognition-grid > *:nth-child(3n + 1) {
+    border-left-color: transparent;
+  }
+}
+@media (min-width: 1024px) {
+  .recognition-grid > *:nth-child(3n + 1) {
+    border-left-color: rgba(255, 255, 255, 0.1);
+  }
+  .recognition-grid > *:nth-child(5n + 1) {
+    border-left-color: transparent;
+  }
+}
+
 /* ------------------------------------------------------------------ text setting */
 .pretty {
   text-wrap: pretty;
 }
 .balance {
   text-wrap: balance;
+}
+
+/* ------------------------------------------------------------------ demo dialog
+   Native <dialog> for project demos. The panel is the only opaque surface; the
+   backdrop dims and blurs the page behind it. */
+.demo-dialog {
+  width: min(92vw, 60rem);
+  max-width: none;
+  max-height: 92dvh;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-paper);
+  overflow-y: auto;
+}
+.demo-dialog::backdrop {
+  background: rgba(5, 5, 9, 0.86);
+  backdrop-filter: blur(6px);
+}
+body:has(.demo-dialog[open]) {
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------------ closing CTA
+   The headline drifts its accent gradient instead of sitting still. The button
+   beneath it is the only link, so the motion is decoration, not an affordance.
+   The global reduced-motion rule below freezes it in place. */
+.cta-gradient {
+  background-image: linear-gradient(90deg, var(--color-accent), var(--color-accent-2), var(--color-accent));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: cta-sweep 14s ease-in-out infinite alternate;
+}
+
+@keyframes cta-sweep {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
 }
 
 /* ------------------------------------------------------------------ motion */

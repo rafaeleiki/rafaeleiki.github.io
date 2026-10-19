@@ -19,9 +19,9 @@ const mono = IBM_Plex_Mono({
 });
 
 const SITE_URL = 'https://rafaeleiki.com';
-const TITLE = 'Rafael Eiki — Engineer · Inventor';
+const TITLE = 'Rafael Eiki — Engineering Leader';
 const DESCRIPTION =
-  'Full-stack software engineer and founder building technology for education. Rails, React and Java, with published HCI research and a co-founded startup.';
+  'Head of Engineering at SuperSummary. Eleven years building software and teams — from a co-founded EdTech startup to a 17-person engineering org.';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -42,7 +42,7 @@ export const metadata = {
         url: '/og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Rafael Eiki — engineer, inventor. Portfolio hero.',
+        alt: 'Rafael Eiki — engineering leader. Portfolio hero.',
       },
     ],
   },
@@ -65,11 +65,18 @@ export const viewport = {
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Rafael Eiki',
+  name: 'Rafael Eiki Imamura',
+  alternateName: 'Rafael Eiki',
   url: SITE_URL,
-  jobTitle: 'Software Engineer',
+  jobTitle: 'Head of Engineering',
+  worksFor: { '@type': 'Organization', name: 'SuperSummary' },
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Campinas (UNICAMP)' },
+  award: [
+    'First Ascent International — one of 20 engineers worldwide (2019)',
+    'Facebook Hackathon Brazil — 1st place (2018)',
+  ],
   description: DESCRIPTION,
-  knowsAbout: ['Software Engineering', 'Human-Computer Interaction', 'EdTech'],
+  knowsAbout: ['Software Engineering', 'Engineering Leadership', 'Human-Computer Interaction', 'EdTech'],
   sameAs: ['https://github.com/rafaeleiki', 'https://www.linkedin.com/in/rafaeleiki/'],
 };
 

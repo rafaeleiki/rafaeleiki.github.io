@@ -9,8 +9,8 @@ import useInView from './hooks/useInView';
 // Progressive enhancement: the element renders *visible* and only opts into the
 // hidden/offset state after mount. Without this, every wrapped block shipped
 // `style="opacity:0"` in the static HTML — so with JS disabled (or a failed
-// bundle) the metrics, all six work entries, research, ownership and the closing
-// CTA were invisible.
+// bundle) the work entries, projects, research, awards and the closing CTA
+// were invisible.
 export default function Reveal({
   as: Tag = 'div',
   delay = 0,
